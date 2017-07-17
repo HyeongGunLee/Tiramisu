@@ -1,6 +1,8 @@
 package work.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@ public class FrontController extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	private MemberDao dao = new MemberDao();
+	private static PrintWriter out;
 
 	protected void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -40,6 +43,7 @@ public class FrontController extends HttpServlet {
 			throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
 		String memberPw = request.getParameter("memberPw");
+		out = response.getWriter();
 		
 		if(memberId.length() > 0 && memberPw.length() >0){
 			boolean isLogin = dao.loginCheck(memberId,memberPw);
