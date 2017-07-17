@@ -6,4 +6,8 @@ package work.controller;
 
 public class MemberDao {
 
+	public boolean loginCheck(String memberId, String memberPw) {
+		return true;
+	}
+	
 }

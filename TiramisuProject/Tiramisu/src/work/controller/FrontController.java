@@ -40,11 +40,22 @@ public class FrontController extends HttpServlet {
 			throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
 		String memberPw = request.getParameter("memberPw");
+		
 		if(memberId.length() > 0 && memberPw.length() >0){
-			HttpSession sess = request.getSession();
-			sess.setAttribute("memberId", memberId);
-			System.out.println("Debug : sess.isNew() : " + sess.isNew());
-			System.out.println("Debug : sess.getId() : " + sess.getId());
+			boolean isLogin = dao.loginCheck(memberId,memberPw);
+			if(isLogin == true){
+				HttpSession sess = request.getSession();
+				sess.setAttribute("memberId", memberId);
+				System.out.println("Debug : 로그인 성공");
+				System.out.println("Debug : sess.isNew() : " + sess.isNew());
+				System.out.println("Debug : sess.getId() : " + sess.getId());
+			}
+			else{
+				System.out.println("Debug : 로그인 실패(아이디, 비밀번호 오류)");
+			}
+		}
+		else{
+			System.out.println("Debug : 로그인 실패(입력 부족)");
 		}
 	}
 
