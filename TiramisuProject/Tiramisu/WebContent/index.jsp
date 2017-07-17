@@ -43,8 +43,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
 <%
-	boolean stat = false;
-	if(stat){%>
+	boolean isLogin = (session != null 
+		&& session.getAttribute("memberId") != null ?true:false);
+		System.out.println("Debug index.jsp : "+session.getAttribute("memberId"));
+	if(isLogin){%>
 		$(document).ready(function(){
 			   $("#header-frame").load("header-login-frame.html");
 		});
