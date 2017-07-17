@@ -1,8 +1,5 @@
-<!--Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,20 +42,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Chartinator  -->
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
+<%
+	boolean isLogin = (session != null 
+		&& session.getAttribute("memberId") != null ?true:false);
+		System.out.println("Debug index.jsp : "+session.getAttribute("memberId"));
+	if(isLogin){%>
+		$(document).ready(function(){
+			   $("#header-frame").load("header-login-frame.html");
+		});
+	<%}
+	else{%>
+		$(document).ready(function(){
+			   $("#header-frame").load("header-logout-frame.html");
+		});
+	<%}
+%>
+	
 	$(document).ready(function(){
-
-		   $("#header-login-frame").load("header-login-frame.html");
-
-	});
-	$(document).ready(function(){
-
-		   $("#header-logout-frame").load("header-logout-frame.html");
-
-	});
-	$(document).ready(function(){
-
 		   $("#left-frame").load("left-frame.html");
-
 	});
 </script>
 <!--geo chart-->
@@ -71,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="page-container">
 		<div class="left-content">
 			<div class="mother-grid-inner">
-			<div id="header-logout-frame"></div>
+			<div id="header-frame"></div>
 			<!-- <div id="header-login-frame"></div> -->
 				<!-- script-for sticky-nav -->
 				<script>
@@ -127,3 +128,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- mother grid end here-->
 </body>
 </html>
+
