@@ -126,7 +126,7 @@ public class MessageDao {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update MESSAGE set ");
 		sql.append("content=?, writer=?, write_date=?, receiver=?, confirm=?");
-		sql.append("where message_id=?");
+		sql.append("where (message_id=?)");
 
 		try {
 			conn = getConnection();
