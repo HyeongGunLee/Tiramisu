@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>í°ë¼ë¯¸ì~~</title>
+<title>티라미슈~~</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -44,12 +44,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		   $("#header-frame").load("header-login-frame.html");
+		   $("#header-login-frame").load("header-login-frame.html");
 
 	});
 	$(document).ready(function(){
 
-		   $("#header-frame").load("header-logout-frame.html");
+		   $("#header-logout-frame").load("header-logout-frame.html");
 
 	});
 	$(document).ready(function(){
@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="page-container">
 		<div class="left-content">
 			<div class="mother-grid-inner">
-			<div id="header-frame"></div>
+			<div id="header-logout-frame"></div>
 			<!-- <div id="header-login-frame"></div> -->
 				<!-- script-for sticky-nav -->
 				<script>
@@ -102,9 +102,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--inner block end here-->
 				<!--copy rights start here-->
 				<div class="copyrights">
-					<p>Â© 2017 Tiramisu. | ë¶ì°ëíêµ ìì°ëì°êµ¬ì¤íë 301í¸</p>
+					<p>© 2017 Tiramisu. | 부산대학교 자연대연구실험동 301호</p>
 					<p>
-						<b>ê¹íì  ë³ë¤ì ì´ì±ë¯¼ ì´íê±´ </b>
+						<b>김태정 변다영 이성민 이형건 </b>
 					</p>
 				</div>
 				<!--COPY rights end here-->
@@ -124,3 +124,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- mother grid end here-->
 </body>
 </html>
+
