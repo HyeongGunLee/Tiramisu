@@ -42,20 +42,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Chartinator  -->
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
+<%
+	boolean stat = false;
+	if(stat){%>
+		$(document).ready(function(){
+			   $("#header-frame").load("header-login-frame.html");
+		});
+	<%}
+	else{%>
+		$(document).ready(function(){
+			   $("#header-frame").load("header-logout-frame.html");
+		});
+	<%}
+%>
+	
 	$(document).ready(function(){
-
-		   $("#header-login-frame").load("header-login-frame.html");
-
-	});
-	$(document).ready(function(){
-
-		   $("#header-logout-frame").load("header-logout-frame.html");
-
-	});
-	$(document).ready(function(){
-
 		   $("#left-frame").load("left-frame.html");
-
 	});
 </script>
 <!--geo chart-->
@@ -68,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="page-container">
 		<div class="left-content">
 			<div class="mother-grid-inner">
-			<div id="header-logout-frame"></div>
+			<div id="header-frame"></div>
 			<!-- <div id="header-login-frame"></div> -->
 				<!-- script-for sticky-nav -->
 				<script>
