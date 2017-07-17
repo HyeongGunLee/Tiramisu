@@ -121,7 +121,7 @@ public class NotificationDao {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update notification set ");
 		sql.append("team_name=?, write_date=?, writer=?, content=?");
-		sql.append("where notification_ID=?");
+		sql.append("where (notification_ID=?)");
 		
 		try {
 			conn = getConnection();
