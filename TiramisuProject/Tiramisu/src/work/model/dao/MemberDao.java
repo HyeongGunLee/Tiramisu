@@ -127,5 +127,77 @@ public class MemberDao {
 		return list;
 	}
 	
+	public int update(Member dto) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("update MEMBER set ");
+		sql.append("member_pw=?, question=?, answer=?, nickname=?, image=?");
+		sql.append("where member_id=?");
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, dto.getMemberPw());
+			pstmt.setString(2, dto.getQuestion());
+			pstmt.setString(3, dto.getAnswer());
+			pstmt.setString(4, dto.getNickname());
+			pstmt.setString(5, dto.getImage());
+			pstmt.setString(6, dto.getMemberId());
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Member Update Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
+	
+	public boolean loginCheck(String memberId, String memberPw) {
+		String sql = "select member_pw from MEMBER where member_id =?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			rs = pstmt.executeQuery();
+			if(rs.next() && memberPw.equals(rs.getString("member_pw"))) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Member loginCheck Error: " + e.getMessage());
+		} finally {
+			factory.close(rs,  pstmt, conn);
+		}
+		return false;
+	}
+	
+	public int updatePassword(String memberId, String memberPw, String newMemberPw) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("update MEMBER set ");
+		sql.append("member_pw=? ");
+		sql.append("where member_id=? and member_pw=?");
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, newMemberPw);
+			pstmt.setString(2, memberId);
+			pstmt.setString(3, memberPw);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Member updatePassword Error: " + e.getMessage());		
+		} finally {
+			factory.close(rs,  pstmt, conn);
+		}
+		
+		return 0;
+	}
+	
 
 }
