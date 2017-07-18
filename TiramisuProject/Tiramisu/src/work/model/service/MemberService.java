@@ -1,9 +1,10 @@
 /**
- * Dummy Class 입니다.
+ * Dummy Class ������.
  */
 
 package work.model.service;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MemberService {
@@ -47,9 +48,9 @@ public class MemberService {
 	}
 
 	/**
-	 * 난수 생성
+	 * ���� ����
 	 * 
-	 * @return n자리의 숫자 랜덤 생성
+	 * @return n��由ъ�� �レ�� ���� ����
 	 */
 	public String randomN(int n) {
 		return new Random().nextInt(10 * n) + "";
@@ -57,5 +58,13 @@ public class MemberService {
 
 	public boolean editMemberPw(String memberId, String newMemberPw) {
 		return true;
+	}
+	
+	public ArrayList<String> memberHaveTeam(String memberId){
+		ArrayList<String> tmp = new ArrayList<>();
+		tmp.add("WebProject");
+		tmp.add("공공데이터 공모전2");
+		tmp.add("보쌈 부서");
+		return tmp;
 	}
 }

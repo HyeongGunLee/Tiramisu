@@ -29,7 +29,7 @@ public class MemberController extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
-		System.out.println("Debug : Process 진입");
+		System.out.println("Debug : Process 吏���");
 		switch (action) {
 		case "login":
 			login(request, response);
@@ -65,10 +65,10 @@ public class MemberController extends HttpServlet {
 		String question = request.getParameter("searchQuestion");
 		String memberId = service.bringId(nickname, question, answer);
 		if(memberId != null){
-			//페이지 넘어갑니다.
+			//���댁� ���닿�����.
 		}
 		else{
-			System.out.println("Debug : 아이디 존재하지 않음");
+			System.out.println("Debug : ���대�� 議댁�ы��吏� ����");
 		}
 	}
 
@@ -80,12 +80,12 @@ public class MemberController extends HttpServlet {
 		boolean idExist = service.idExist(memberId, question, answer);
 		if(idExist){
 			service.editMemberPw(memberId,service.randomN(6));
-			//페이지 넘어갑니다.
-			//임시번호 주기로함.
-			System.out.println("Debug : 아이디 존재");
+			//���댁� ���닿�����.
+			//����踰��� 二쇨린濡���.
+			System.out.println("Debug : ���대�� 議댁��");
 		}
 		else{
-			System.out.println("Debug : 아이디 존재하지 않음");
+			System.out.println("Debug : ���대�� 議댁�ы��吏� ����");
 		}
 	}
 	
@@ -96,13 +96,13 @@ public class MemberController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			if(service.passwordVerifiedTest(memberPw, memberPwV)){
-				//페이지 넘어갑니다
+				//���댁� ���닿�����
 			}
 			else{
-				System.out.println("Debug : 비밀번호 불일치");
+				System.out.println("Debug : 鍮�諛�踰��� 遺��쇱�");
 			}
 		} else {
-			System.out.println("Debug : 개인 정보 수정 실패(세션오류)");
+			System.out.println("Debug : 媛��� ��蹂� ���� �ㅽ��(�몄���ㅻ�)");
 		}
 	}
 	
@@ -118,7 +118,7 @@ public class MemberController extends HttpServlet {
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			service.editMember(memberPw, imagePath, nickname, question, answer);
 		} else {
-			System.out.println("Debug : 개인 정보 수정 실패(세션오류)");
+			System.out.println("Debug : 媛��� ��蹂� ���� �ㅽ��(�몄���ㅻ�)");
 		}
 	}
 	
@@ -135,7 +135,8 @@ public class MemberController extends HttpServlet {
 				HttpSession sess = request.getSession(true);
 				sess.setAttribute("memberId", memberId);
 				sess.setAttribute("isLogin", isLogin);
-				System.out.println("Debug : 로그인 성공");
+				sess.setAttribute("teamArray", service.memberHaveTeam(memberId));
+				System.out.println("Debug : 濡�洹몄�� �깃났");
 				System.out.println("Debug : sess.isNew() : " + sess.isNew());
 				System.out.println("Debug : sess.getId() : " + sess.getId());
 				System.out.println("Debug : sess.getAttMemberId() : " + sess.getAttribute("memberId"));
@@ -143,10 +144,10 @@ public class MemberController extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				System.out.println("Debug : 로그인 실패(아이디, 비밀번호 오류)");
+				System.out.println("Debug : 濡�洹몄�� �ㅽ��(���대��, 鍮�諛�踰��� �ㅻ�)");
 			}
 		} else {
-			System.out.println("Debug : 로그인 실패(입력 부족)");
+			System.out.println("Debug : 濡�洹몄�� �ㅽ��(���� 遺�議�)");
 		}
 	}
 
@@ -158,9 +159,9 @@ public class MemberController extends HttpServlet {
 			session.removeAttribute("isLogin");
 			session.invalidate();
 			response.sendRedirect("index.jsp");
-			System.out.println("Debug : 로그아웃 성공");
+			System.out.println("Debug : 濡�洹몄���� �깃났");
 		} else {
-			System.out.println("Debug : 로그아웃 실패");
+			System.out.println("Debug : 濡�洹몄���� �ㅽ��");
 		}
 	}
 
@@ -182,7 +183,7 @@ public class MemberController extends HttpServlet {
 			service.insertMember(memberId, memberPwV, question, answer, nickname, imagePath);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
-			System.out.println("Debug : 회원 추가 성공");
+			System.out.println("Debug : ���� 異�媛� �깃났");
 		} else {
 			System.out.println("Debug : input data Error");
 		}

@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+    pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<div class="sidebar-menu">
+	<div class="menu">
+		<ul id="menu">
+			<li id="menu-home"><a href="index.jsp"><img alt="Logo" src="images/Tiramisu.png" style="width: 75px; height: 75px;"><p style="font-size:20px">TIRAMISU</p></a></li>
+			<br>
+			<jsp:include page="/team.jsp" flush="false">
+                       <jsp:param name="teamName" value="WebProject"></jsp:param>
+               </jsp:include>
+			<jsp:include page="/team.jsp" flush="false">
+                       <jsp:param name="teamName" value="공공데이터 공모전"></jsp:param>
+               </jsp:include>
+			<jsp:include page="/team.jsp" flush="false">
+                       <jsp:param name="teamName" value="보쌈 부서"></jsp:param>
+               </jsp:include>
+			<li style="padding: 350px 0px 0px 0px;"><a href="#"><i class="fa fa-cogs"></i><span style="font-size:15px">Setting</span></a></li>
+		</ul>
+	</div>
+</div>
