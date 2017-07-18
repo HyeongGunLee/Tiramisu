@@ -4,6 +4,8 @@
 
 package work.model.service;
 
+import java.util.Random;
+
 public class MemberService {
 
 	public boolean loginCheck(String memberId, String memberPw) {
@@ -32,6 +34,19 @@ public class MemberService {
 	}
 
 	public boolean idExist(String memberId, String question, String answer) {
+		return true;
+	}
+
+	/**
+	 * 난수 생성
+	 * 
+	 * @return n자리의 숫자 랜덤 생성
+	 */
+	public String randomN(int n) {
+		return new Random().nextInt(10 * n) + "";
+	}
+
+	public boolean editMemberPw(String memberId, String newMemberPw) {
 		return true;
 	}
 }

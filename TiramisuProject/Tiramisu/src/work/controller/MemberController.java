@@ -51,8 +51,6 @@ public class MemberController extends HttpServlet {
 		case "searchPw":
 			searchPw(request, response);
 			break;
-		case "changePw":
-			break;
 		default:
 			break;
 		}
@@ -80,6 +78,7 @@ public class MemberController extends HttpServlet {
 		String question = request.getParameter("searchQuestion");
 		boolean idExist = service.idExist(memberId, question, answer);
 		if(idExist){
+			service.editMemberPw(memberId,service.randomN(6));
 			//페이지 넘어갑니다.
 			//임시번호 주기로함.
 			System.out.println("Debug : 아이디 존재");
