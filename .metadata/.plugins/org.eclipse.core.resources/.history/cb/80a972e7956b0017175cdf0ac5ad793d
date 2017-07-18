@@ -12,10 +12,6 @@ public class MemberService {
 	private MemberService(){
 		
 	}
-	
-	public static MemberService getInstance(){
-		return instance;
-	}
 
 	public boolean loginCheck(String memberId, String memberPw) {
 		return true;
