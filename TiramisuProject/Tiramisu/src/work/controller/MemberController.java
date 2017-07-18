@@ -38,6 +38,7 @@ public class MemberController extends HttpServlet {
 			logout(request, response);
 			break;
 		case "signUp":
+			signUp(request, response);
 			break;
 		case "editDateConfirm":
 			editDateConfirm(request, response);
@@ -175,8 +176,12 @@ public class MemberController extends HttpServlet {
 		out = response.getWriter();
 		System.out.println("Debug : memberId is " + memberId);
 		System.out.println("Debug : memberPw is " + memberPw);
+		System.out.println("Debug : question is " + question);
+		System.out.println("Debug : answer is " + answer);
 		if (service.idUniqueTest(memberId) && service.passwordVerifiedTest(memberPw, memberPwV)) {
 			service.insertMember(memberId, memberPwV, question, answer, nickname, imagePath);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response);
 			System.out.println("Debug : 회원 추가 성공");
 		} else {
 			System.out.println("Debug : input data Error");
