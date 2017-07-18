@@ -11,7 +11,7 @@ public class Bias {
 
 	private int biasId;
 	
-	private int voteId;
+	private int opinionId;
 	
 	private String biasName;
 
@@ -25,13 +25,13 @@ public class Bias {
 	/**
 	 * Bias 필수 / 모든 데이터 생성자
 	 * @param biasId
-	 * @param voteId
+	 * @param opinionId
 	 * @param biasName
 	 */
-	public Bias(int biasId, int voteId, String biasName) {
+	public Bias(int biasId, int opinionId, String biasName) {
 		super();
 		this.biasId = biasId;
-		this.voteId = voteId;
+		this.opinionId = opinionId;
 		this.biasName = biasName;
 	}
 
@@ -50,17 +50,17 @@ public class Bias {
 	}
 
 	/**
-	 * @return the voteId
+	 * @return the opinionId
 	 */
-	public int getvoteId() {
-		return voteId;
+	public int getOpinionId() {
+		return opinionId;
 	}
 
 	/**
-	 * @param voteId the voteId to set
+	 * @param opinionId the opinionId to set
 	 */
-	public void setvoteId(int voteId) {
-		this.voteId = voteId;
+	public void setOpinionId(int opinionId) {
+		this.opinionId = opinionId;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class Bias {
 		StringBuilder builder = new StringBuilder();
 		builder.append(biasId);
 		builder.append(", ");
-		builder.append(voteId);
+		builder.append(opinionId);
 		builder.append(", ");
 		builder.append(biasName);
 		return builder.toString();

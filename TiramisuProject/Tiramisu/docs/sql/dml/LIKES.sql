@@ -10,3 +10,34 @@ values(11, '태정');
 insert into LIKES 
 values(15, '형건');
 
+
+
+
+--error check 
+--
+--dialog_id reference DIALOG(dialog_id) check : work
+--
+--insert into LIKES 
+--values(10, '태정');
+--
+--insert into LIKES 
+--values(null, '태정');
+--
+--liker reference MEMBER(nickname) check : work
+--
+--insert into LIKES 
+--values(11, 'unkown');
+--
+--insert into LIKES 
+--values(11, null);
+--
+--
+--dialog_id, liker primary key check : dont work
+--
+--insert into LIKES 
+--values(11, '태정');
+--
+--insert into LIKES 
+--values(15, '태정');
+--
+---> 다른 팀의 다이얼로그를 좋아요하기 가능
