@@ -311,7 +311,7 @@ span.logo-clr{
     display: inline-block;
 } 
 .search-box input[type="submit"] {
-    background: url(../images/search.png)no-repeat;
+    background: url(../images/search-icon.png)no-repeat;
     width: 20px;
     height: 20px;
     display: inline-block;
@@ -4209,7 +4209,7 @@ canvas#line {
     width: 85%;
 }
 .search-box input[type="submit"] {
-    background: url(../images/search.png)no-repeat 2px 2px;
+    background: url(../images/search-icon.png)no-repeat 2px 2px;
     background-size: 15px;
 }
 }

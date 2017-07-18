@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
 	
-<%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
+<%-- <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
 			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
 			if (isLogin) {%>
 	$(document).ready(function() {
@@ -59,12 +59,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(document).ready(function() {
 		$("#header-frame").load("header-logout-frame.html");
 	});
-<%}%>
+<%}%> --%>
 	$(document).ready(function() {
 		$("#left-frame").load("left-frame.html");
 	});
 	$(document).ready(function() {
 		$("#chatting_inner").load("chatting_inner.html");
+	});
+	$(document).ready(function() {
+		$("#header-chat-frame").load("header-chat-frame.html");
 	});
 </script>
 <!--geo chart-->
@@ -77,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="page-container">
 		<div class="left-content">
 			<div class="mother-grid-inner">
-				<div id="header-frame"></div>
+				<div id="header-chat-frame"></div>
 				<!-- <div id="header-login-frame"></div> -->
 				
 				
