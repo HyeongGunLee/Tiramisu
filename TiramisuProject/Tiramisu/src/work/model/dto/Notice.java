@@ -1,4 +1,4 @@
-package dto;
+package work.model.dto;
 
 /**
  * ID : 시퀀스 + 프라이머리 팀명 : 팀 릴레이션의 팀명 레퍼런스 작성일 : Date 작성자 : 회원 릴레이션의 닉네임 레퍼런스 내용 :

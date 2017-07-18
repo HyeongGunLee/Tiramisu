@@ -1,4 +1,4 @@
-package dto;
+package work.model.dto;
 
 /**
  * 

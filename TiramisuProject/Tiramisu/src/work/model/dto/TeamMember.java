@@ -1,4 +1,4 @@
-package dto;
+package work.model.dto;
 
 /**
  * 팀에 속한 회원

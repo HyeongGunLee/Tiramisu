@@ -1,4 +1,4 @@
-package dto;
+package work.model.dto;
 /**
  * 알림
  * ID : 시퀀스 + 프라이머리

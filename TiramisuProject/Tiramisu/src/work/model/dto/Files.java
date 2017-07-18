@@ -1,4 +1,4 @@
-package dto;
+package work.model.dto;
 
 /**
  * 파일 => 다이얼로그와 식별관계

@@ -1,4 +1,4 @@
-package dto;
+package work.model.dto;
 
 /**
  * 메시지 => 쪽지 개념
