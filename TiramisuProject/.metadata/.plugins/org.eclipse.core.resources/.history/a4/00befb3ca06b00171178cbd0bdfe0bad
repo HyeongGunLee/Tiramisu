@@ -1,0 +1,15 @@
+/**
+*	회원 dml 
+*/
+
+insert into MEMBER 
+values('user01', 'ps123', '부산대위치는', '부경대', '태정', '태정.jpg');
+
+insert into MEMBER 
+values('user02', 'ps234', '부산대위치는', '동아대', '다영', null);
+
+insert into MEMBER 
+values('user03', 'ps345', '부산대위치는', '부산대', '형건', null);
+
+insert into MEMBER 
+values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);

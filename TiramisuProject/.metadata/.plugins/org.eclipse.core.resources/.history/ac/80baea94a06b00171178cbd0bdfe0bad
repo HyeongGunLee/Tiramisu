@@ -18,4 +18,3 @@ values(seq_NOTIFICATION.NEXTVAL, 'GwangjuMachineLearning', sysdate, '형건', '광�
 
 insert into NOTIFICATION 
 values(seq_NOTIFICATION.NEXTVAL, 'IncheonDeepLearning', sysdate, '성민', '인천딥러닝스터디팀에 새글이 작성되었습니다.');
-

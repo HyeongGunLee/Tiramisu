@@ -4,5 +4,5 @@
  */
 
 insert into IMAGE 
-values(seq_IMAGE.NEXTVAL, 'good.jpg');
+values(seq_IMAGE.NEXTVAL, 'еба╓.jpg');
 

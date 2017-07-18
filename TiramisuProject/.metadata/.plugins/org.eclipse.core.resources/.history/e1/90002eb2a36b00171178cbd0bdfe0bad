@@ -4,10 +4,11 @@
  */
 
 insert into BIAS 
-values(seq_BIAS.NEXTVAL, 1, '찬성');
+values(1, '찬성');
+
 
 insert into BIAS 
-values(seq_BIAS.NEXTVAL, 2, '찬성');
+values(2, '찬성');
 
-
-
+insert into BIAS 
+values(3, '반대');

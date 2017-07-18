@@ -5,8 +5,8 @@
  */
 
 insert into LIKES 
-values(8, '태정');
+values(1, '태정');
 
 insert into LIKES 
-values(7, '형건');
+values(3, '형건');
 

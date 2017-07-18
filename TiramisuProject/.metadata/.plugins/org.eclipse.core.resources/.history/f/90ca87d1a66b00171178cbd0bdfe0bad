@@ -26,4 +26,3 @@ values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);
 --사진 래퍼런스 체크용 : work
 --insert into MEMBER 
 --values('user05', 'ps345', '부산대위치는', '해양대', '성민', 'team.jpg');
-
