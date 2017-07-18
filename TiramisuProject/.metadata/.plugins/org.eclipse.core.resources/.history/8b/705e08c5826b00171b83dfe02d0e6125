@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -44,6 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Chartinator  -->
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
+	
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
 	System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
 	if (isLogin) {%>

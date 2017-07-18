@@ -2,9 +2,9 @@
 
 <style>
 input[type="submit"].iogin {   
-    /* float: left; */   
+    float: left;   
     cursor: pointer;   
-    width: 250px;   
+    width: 200px;   
     height: 60px;   
     padding: 8px 6px;   
     margin-left: 20px;   
@@ -12,7 +12,7 @@ input[type="submit"].iogin {
     color: rgba(134, 79, 11, 0.8);   
     text-transform: uppercase;   
     font-weight: bold;   
-    border: 2px solid #6D3D27;   
+    border: 1px solid #99631d;   
        
     -moz-border-radius: 5px;   
     -webkit-border-radius: 5px;   
@@ -45,9 +45,7 @@ input[type="submit"].iogin {
 <div class="header-main">
 	
 	<div class="header-right" style="">
-		<form action="loginAndSignup.html">
 		<input type="submit" value="Login & Sign Up" class="iogin" style="font-size:25px;">  
-		</form>
 	<div class="clearfix"></div>
 	</div>
 	<div class="clearfix"></div>
