@@ -17,14 +17,7 @@ insert into CHANNEL
 values(seq_CHANNEL.NEXTVAL, 'DATA', 'GwangjuMachineLearning');
 
 
---error check 
---
---channel primary key check : work
---
---insert into CHANNEL 
---values(1, 'Dff', 'BusanBigData');
---
+error check 
 
-
-
-
+insert into CHANNEL 
+values(1, 'Dff', 'BusanBigData');

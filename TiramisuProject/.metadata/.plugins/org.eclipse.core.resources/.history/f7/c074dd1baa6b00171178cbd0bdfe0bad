@@ -14,11 +14,6 @@ values('user03', 'ps345', '부산대위치는', '부산대', '형건', null);
 insert into MEMBER 
 values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);
 
-
-
-
---error check
-
 --중복 아이디 체크용 : work
 --insert into MEMBER 
 --values('user04', 'ps345', '부산대위치는', '해양대', 'sd', null);

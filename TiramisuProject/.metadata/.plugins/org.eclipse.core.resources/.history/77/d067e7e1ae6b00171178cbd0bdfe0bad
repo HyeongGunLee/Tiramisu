@@ -20,9 +20,9 @@ public class Dialog {
 	
 	private String writer;
 	
-	private String writeDate;
+	private String write_date;
 	
-	private int fileId;
+	private int file_id;
 
 	/**
 	 * Dialog 기본 생성자
@@ -37,15 +37,15 @@ public class Dialog {
 	 * @param channelId
 	 * @param content
 	 * @param writer
-	 * @param writeDate
+	 * @param write_date
 	 */
-	public Dialog(int dialogId, int channelId, String content, String writer, String writeDate) {
+	public Dialog(int dialogId, int channelId, String content, String writer, String write_date) {
 		super();
 		this.dialogId = dialogId;
 		this.channelId = channelId;
 		this.content = content;
 		this.writer = writer;
-		this.writeDate = writeDate;
+		this.write_date = write_date;
 	}
 
 	/**
@@ -54,17 +54,17 @@ public class Dialog {
 	 * @param channelId
 	 * @param content
 	 * @param writer
-	 * @param writeDate
-	 * @param fileId
+	 * @param write_date
+	 * @param file_id
 	 */
-	public Dialog(int dialogId, int channelId, String content, String writer, String writeDate, int fileId) {
+	public Dialog(int dialogId, int channelId, String content, String writer, String write_date, int file_id) {
 		super();
 		this.dialogId = dialogId;
 		this.channelId = channelId;
 		this.content = content;
 		this.writer = writer;
-		this.writeDate = writeDate;
-		this.fileId = fileId;
+		this.write_date = write_date;
+		this.file_id = file_id;
 	}
 
 	public int getDialogId() {
@@ -99,20 +99,20 @@ public class Dialog {
 		this.writer = writer;
 	}
 
-	public String getwriteDate() {
-		return writeDate;
+	public String getWrite_date() {
+		return write_date;
 	}
 
-	public void setwriteDate(String writeDate) {
-		this.writeDate = writeDate;
+	public void setWrite_date(String write_date) {
+		this.write_date = write_date;
 	}
 
-	public int getfileId() {
-		return fileId;
+	public int getFile_id() {
+		return file_id;
 	}
 
-	public void setfileId(int fileId) {
-		this.fileId = fileId;
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
 	}
 
 	@Override
@@ -126,9 +126,9 @@ public class Dialog {
 		builder.append(", ");
 		builder.append(writer);
 		builder.append(", ");
-		builder.append(writeDate);
+		builder.append(write_date);
 		builder.append(", ");
-		builder.append(fileId);
+		builder.append(file_id);
 		return builder.toString();
 	}
 	
