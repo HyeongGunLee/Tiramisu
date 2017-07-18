@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import work.model.service.MemberService;
+
 /**
  * Servlet implementation class FrontController
  */
@@ -20,7 +22,7 @@ public class FrontController extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private MemberDao dao = new MemberDao();
+	private MemberService service = new MemberService();
 	private static PrintWriter out;
 
 	protected void process(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +53,7 @@ public class FrontController extends HttpServlet {
 		System.out.println("Debug : memberId is " + memberId);
 		System.out.println("Debug : memberPw is " + memberPw);
 		if(memberId != null || memberPw != null){
-			boolean isLogin = dao.loginCheck(memberId,memberPw);
+			boolean isLogin = service.loginCheck(memberId,memberPw);
 			if(isLogin == true){
 				HttpSession sess = request.getSession(true);
 				sess.setAttribute("memberId", memberId);
@@ -96,9 +98,17 @@ public class FrontController extends HttpServlet {
 		String memberPwV= request.getParameter("loginMemberpwV");
 		String question = request.getParameter("loginQuestion");
 		String answer = request.getParameter("loginAnswer");
+		String nickname = request.getParameter("loginNickname");
+		String imagePath = request.getParameter("loginImagePath");
 		out = response.getWriter();
 		System.out.println("Debug : memberId is " + memberId);
 		System.out.println("Debug : memberPw is " + memberPw);
+		if(service.idUniqueTest(memberId) && service.passwordVerifiedTest(memberPw, memberPwV)){
+			
+		}
+		else{
+			System.out.println("Debug : input data Error");
+		}
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
