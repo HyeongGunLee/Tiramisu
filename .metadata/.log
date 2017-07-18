@@ -682,3 +682,9 @@ java.io.FileNotFoundException: /Users/jiharu/Desktop/GitHubProject/Tiramisu/.met
 	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1165)
 	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:52)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-07-18 20:43:20.965
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.wst.server.core 4 0 2017-07-18 20:43:31.166
+!MESSAGE Server Tomcat v8.5 Server at localhost failed to start.
