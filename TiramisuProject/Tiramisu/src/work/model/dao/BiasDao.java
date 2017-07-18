@@ -28,7 +28,7 @@ public class BiasDao {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getBiasId());
-			pstmt.setInt(2, dto.getOpinionId());
+			pstmt.setInt(2, dto.getVoteId());
 			pstmt.setString(3, dto.getBiasName());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -58,6 +58,13 @@ public class BiasDao {
 		return 0;
 	}
 	
+	/*SQL> desc bias;
+		 Name                                      Null?    Type
+		 ----------------------------------------- -------- --------------
+		 BIAS_ID                                   NOT NULL NUMBER(4)
+		 VOTE_ID                                   NOT NULL NUMBER(4)
+		 BIAS_NAME                                 NOT NULL VARCHAR2(60)
+	 */
 	public Bias selectOne(int biasId) {
 		String sql = "select * from bias where bias_id=?";
 		
@@ -67,12 +74,12 @@ public class BiasDao {
 			pstmt.setInt(1, biasId);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				biasId = rs.getInt("bias_id");
-				int opinionId = rs.getInt("opinion_id");
+				int voteId = rs.getInt("vote_id");
 				String biasName = rs.getString("bias_name");
 				
-				return new Bias(biasId, opinionId, biasName);
+				return new Bias(biasId, voteId, biasName);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,10 +101,10 @@ public class BiasDao {
 			
 			while(rs.next()) {
 				int biasId = rs.getInt("bias_id");
-				int opinionId = rs.getInt("opinion_id");
+				int voteId = rs.getInt("vote_id");
 				String biasName = rs.getString("bias_name");
 				
-				dto = new Bias(biasId, opinionId, biasName);
+				dto = new Bias(biasId, voteId, biasName);
 				list.add(dto);	
 			}
 			
@@ -113,13 +120,13 @@ public class BiasDao {
 	public int update(Bias dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update bias set ");
-		sql.append("opinion_id=?, bias_name=? ");
+		sql.append("vote_id=?, bias_name=? ");
 		sql.append("where bias_id=?");
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
-			pstmt.setInt(1, dto.getOpinionId());
+			pstmt.setInt(1, dto.getVoteId());
 			pstmt.setString(2, dto.getBiasName());
 			pstmt.setInt(3, dto.getBiasId());
 			
