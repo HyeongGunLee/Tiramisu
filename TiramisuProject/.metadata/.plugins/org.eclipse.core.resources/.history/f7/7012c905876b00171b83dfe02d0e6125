@@ -1,0 +1,118 @@
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<style>
+input[type="submit"].solid {   
+    float: left;   
+    cursor: pointer;   
+    width: 200px;   
+    height: 60px;   
+    padding: 8px 6px;   
+    margin-left: 20px;   
+    background-color: #f8b838;   
+    color: rgba(134, 79, 11, 0.8);   
+    text-transform: uppercase;   
+    font-weight: bold;   
+    border: 1px solid #99631d;   
+       
+    -moz-border-radius: 5px;   
+    -webkit-border-radius: 5px;   
+    border-radius: 5px;   
+       
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7), 
+                 0 -1px 0 rgba(64, 38, 5, 0.9);    
+
+    -moz-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6), 
+                     inset 0 1px 2px rgba(255, 255, 255, 0.7), 
+                     0 5px 0 #b8882a, 
+                     0 6px 0 #593a11, 
+                     0 13px 0 #ccc;   
+    -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.7), 
+                        0 5px 0 #b8882a, 
+                        0 6px 0 #593a11, 
+                        0 13px 0 #ccc;   
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.7), 
+                0 5px 0 #b8882a, 
+                0 6px 0 #593a11, 
+                0 13px 0 #ccc;   
+  
+    -webkit-transition: background 0.2s ease-out;   
+}  
+</style>
+
+<!--header start here-->
+<div class="header-main">
+	<div class="header-left">
+		<div class="clearfix"></div>
+	</div>
+	<div class="header-right">
+		<input type="submit" value="Login / Sign Up">  
+	<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<!--heder end here-->
+
+
+
+
+
+
+
+
+
+
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<link rel="stylesheet" href="css/style-login.css">
+header start here
+<div class="header-main">
+	<div class="header-left">
+		<div class="clearfix"></div>
+	</div>
+	<div class="header-right" style="float:right; position:absolute;">
+		<div id="wrap" >
+			<div id="regbar">
+				<div id="navthing">
+					<h2>
+						<a href="#" id="loginform">Login</a> | <a href="#" id="signUpForm">Register</a>
+					</h2>
+					<div class="login">
+						<div class="arrow-up"></div>
+						<div class="formholder">
+							<div class="randompad">
+								<form action="FrontController?action=login" method="post">
+									<fieldset>
+										<label name="email">Email</label> <input type="email"name="loginMemberId" id="loginMemberId"/> 
+										<label name="password">Password</label> <input type="password" name = "loginMemberPw" id="loginMemberPw" /> 
+										<input type="submit" value="Login" id="loginSubmit"/>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
+ 					<div class="signUp">
+						<div class="arrow-up"></div>
+						<div class="formholder">
+							<div class="randompad">
+								
+									<fieldset>
+										<label name="email">Email</label> <input type="email"name="email"/> 
+										<label name="password">Password</label> <input type="password" /> 
+										<input type="submit" value="Login" />
+									</fieldset>
+								
+							</div>
+						</div>
+					</div>  
+				</div>
+			</div>
+		</div>
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+		<script src="js/login.js"></script>
+
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+heder end here -->
