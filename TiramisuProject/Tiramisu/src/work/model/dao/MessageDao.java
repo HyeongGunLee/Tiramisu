@@ -34,7 +34,7 @@ public class MessageDao {
 			pstmt.setString(3, dto.getWriter());
 			pstmt.setString(4, dto.getWriteDate());
 			pstmt.setString(5, dto.getReceiver());
-			pstmt.setBoolean(6, dto.isConfirm());
+			pstmt.setString(6, dto.getConfirm());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -79,7 +79,7 @@ public class MessageDao {
 				String writer = rs.getString("writer");
 				String writeDate = rs.getString("write_date");
 				String receiver = rs.getString("receiver");
-				boolean confirm = rs.getBoolean("confirm");
+				String confirm = rs.getString("confirm");
 
 				return new Message(messageId, content, writer, writeDate, receiver, confirm);
 			}
@@ -107,7 +107,7 @@ public class MessageDao {
 				String writer = rs.getString("writer");
 				String writeDate = rs.getString("write_date");
 				String receiver = rs.getString("receiver");
-				boolean confirm = rs.getBoolean("confirm");
+				String confirm = rs.getString("confirm");
 
 				dto = new Message(messageId, content, writer, writeDate, receiver, confirm);
 				list.add(dto);
@@ -135,7 +135,7 @@ public class MessageDao {
 			pstmt.setString(2, dto.getWriter());
 			pstmt.setString(3, dto.getWriteDate());
 			pstmt.setString(4, dto.getReceiver());
-			pstmt.setBoolean(5, dto.isConfirm());
+			pstmt.setString(5, dto.getConfirm());
 			pstmt.setInt(6, dto.getMessageId());
 
 			return pstmt.executeUpdate();
@@ -146,5 +146,12 @@ public class MessageDao {
 			factory.close(rs, pstmt, conn);
 		}
 		return 0;
+	}
+	
+	public boolean checkConfirm(String confirm) {
+		if(confirm.toUpperCase().equals("TRUE")) {
+			return true;
+		}
+		return false;
 	}
 }
