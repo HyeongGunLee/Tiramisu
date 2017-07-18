@@ -16,13 +16,14 @@ import work.model.service.MemberService;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("/FrontController")
-public class FrontController extends HttpServlet {
+@WebServlet("/MemberController")
+public class MemberController extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private MemberService service = new MemberService();
+	@SuppressWarnings("unused")
 	private static PrintWriter out;
 
 	protected void process(HttpServletRequest request, HttpServletResponse response)
@@ -38,13 +39,69 @@ public class FrontController extends HttpServlet {
 			break;
 		case "signUp":
 			break;
-		case "editPersonalDate":
+		case "editDateConfirm":
+			editDateConfirm(request, response);
+			break;
+		case "editDate":
+			editDate(request, response);
+			break;
+		case "searchId":
+			break;
+		case "searchPw":
 			break;
 		default:
 			break;
 		}
 	}
+	
 
+	protected void searchId(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String nickname = request.getParameter("searchNickname");
+		String answer = request.getParameter("searchAnswer");
+		String question = request.getParameter("searchQuestion");
+		String memberId = service.bringId(nickname, question, answer);
+		if(memberId != null){
+			//페이지 넘어갑니다.
+		}
+		else{
+			System.out.println("Debug : 아이디 존재하지 않음");
+		}
+	}
+	
+	protected void editDateConfirm(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String memberPw = request.getParameter("editMemberPw");
+		String memberPwV = request.getParameter("editMemberPwV");
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			if(service.passwordVerifiedTest(memberPw, memberPwV)){
+				//페이지 넘어갑니다
+			}
+			else{
+				System.out.println("Debug : 비밀번호 불일치");
+			}
+		} else {
+			System.out.println("Debug : 개인 정보 수정 실패(세션오류)");
+		}
+	}
+	
+	
+	protected void editDate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String memberPw = request.getParameter("editMemberPw");
+		String imagePath = request.getParameter("eidtImagePath");
+		String nickname = request.getParameter("editNickname");
+		String question = request.getParameter("editQuestion");
+		String answer = request.getParameter("editAnswer");
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			service.editMember(memberPw, imagePath, nickname, question, answer);
+		} else {
+			System.out.println("Debug : 개인 정보 수정 실패(세션오류)");
+		}
+	}
+	
 	protected void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String memberId = request.getParameter("loginMemberId");
@@ -52,9 +109,9 @@ public class FrontController extends HttpServlet {
 		out = response.getWriter();
 		System.out.println("Debug : memberId is " + memberId);
 		System.out.println("Debug : memberPw is " + memberPw);
-		if(memberId != null || memberPw != null){
-			boolean isLogin = service.loginCheck(memberId,memberPw);
-			if(isLogin == true){
+		if (memberId != null || memberPw != null) {
+			boolean isLogin = service.loginCheck(memberId, memberPw);
+			if (isLogin == true) {
 				HttpSession sess = request.getSession(true);
 				sess.setAttribute("memberId", memberId);
 				sess.setAttribute("isLogin", isLogin);
@@ -64,38 +121,34 @@ public class FrontController extends HttpServlet {
 				System.out.println("Debug : sess.getAttMemberId() : " + sess.getAttribute("memberId"));
 				System.out.println("Debug : sess.getAttIsLogin() : " + sess.getAttribute("isLogin"));
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-				dispatcher.forward(request, response);		
-			}
-			else{
+				dispatcher.forward(request, response);
+			} else {
 				System.out.println("Debug : 로그인 실패(아이디, 비밀번호 오류)");
 			}
-		}
-		else{
+		} else {
 			System.out.println("Debug : 로그인 실패(입력 부족)");
 		}
 	}
-	
+
 	protected void logout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if (session != null
-				&& session.getAttribute("memberId") != null
-				&& session.getAttribute("isLogin") != null) {
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			session.removeAttribute("memberId");
 			session.removeAttribute("isLogin");
 			session.invalidate();
 			response.sendRedirect("index.jsp");
 			System.out.println("Debug : 로그아웃 성공");
-		} else { 
+		} else {
 			System.out.println("Debug : 로그아웃 실패");
 		}
 	}
+
 	protected void signUp(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
 		String memberId = request.getParameter("loginMemberId");
 		String memberPw = request.getParameter("loginMemberPw");
-		String memberPwV= request.getParameter("loginMemberpwV");
+		String memberPwV = request.getParameter("loginMemberPwV");
 		String question = request.getParameter("loginQuestion");
 		String answer = request.getParameter("loginAnswer");
 		String nickname = request.getParameter("loginNickname");
@@ -103,10 +156,10 @@ public class FrontController extends HttpServlet {
 		out = response.getWriter();
 		System.out.println("Debug : memberId is " + memberId);
 		System.out.println("Debug : memberPw is " + memberPw);
-		if(service.idUniqueTest(memberId) && service.passwordVerifiedTest(memberPw, memberPwV)){
-			
-		}
-		else{
+		if (service.idUniqueTest(memberId) && service.passwordVerifiedTest(memberPw, memberPwV)) {
+			service.insertMember(memberId, memberPwV, question, answer, nickname, imagePath);
+			System.out.println("Debug : 회원 추가 성공");
+		} else {
 			System.out.println("Debug : input data Error");
 		}
 	}
@@ -120,5 +173,4 @@ public class FrontController extends HttpServlet {
 			throws ServletException, IOException {
 		process(request, response);
 	}
-
 }

@@ -17,9 +17,17 @@ public class MemberService {
 	public boolean passwordVerifiedTest(String memberPw, String memberPwV) {
 		return true;
 	}
-	
-	public boolean insertMember(String memberId,String memberPw, String question,String answer,String nickname,String imagePath){
+
+	public boolean insertMember(String memberId, String memberPw, String question, String answer, String nickname,
+			String imagePath) {
 		return true;
 	}
 
+	public boolean editMember(String memberPw, String imagePath, String nickname, String question, String answer) {
+		return true;
+	}
+
+	public String bringId(String nickname, String question, String answer) {
+		return null;
+	}
 }
