@@ -1,0 +1,79 @@
+package work.model.dto;
+
+/**
+ * ID : 시퀀스 + 프라이머리
+ * 채널ID : 채널 릴레이션의 채널ID 레퍼런스
+ * 내용 : 300자
+ * 작성자 : 회원 릴레이션의 닉네임 레퍼런스
+ * 작성일 : Date
+ * 파일ID : 파일 릴레이션의 ID 레퍼런스 + null허용 + null default
+ * @author cse
+ *
+ */
+public class Dialog {
+	
+	private int dialogId;
+	
+	private int channelId;
+	
+	private String content;
+	
+	private String writer;
+	
+	private String write_date;
+	
+	private int file_id;
+
+	/**
+	 * Dialog 기본 생성자
+	 */
+	public Dialog() {
+		super();
+	}
+
+	/**
+	 * Dialog 필수 데이터 생성자
+	 * @param dialogId
+	 * @param channelId
+	 * @param content
+	 * @param writer
+	 * @param write_date
+	 */
+	public Dialog(int dialogId, int channelId, String content, String writer, String write_date) {
+		super();
+		this.dialogId = dialogId;
+		this.channelId = channelId;
+		this.content = content;
+		this.writer = writer;
+		this.write_date = write_date;
+	}
+
+	/**
+	 * Dialog 모든 데이터 생성자
+	 * @param dialogId
+	 * @param channelId
+	 * @param content
+	 * @param writer
+	 * @param write_date
+	 * @param file_id
+	 */
+	public Dialog(int dialogId, int channelId, String content, String writer, String write_date, int file_id) {
+		super();
+		this.dialogId = dialogId;
+		this.channelId = channelId;
+		this.content = content;
+		this.writer = writer;
+		this.write_date = write_date;
+		this.file_id = file_id;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

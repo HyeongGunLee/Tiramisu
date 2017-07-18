@@ -1,0 +1,17 @@
+
+/**
+ * 경향
+ */
+create table BIAS (
+	bias_id number(4),
+	opinion_id number(4) not null,				-- 투표ID
+	bias_name varchar2(60) not null				-- 경향명
+);
+
+
+alter table BIAS 
+add constraint PK_BIAS_BIAS_ID primary key (bias_id);
+
+
+create sequence seq_BIAS
+start with 1 increment by 1 ;

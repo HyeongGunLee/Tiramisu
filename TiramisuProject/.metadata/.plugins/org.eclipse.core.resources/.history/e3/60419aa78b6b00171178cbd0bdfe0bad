@@ -1,0 +1,20 @@
+/*다이얼로그
+ * ID : 시퀀스 + 프라이머리
+ * 내용 : 300자
+ * 작성자 : 회원 릴레이션의 닉네임 레퍼런스
+ * 작성일 : Date
+ * 파일ID : 파일 릴레이션의 ID 레퍼런스 + null허용 + null default
+ */
+
+insert into DIALOG 
+values(seq_MESSAGE.NEXTVAL,'토요일에 서면 스터디 합니다. 괜찮습니까?', '성민', sysdate, null);
+
+insert into DIALOG 
+values(seq_MESSAGE.NEXTVAL, '저는 괜찮습니다. 파이썬 예습하도록 하죠.', '태정', sysdate, null );
+
+
+insert into DIALOG 
+values(seq_MESSAGE.NEXTVAL, 'pandas 공부해갈까요','다영', sysdate, 'pandas.ppt');
+
+insert into DIALOG
+values(seq_MESSAGE.NEXTVAL, '그거 밥인데', '형건', sysdate, null);

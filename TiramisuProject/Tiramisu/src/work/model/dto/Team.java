@@ -102,9 +102,4 @@ public class Team {
 		builder.append(open);
 		return builder.toString();
 	}
-	
-	
-	
-	
-	
 }

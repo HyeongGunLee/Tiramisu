@@ -1,5 +1,4 @@
 package work.model.dto;
-
 /**
  * 경향(bias)
  * 경향ID(bias_id)

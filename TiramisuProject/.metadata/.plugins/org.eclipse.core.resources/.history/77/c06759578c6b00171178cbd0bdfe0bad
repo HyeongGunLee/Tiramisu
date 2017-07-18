@@ -1,0 +1,14 @@
+/**
+ * 채널
+ */
+create table CHANNEL (	
+	channel_id number(4),
+	channel_name varchar2(60) not null 		-- 채널명
+);
+
+
+alter table CHANNEL 
+add constraint PK_CHANNEL_CHANNEL_Id primary key (channel_id);
+
+create sequence seq_CHANNEL
+start with 1 increment by 1 ;
