@@ -1121,3 +1121,9 @@ java.io.FileNotFoundException: /Users/jiharu/Desktop/GitHubProject/Tiramisu/Tira
 
 !ENTRY org.eclipse.jface.text 2 0 2017-07-18 20:59:13.804
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-07-18 21:00:59.486
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-07-18 21:00:59.487
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
