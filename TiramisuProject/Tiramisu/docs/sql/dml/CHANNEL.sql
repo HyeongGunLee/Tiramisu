@@ -5,13 +5,13 @@
 */
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'DATA');
+values(seq_CHANNEL.NEXTVAL, 'DATA', 'BusanBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'INFORMATION');
+values(seq_CHANNEL.NEXTVAL, 'INFORMATION', 'BusanBigData');
 
-insert into TEAM 
-values(seq_CHANNEL.NEXTVAL, 'NOTICE');
+insert into CHANNEL 
+values(seq_CHANNEL.NEXTVAL, 'NOTICE', 'SeoulBigData');
 
-insert into TEAM 
-values(seq_CHANNEL.NEXTVAL, 'DATA');
+insert into CHANNEL 
+values(seq_CHANNEL.NEXTVAL, 'DATA', 'GwangjuMachineLearning');
