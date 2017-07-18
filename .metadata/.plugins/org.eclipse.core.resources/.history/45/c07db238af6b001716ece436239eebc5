@@ -7,15 +7,6 @@ package work.model.service;
 import java.util.Random;
 
 public class MemberService {
-	public static MemberService instance = new MemberService();
-	
-	private MemberService(){
-		
-	}
-	
-	public static MemberService getInstance(){
-		return instance;
-	}
 
 	public boolean loginCheck(String memberId, String memberPw) {
 		return true;
