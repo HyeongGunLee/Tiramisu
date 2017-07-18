@@ -30,4 +30,8 @@ public class MemberService {
 	public String bringId(String nickname, String question, String answer) {
 		return null;
 	}
+
+	public boolean idExist(String memberId, String question, String answer) {
+		return true;
+	}
 }

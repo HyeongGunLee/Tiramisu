@@ -46,8 +46,12 @@ public class MemberController extends HttpServlet {
 			editDate(request, response);
 			break;
 		case "searchId":
+			searchId(request, response);
 			break;
 		case "searchPw":
+			searchPw(request, response);
+			break;
+		case "changePw":
 			break;
 		default:
 			break;
@@ -63,6 +67,22 @@ public class MemberController extends HttpServlet {
 		String memberId = service.bringId(nickname, question, answer);
 		if(memberId != null){
 			//페이지 넘어갑니다.
+		}
+		else{
+			System.out.println("Debug : 아이디 존재하지 않음");
+		}
+	}
+
+	protected void searchPw(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String memberId = request.getParameter("searchMemberId");
+		String answer = request.getParameter("searchAnswer");
+		String question = request.getParameter("searchQuestion");
+		boolean idExist = service.idExist(memberId, question, answer);
+		if(idExist){
+			//페이지 넘어갑니다.
+			//임시번호 주기로함.
+			System.out.println("Debug : 아이디 존재");
 		}
 		else{
 			System.out.println("Debug : 아이디 존재하지 않음");
