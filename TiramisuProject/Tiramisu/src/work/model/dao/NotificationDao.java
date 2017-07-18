@@ -44,7 +44,7 @@ public class NotificationDao {
 	}
 	
 	public int delete(int notificationId) {
-		String sql = "delete notification where (notification_ID=?)";
+		String sql = "delete notification where notification_ID=?";
 		
 		try {
 			conn = getConnection();
@@ -62,7 +62,7 @@ public class NotificationDao {
 	}
 	
 	public Notification selectOne(int notificationId) {
-		String sql = "select * from notification where (notification_ID=?)";
+		String sql = "select * from notification where notification_ID=?";
 		
 		try {
 			conn = getConnection();

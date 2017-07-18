@@ -61,7 +61,7 @@ public class NoticeDao {
 	}
 	
 	public Notice selectOne(int noticeId) {
-		String sql = "select * from notice where (notice_id=?)";
+		String sql = "select * from notice where notice_id=?";
 		
 		try {
 			conn = getConnection();
@@ -119,7 +119,7 @@ public class NoticeDao {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update notice set ");
 		sql.append("team_name=?, write_date=?, writer=?, content=?");
-		sql.append("where (notice_id=?)");
+		sql.append("where notice_id=?");
 		
 		try {
 			conn = getConnection();
