@@ -88,6 +88,18 @@ public class FrontController extends HttpServlet {
 			System.out.println("Debug : 로그아웃 실패");
 		}
 	}
+	protected void signUp(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String memberId = request.getParameter("loginMemberId");
+		String memberPw = request.getParameter("loginMemberPw");
+		String memberPwV= request.getParameter("loginMemberpwV");
+		String question = request.getParameter("loginQuestion");
+		String answer = request.getParameter("loginAnswer");
+		out = response.getWriter();
+		System.out.println("Debug : memberId is " + memberId);
+		System.out.println("Debug : memberPw is " + memberPw);
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
