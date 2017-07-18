@@ -38,7 +38,7 @@ public class MemberDao {
 			pstmt.setString(3, dto.getQuestion());
 			pstmt.setString(4, dto.getAnswer());
 			pstmt.setString(5, dto.getNickname());
-			pstmt.setString(6, dto.getImage());
+			pstmt.setString(6, dto.getImagePath());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -140,7 +140,7 @@ public class MemberDao {
 			pstmt.setString(2, dto.getQuestion());
 			pstmt.setString(3, dto.getAnswer());
 			pstmt.setString(4, dto.getNickname());
-			pstmt.setString(5, dto.getImage());
+			pstmt.setString(5, dto.getImagePath());
 			pstmt.setString(6, dto.getMemberId());
 			
 			return pstmt.executeUpdate();
