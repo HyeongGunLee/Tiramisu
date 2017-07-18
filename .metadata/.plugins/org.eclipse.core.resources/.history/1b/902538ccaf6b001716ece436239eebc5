@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import work.model.service.TeamService;
+import work.model.service.TeamService;
 
 @WebServlet("/TeamController")
 public class TeamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//private TeamService service = TeamService.getInstance();
+	private TeamService service = TeamService.getInstance();
 	@SuppressWarnings("unused")
 	private static PrintWriter out;
 

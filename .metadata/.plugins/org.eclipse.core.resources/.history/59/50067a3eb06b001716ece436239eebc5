@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 //import work.model.service.TeamService;
 
-@WebServlet("/TeamController")
+@WebServlet("/TeamControlle")
 public class TeamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
