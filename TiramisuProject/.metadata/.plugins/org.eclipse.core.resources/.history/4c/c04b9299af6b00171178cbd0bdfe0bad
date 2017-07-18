@@ -4,7 +4,7 @@
 create table TEAM (
 	team_name varchar2(60),							-- 팀명
 	subject varchar2(150),							-- 주제
-	open varchar2(10) DEFAULT 'FALSE' not null		-- 공개도
+	open varchar2(10) DEFAULT 'FALSE' not null	-- 공개도
 );
 
 alter table TEAM 
