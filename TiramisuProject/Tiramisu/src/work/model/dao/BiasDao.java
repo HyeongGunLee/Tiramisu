@@ -22,14 +22,33 @@ public class BiasDao {
 	}
 	
 	public int insert(Bias dto) {
-		String sql = "insert into bias values(?,?,?)";
+		String sql = "insert into bias values(seq_bias.nextval,?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getBiasId());
-			pstmt.setInt(2, dto.getVoteId());
-			pstmt.setString(3, dto.getBiasName());
+			//pstmt.setInt(1, dto.getBiasId());
+			pstmt.setInt(1, dto.getVoteId());
+			pstmt.setString(2, dto.getBiasName());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Bias Insert Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
+	
+	public int insert(int voteId, String biasName) {
+		String sql = "insert into bias values(seq_bias.nextval,?,?)";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			//pstmt.setInt(1, dto.getBiasId());
+			pstmt.setInt(1, voteId);
+			pstmt.setString(2, biasName);
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

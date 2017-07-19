@@ -8,66 +8,75 @@ package work.model.dto;
  *
  */
 public class Files {
-	
-	private int fileId;
-	
-	private String fileName;
+ 
+ private int fileId;
+ 
+ private String fileName;
 
-	/**
-	 *  Files 기본 생성자
-	 */
-	public Files() {
-		super();
-	}
+ /**
+  *  Files 기본 생성자
+  */
+ public Files() {
+  super();
+ }
 
-	/**
-	 * Files 필수 / 모든 데이터 생성자
-	 * @param fileId
-	 * @param fileName
-	 */
-	public Files(int fileId, String fileName) {
-		super();
-		this.fileId = fileId;
-		this.fileName = fileName;
-	}
+ /**
+  * Files 필수 / 모든 데이터 생성자
+  * @param fileId
+  * @param fileName
+  */
+ public Files(int fileId, String fileName) {
+  super();
+  this.fileId = fileId;
+  this.fileName = fileName;
+ }
+ 
+ /**
+  * 시퀀스 생성자
+  * @param fileName
+  */
+ public Files(String fileName) {
+  super();
+  this.fileName = fileName;
+ }
 
-	/**
-	 * @return the fileId
-	 */
-	public int getFileId() {
-		return fileId;
-	}
+ /**
+  * @return the fileId
+  */
+ public int getFileId() {
+  return fileId;
+ }
 
-	/**
-	 * @param fileId the fileId to set
-	 */
-	public void setFileId(int fileId) {
-		this.fileId = fileId;
-	}
+ /**
+  * @param fileId the fileId to set
+  */
+ public void setFileId(int fileId) {
+  this.fileId = fileId;
+ }
 
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
+ /**
+  * @return the fileName
+  */
+ public String getFileName() {
+  return fileName;
+ }
 
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+ /**
+  * @param fileName the fileName to set
+  */
+ public void setFileName(String fileName) {
+  this.fileName = fileName;
+ }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(fileId);
-		builder.append(", ");
-		builder.append(fileName);
-		return builder.toString();
-	}	
+ /* (non-Javadoc)
+  * @see java.lang.Object#toString()
+  */
+ @Override
+ public String toString() {
+  StringBuilder builder = new StringBuilder();
+  builder.append(fileId);
+  builder.append(", ");
+  builder.append(fileName);
+  return builder.toString();
+ } 
 }

@@ -21,16 +21,14 @@ public class NoticeDao {
 	}
 	
 	public int insert(Notice dto) {
-		String sql = "insert into notice values(?,?,?,?,?)";
+		String sql = "insert into notice values(seq_notice.nextval,?,sysdate,?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getNoticeId());
-			pstmt.setString(2, dto.getTeamName());
-			pstmt.setString(3, dto.getWriteDate());
-			pstmt.setString(4, dto.getWriter());
-			pstmt.setString(5, dto.getContent());
+			pstmt.setString(1, dto.getTeamName());
+			pstmt.setString(2, dto.getWriter());
+			pstmt.setString(3, dto.getContent());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -43,7 +41,7 @@ public class NoticeDao {
 	}
 	
 	public int delete(int noticeId) {
-		String sql = "delete notice where (notice_id=?)";
+		String sql = "delete notice where notice_id=?";
 		
 		try {
 			conn = getConnection();
@@ -118,17 +116,16 @@ public class NoticeDao {
 	public int update(Notice dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update notice set ");
-		sql.append("team_name=?, write_date=?, writer=?, content=?");
+		sql.append("team_name=?, write_date=sysdate, writer=?, content=?");
 		sql.append("where notice_id=?");
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getTeamName());
-			pstmt.setString(2, dto.getWriteDate());
-			pstmt.setString(3, dto.getWriter());
-			pstmt.setString(4, dto.getContent());
-			pstmt.setInt(5, dto.getNoticeId());
+			pstmt.setString(2, dto.getWriter());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setInt(4, dto.getNoticeId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

@@ -10,130 +10,144 @@ package work.model.dto;
  */
 
 public class Notification {
-	
-	private int notificationId;
-	
-	private String teamName;
-	
-	private String writeDate;
-	
-	private String writer;
-	
-	private String content;
+ 
+ private int notificationId;
+ 
+ private String teamName;
+ 
+ private String writeDate;
+ 
+ private String writer;
+ 
+ private String content;
 
-	/**
-	 * Notification 기본 생성자
-	 */
-	public Notification() {
-		super();
-	}
+ /**
+  * Notification 기본 생성자
+  */
+ public Notification() {
+  super();
+ }
 
-	/**
-	 * Notification 필수 / 모든 데이터 생성자
-	 * @param notificationId
-	 * @param teamName
-	 * @param writeDate
-	 * @param writer
-	 * @param content
-	 */
-	public Notification(int notificationId, String teamName, String writeDate, String writer, String content) {
-		super();
-		this.notificationId = notificationId;
-		this.teamName = teamName;
-		this.writeDate = writeDate;
-		this.writer = writer;
-		this.content = content;
-	}
+ /**
+  * Notification 필수 / 모든 데이터 생성자
+  * @param notificationId
+  * @param teamName
+  * @param writeDate
+  * @param writer
+  * @param content
+  */
+ 
+ public Notification(int notificationId, String teamName, String writeDate, String writer, String content) {
+  super();
+  this.notificationId = notificationId;
+  this.teamName = teamName;
+  this.writeDate = writeDate;
+  this.writer = writer;
+  this.content = content;
+ }
 
-	/**
-	 * @return the notificationId
-	 */
-	public int getNotificationId() {
-		return notificationId;
-	}
+ /**
+  * 시퀀스 date 생성자
+  * @param teamName
+  * @param writer
+  * @param content
+  */
+ public Notification(String teamName, String writer, String content) {
+  super();
+  this.teamName = teamName;
+  this.writer = writer;
+  this.content = content;
+ }
 
-	/**
-	 * @param notificationId the notificationId to set
-	 */
-	public void setNotificationId(int notificationId) {
-		this.notificationId = notificationId;
-	}
+ /**
+  * @return the notificationId
+  */
+ public int getNotificationId() {
+  return notificationId;
+ }
 
-	/**
-	 * @return the teamName
-	 */
-	public String getTeamName() {
-		return teamName;
-	}
+ /**
+  * @param notificationId the notificationId to set
+  */
+ public void setNotificationId(int notificationId) {
+  this.notificationId = notificationId;
+ }
 
-	/**
-	 * @param teamName the teamName to set
-	 */
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
+ /**
+  * @return the teamName
+  */
+ public String getTeamName() {
+  return teamName;
+ }
 
-	/**
-	 * @return the writeDate
-	 */
-	public String getWriteDate() {
-		return writeDate;
-	}
+ /**
+  * @param teamName the teamName to set
+  */
+ public void setTeamName(String teamName) {
+  this.teamName = teamName;
+ }
 
-	/**
-	 * @param writeDate the writeDate to set
-	 */
-	public void setWriteDate(String writeDate) {
-		this.writeDate = writeDate;
-	}
+ /**
+  * @return the writeDate
+  */
+ public String getWriteDate() {
+  return writeDate;
+ }
 
-	/**
-	 * @return the writer
-	 */
-	public String getWriter() {
-		return writer;
-	}
+ /**
+  * @param writeDate the writeDate to set
+  */
+ public void setWriteDate(String writeDate) {
+  this.writeDate = writeDate;
+ }
 
-	/**
-	 * @param writer the writer to set
-	 */
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
+ /**
+  * @return the writer
+  */
+ public String getWriter() {
+  return writer;
+ }
 
-	/**
-	 * @return the content
-	 */
-	public String getContent() {
-		return content;
-	}
+ /**
+  * @param writer the writer to set
+  */
+ public void setWriter(String writer) {
+  this.writer = writer;
+ }
 
-	/**
-	 * @param content the content to set
-	 */
-	public void setContent(String content) {
-		this.content = content;
-	}
+ /**
+  * @return the content
+  */
+ public String getContent() {
+  return content;
+ }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(notificationId);
-		builder.append(", ");
-		builder.append(teamName);
-		builder.append(", ");
-		builder.append(writeDate);
-		builder.append(", ");
-		builder.append(writer);
-		builder.append(", ");
-		builder.append(content);
-		return builder.toString();
-	}
-	
-	
-	
-	
+ /**
+  * @param content the content to set
+  */
+ public void setContent(String content) {
+  this.content = content;
+ }
+
+ /* (non-Javadoc)
+  * @see java.lang.Object#toString()
+  */
+ @Override
+ public String toString() {
+  StringBuilder builder = new StringBuilder();
+  builder.append(notificationId);
+  builder.append(", ");
+  builder.append(teamName);
+  builder.append(", ");
+  builder.append(writeDate);
+  builder.append(", ");
+  builder.append(writer);
+  builder.append(", ");
+  builder.append(content);
+  return builder.toString();
+ }
+ 
+ 
+ 
+ 
 }

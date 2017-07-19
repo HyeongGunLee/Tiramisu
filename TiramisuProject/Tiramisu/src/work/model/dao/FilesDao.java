@@ -23,13 +23,12 @@ public class FilesDao {
 	}
 	
 	public int insert(Files dto) {
-		String sql = "insert into files values(?,?)";
+		String sql = "insert into files values(seq_files.nextval,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getFileId());
-			pstmt.setString(2, dto.getFileName());
+			pstmt.setString(1, dto.getFileName());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

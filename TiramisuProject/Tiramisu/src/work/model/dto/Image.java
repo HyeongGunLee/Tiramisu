@@ -8,66 +8,76 @@ package work.model.dto;
  *
  */
 public class Image {
-	
-	private int imageId;
-	
-	private String fileName;
+ 
+ private int imageId;
+ 
+ private String fileName;
 
-	/**
-	 * Image 기본 생성자
-	 */
-	public Image() {
-		super();
-	}
+ /**
+  * Image 기본 생성자
+  */
+ public Image() {
+  super();
+ }
 
-	/**
-	 * Image 필수 / 모든 데이터 생성자
-	 * @param imageId
-	 * @param fileName
-	 */
-	public Image(int imageId, String fileName) {
-		super();
-		this.imageId = imageId;
-		this.fileName = fileName;
-	}
+ /**
+  * Image 필수 / 모든 데이터 생성자
+  * @param imageId
+  * @param fileName
+  */
+ public Image(int imageId, String fileName) {
+  super();
+  this.imageId = imageId;
+  this.fileName = fileName;
+ }
+ 
+ /**
+  * 시퀀스 생성자 
+  * @param fileName
+  */
 
-	/**
-	 * @return the imageId
-	 */
-	public int getImageId() {
-		return imageId;
-	}
+ public Image(String fileName) {
+  super();
+  this.fileName = fileName;
+ }
 
-	/**
-	 * @param imageId the imageId to set
-	 */
-	public void setImageId(int imageId) {
-		this.imageId = imageId;
-	}
+ /**
+  * @return the imageId
+  */
+ public int getImageId() {
+  return imageId;
+ }
 
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName() {
-		return fileName;
-	}
+ /**
+  * @param imageId the imageId to set
+  */
+ public void setImageId(int imageId) {
+  this.imageId = imageId;
+ }
 
-	/**
-	 * @param fileName the fileName to set
-	 */
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+ /**
+  * @return the fileName
+  */
+ public String getFileName() {
+  return fileName;
+ }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(imageId);
-		builder.append(", ");
-		builder.append(fileName);
-		return builder.toString();
-	}
+ /**
+  * @param fileName the fileName to set
+  */
+ public void setFileName(String fileName) {
+  this.fileName = fileName;
+ }
+
+ /* (non-Javadoc)
+  * @see java.lang.Object#toString()
+  */
+ @Override
+ public String toString() {
+  StringBuilder builder = new StringBuilder();
+  builder.append(imageId);
+  builder.append(", ");
+  builder.append(fileName);
+  return builder.toString();
+ }
 }

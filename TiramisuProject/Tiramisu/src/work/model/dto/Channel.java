@@ -9,87 +9,100 @@ package work.model.dto;
  */
 
 public class Channel {
-	
-	private int channelId;
-	
-	private String channelName;
-	
-	private String teamName;
+ 
+ private int channelId;
+ 
+ private String channelName;
+ 
+ private String teamName;
 
-	/**
-	 * Channel 기본 생성자
-	 */
-	public Channel() {
-		super();
-	}
+ /**
+  * Channel 기본 생성자
+  */
+ public Channel() {
+  super();
+ }
 
-	
+ 
 
-	/**
-	 * Channel 필수 / 모든 데이터 생성자
-	 * @param channelId
-	 * @param channelName
-	 * @param teamName
-	 */
-	public Channel(int channelId, String channelName, String teamName) {
-		super();
-		this.channelId = channelId;
-		this.channelName = channelName;
-		this.teamName = teamName;
-	}
+ /**
+  * Channel 필수 / 모든 데이터 생성자
+  * @param channelId
+  * @param channelName
+  * @param teamName
+  */
+ public Channel(int channelId, String channelName, String teamName) {
+  super();
+  this.channelId = channelId;
+  this.channelName = channelName;
+  this.teamName = teamName;
+ }
 
-	public int getChannelId() {
-		return channelId;
-	}
-
-
-
-	public void setChannelId(int channelId) {
-		this.channelId = channelId;
-	}
-
-
-
-	public String getChannelName() {
-		return channelName;
-	}
+ /**
+  * 채널 시퀀스 생성자
+  * @param channelName
+  * @param teamName
+  */
+ public Channel(String channelName, String teamName) {
+  super();
+  this.channelName = channelName;
+  this.teamName = teamName;
+ }
 
 
 
-	public void setChannelName(String channelName) {
-		this.channelName = channelName;
-	}
+ public int getChannelId() {
+  return channelId;
+ }
 
 
 
-	public String getTeamName() {
-		return teamName;
-	}
+ public void setChannelId(int channelId) {
+  this.channelId = channelId;
+ }
 
 
 
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
+ public String getChannelName() {
+  return channelName;
+ }
 
 
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(channelId);
-		builder.append(", ");
-		builder.append(channelName);
-		builder.append(", ");
-		builder.append(teamName);
-		return builder.toString();
-	}
-	
-	
-	
-	
+ public void setChannelName(String channelName) {
+  this.channelName = channelName;
+ }
+
+
+
+ public String getTeamName() {
+  return teamName;
+ }
+
+
+
+ public void setTeamName(String teamName) {
+  this.teamName = teamName;
+ }
+
+
+
+ /* (non-Javadoc)
+  * @see java.lang.Object#toString()
+  */
+ @Override
+ public String toString() {
+  StringBuilder builder = new StringBuilder();
+  builder.append(channelId);
+  builder.append(", ");
+  builder.append(channelName);
+  builder.append(", ");
+  builder.append(teamName);
+  return builder.toString();
+ }
+ 
+ 
+ 
+ 
 
 }

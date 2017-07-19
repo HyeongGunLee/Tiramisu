@@ -23,18 +23,15 @@ public class MessageDao {
 	}
 
 	public int insert(Message dto) {
-		String sql = "insert into MESSAGE values(?,?,?,?,?,?)";
+		String sql = "insert into MESSAGE values(seq_message.nextval,?,?,sysdate,?,?)";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getMessageId());
-			;
-			pstmt.setString(2, dto.getContent());
-			pstmt.setString(3, dto.getWriter());
-			pstmt.setString(4, dto.getWriteDate());
-			pstmt.setString(5, dto.getReceiver());
-			pstmt.setString(6, dto.getConfirm());
+			pstmt.setString(1, dto.getContent());
+			pstmt.setString(2, dto.getWriter());
+			pstmt.setString(3, dto.getReceiver());
+			pstmt.setString(4, dto.getConfirm());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -47,7 +44,7 @@ public class MessageDao {
 	}
 
 	public int delete(String messageId) {
-		String sql = "delete MESSAGE where (message_id=?)";
+		String sql = "delete MESSAGE where message_id=?";
 
 		try {
 			conn = getConnection();
@@ -125,7 +122,7 @@ public class MessageDao {
 	public int update(Message dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update MESSAGE set ");
-		sql.append("content=?, writer=?, write_date=?, receiver=?, confirm=?");
+		sql.append("content=?, writer=?, write_date=sysdate, receiver=?, confirm=?");
 		sql.append("where message_id=?");
 
 		try {
@@ -133,10 +130,9 @@ public class MessageDao {
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, dto.getContent());
 			pstmt.setString(2, dto.getWriter());
-			pstmt.setString(3, dto.getWriteDate());
-			pstmt.setString(4, dto.getReceiver());
-			pstmt.setString(5, dto.getConfirm());
-			pstmt.setInt(6, dto.getMessageId());
+			pstmt.setString(3, dto.getReceiver());
+			pstmt.setString(4, dto.getConfirm());
+			pstmt.setInt(5, dto.getMessageId());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

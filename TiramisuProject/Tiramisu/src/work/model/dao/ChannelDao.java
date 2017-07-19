@@ -22,14 +22,32 @@ public class ChannelDao {
 	}
 	
 	public int insert(Channel dto) {
-		String sql = "insert into team values(?,?,?)";
+		String sql = "insert into team values(seq_channel.nextval,?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getChannelId());
-			pstmt.setString(2, dto.getChannelName());
-			pstmt.setString(3, dto.getTeamName());
+			pstmt.setString(1, dto.getChannelName());
+			pstmt.setString(2, dto.getTeamName());
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Channel Insert Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
+	
+	public int insert(String channelName, String teamName) {
+		String sql = "insert into team values(seq_channel.nextval,?,?)";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, channelName);
+			pstmt.setString(2, teamName);
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

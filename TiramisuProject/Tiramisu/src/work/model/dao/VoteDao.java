@@ -24,14 +24,13 @@ public class VoteDao {
 	}
 	
 	public int insert(Vote dto) {
-		String sql = "insert into vote values(?,?,?)";
+		String sql = "insert into vote values(seq_vote.nextval,?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getVoteId());
-			pstmt.setString(2, dto.getNickname());
-			pstmt.setString(3, dto.getTeamName());
+			pstmt.setString(1, dto.getNickname());
+			pstmt.setString(2, dto.getTeamName());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

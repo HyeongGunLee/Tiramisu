@@ -23,13 +23,12 @@ public class ImageDao {
 	}
 	
 	public int insert(Image dto) {
-		String sql = "insert into image values(?,?)";
+		String sql = "insert into image values(seq_vote.nextval,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getImageId());
-			pstmt.setString(2, dto.getFileName());
+			pstmt.setString(1, dto.getFileName());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

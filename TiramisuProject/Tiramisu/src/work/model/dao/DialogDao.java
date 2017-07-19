@@ -23,17 +23,15 @@ public class DialogDao {
 	}
 	
 	public int insert(Dialog dto) {
-		String sql = "insert into dialog values(?,?,?,?,?,?)";
+		String sql = "insert into dialog values(seq_dialog.nextval,?,?,?,sysdate,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getDialogId());
-			pstmt.setInt(2, dto.getDialogId());
-			pstmt.setString(3, dto.getContent());
-			pstmt.setString(4, dto.getWriter());
-			pstmt.setString(5, dto.getWriteDate());
-			pstmt.setInt(6, dto.getFileId());
+			pstmt.setInt(1, dto.getChannelId());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getWriter());
+			pstmt.setInt(4, dto.getFileId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -125,7 +123,7 @@ public class DialogDao {
 	public int update(Dialog dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update dialog set ");
-		sql.append("channel_id=?, content=?, writer=?, write_date=?, file_id=?");
+		sql.append("channel_id=?, content=?, writer=?, write_date=sysdate, file_id=?");
 		sql.append("where dialog_id=?");
 		
 		try {
@@ -134,9 +132,8 @@ public class DialogDao {
 			pstmt.setInt(1, dto.getChannelId());
 			pstmt.setString(2, dto.getContent());
 			pstmt.setString(3, dto.getWriter());
-			pstmt.setString(4, dto.getWriteDate());
-			pstmt.setInt(5, dto.getFileId());
-			pstmt.setInt(6, dto.getDialogId());
+			pstmt.setInt(4, dto.getFileId());
+			pstmt.setInt(5, dto.getDialogId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
