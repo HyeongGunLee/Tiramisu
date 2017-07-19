@@ -3,16 +3,20 @@ package work.model.service;
 import java.util.ArrayList;
 
 import work.model.dao.BiasDao;
+import work.model.dao.ChannelDao;
 import work.model.dao.DialogDao;
 import work.model.dao.LikesDao;
+import work.model.dao.MemberDao;
 import work.model.dao.MessageDao;
 import work.model.dao.OpinionDao;
 import work.model.dao.TeamDao;
 import work.model.dao.TeamMemberDao;
 import work.model.dao.VoteDao;
 import work.model.dto.Bias;
+import work.model.dto.Channel;
 import work.model.dto.Dialog;
 import work.model.dto.Likes;
+import work.model.dto.Member;
 import work.model.dto.Message;
 import work.model.dto.Opinion;
 import work.model.dto.Team;
@@ -28,6 +32,8 @@ public class TeamService {
 	private OpinionDao opinionDao = new OpinionDao();
 	private DialogDao dialogDao = new DialogDao();
 	private LikesDao likesDao = new LikesDao();
+	private MemberDao memberDao = new MemberDao();
+	private ChannelDao channelDao = new ChannelDao();
 	
 	private TeamService() {
 
@@ -169,19 +175,71 @@ public class TeamService {
 	 * </pre>
 	 */
 	public boolean editOpinion(String nickname, String biasName, String voteName, String teamName, String content) {
+		ArrayList<Bias> biasList = biasDao.selectAll();
+		ArrayList<Vote> voteList = voteDao.selectAll();
+		Opinion dto = null;
+		int biasId = 0;
+		int voteId = 0;
 		
-		return true;
+		//biasList, voteList에서 각각의 이름에 맞는 voteId, biasId 검색 후 set.
+		for(int i=0; i<voteList.size(); ++i) {
+			if(voteList.get(i).getNickname().equals(voteName)) {
+				for(int j=0; j<biasList.size(); ++j) {
+					if(biasList.get(i).getBiasName().equals(biasName)) {
+						voteId = voteList.get(i).getVoteId();
+						biasId = biasList.get(j).getBiasId();
+					}
+				}
+			}
+		}
+		//bias와 vote 없으면 false
+		//둘다 0이 아니면 dto set하고 opinion update.
+		if(biasId == 0 || voteId == 0) {
+			return false;
+		} else {
+			dto.setBiasId(biasId);
+			dto.setContent(content);
+			dto.setNickname(nickname);
+			opinionDao.update(dto);
+			return true;
+		}
 	}
 
 	/**
 	 * <pre>
 	 * 사용자에게 id와 team이름을 받아서 사용자가 team에서 탈퇴함.
 	 * </pre>
-	 * @param memberId
-	 * @param teamName
-	 * @return
 	 */
 	public boolean dropTeam(String memberId, String teamName) {
-		return true;
+		String nickname = null;
+		ArrayList<Member> memberList = memberDao.selectAll();
+		for(int i=0; i<memberList.size(); ++i) {
+			if(memberList.get(i).getMemberId().equals(memberId)) {
+				nickname = memberList.get(i).getNickname();
+			}
+		}
+		/*
+		 * memberId와 맞는 사용자 nickname 검색 후
+		 * nickname이 null이면 false return
+		 * null이 아니면 teamMember table에서 삭제 후
+		 * return true
+		 */
+		if(nickname == null) {
+			return false;
+		} else {
+			teamMemberDao.delete(teamName, nickname);
+			return true;
+		}
+	}
+	
+	public ArrayList<String> teamHasChannel(String teamName){
+		ArrayList<String> channelNameList = new ArrayList<>();
+		ArrayList<Channel> channelList = channelDao.selectAll();
+		for(Channel c : channelList){
+			if(c.getTeamName().equals(teamName)){
+				channelNameList.add(c.getChannelName());
+			}
+		}
+		return channelNameList;
 	}
 }
