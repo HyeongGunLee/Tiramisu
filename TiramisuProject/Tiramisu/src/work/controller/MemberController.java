@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utillity.Tool;
 import work.model.service.MemberService;
 
 /**
@@ -171,24 +172,25 @@ public class MemberController extends HttpServlet {
 	protected void signUp(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//request.setCharacterEncoding("UTF-8");
-		//response.setCharacterEncoding("euc-kr");
-		String memberId = request.getParameter("loginMemberId");
+		//response.setCharacterEncoding("UTF-8");
+		String memberId = Tool.toKSC5601(request.getParameter("loginMemberId"));
 		String memberPw = request.getParameter("loginMemberPw");
 		String memberPwV = request.getParameter("loginMemberPwV");
-		String question = request.getParameter("loginQuestion");
-		String answer = request.getParameter("loginAnswer");
-		String nickname = request.getParameter("loginNickname");
+		String question = Tool.toKSC5601(request.getParameter("loginQuestion"));
+		String answer = Tool.toKSC5601(request.getParameter("loginAnswer"));
+		String nickname = Tool.toKSC5601(request.getParameter("loginNickname"));
 		String imagePath = null;
 		out = response.getWriter();
-		System.out.println("Debug : memberId is " + memberId);
+		System.out.println("Debug : memberId is " + Tool.toKSC5601(memberId));
 		System.out.println("Debug : memberPw is " + memberPw);
-		System.out.println("Debug : question is " + question);
-		System.out.println("Debug : answer is " + answer);
+		System.out.println("Debug : question is " + Tool.toKSC5601(question));
+		System.out.println("Debug : answer is " + Tool.toKSC5601(answer));
+		//System.out.println(request.getCharacterEncoding());
 		if (service.idUniqueTest(memberId) && service.passwordVerifiedTest(memberPw, memberPwV)) {
 			service.insertMember(memberId, memberPwV, question, answer, nickname, imagePath);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
-			System.out.println("Debug : ???? ì¶?ê°? ?±ê³µ");
+			System.out.println("Debug : input data success");
 		} else {
 			System.out.println("Debug : input data Error");
 		}

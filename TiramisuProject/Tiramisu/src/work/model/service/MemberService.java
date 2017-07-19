@@ -74,6 +74,7 @@ public class MemberService {
 			String image) {
 		if(dao.selectOne(memberId) == null) {
 			Member dto = new Member();
+			dto.setMemberId(memberId);
 			dto.setMemberPw(memberPw);
 			dto.setQuestion(question);
 			dto.setAnswer(answer);
