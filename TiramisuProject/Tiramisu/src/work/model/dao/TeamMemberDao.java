@@ -103,5 +103,27 @@ public class TeamMemberDao {
 		}
 		return null;
 	}
+	
+	public int update(String teamName, String nickname) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("update team_member set ");
+		sql.append("nickname=? ");
+		sql.append("where team_name=?");
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, nickname);
+			pstmt.setString(2, teamName);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(TeamMember Update Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
 
 }
