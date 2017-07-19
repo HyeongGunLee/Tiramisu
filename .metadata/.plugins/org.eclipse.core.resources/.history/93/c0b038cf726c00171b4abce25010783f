@@ -25,7 +25,7 @@ public class ChannelController extends HttpServlet {
 			makeChannel(request, response);
 			break;
 		case "searchChannelMemberDialog":
-			searchChannelMemberDialog(request, response);
+			
 			break;
 		default:
 			break;
@@ -39,7 +39,7 @@ public class ChannelController extends HttpServlet {
 			String channelName = (String) session.getAttribute("channelName");
 			String memberId = request.getParameter("channelSearchChannelMemberId");
 			ArrayList<Dialog> channelMemberDialog = service.getChannelMemberDialog(teamName, channelName, memberId);
-			System.out.println("Debug : Search channel's member dialog success.");
+			System.out.println("Debug : Search channel's member dialog success");
 		} else {
 			System.out.println("Debug : session error to search channel's member dialog.");
 		}
@@ -49,6 +49,7 @@ public class ChannelController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String memberId = (String) session.getAttribute("memberId");
 			String teamName = (String) session.getAttribute("teamName");
 			String channelName = request.getParameter("channelMakeChannelName");
 			service.makeChannel(teamName, channelName);

@@ -2,8 +2,6 @@ package work.model.service;
 
 import java.util.ArrayList;
 
-import work.model.dto.Dialog;
-
 public class ChannelService {
 	public static ChannelService instance = new ChannelService();
 	public static ChannelService getInstance(){

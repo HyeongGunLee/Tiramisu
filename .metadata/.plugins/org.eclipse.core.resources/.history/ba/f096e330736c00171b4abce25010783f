@@ -25,7 +25,7 @@ public class ChannelController extends HttpServlet {
 			makeChannel(request, response);
 			break;
 		case "searchChannelMemberDialog":
-			searchChannelMemberDialog(request, response);
+			
 			break;
 		default:
 			break;
