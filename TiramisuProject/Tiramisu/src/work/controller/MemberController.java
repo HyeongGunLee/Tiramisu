@@ -170,13 +170,15 @@ public class MemberController extends HttpServlet {
 
 	protected void signUp(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//request.setCharacterEncoding("UTF-8");
+		//response.setCharacterEncoding("euc-kr");
 		String memberId = request.getParameter("loginMemberId");
 		String memberPw = request.getParameter("loginMemberPw");
 		String memberPwV = request.getParameter("loginMemberPwV");
 		String question = request.getParameter("loginQuestion");
 		String answer = request.getParameter("loginAnswer");
 		String nickname = request.getParameter("loginNickname");
-		String imagePath = request.getParameter("loginImagePath");
+		String imagePath = null;
 		out = response.getWriter();
 		System.out.println("Debug : memberId is " + memberId);
 		System.out.println("Debug : memberPw is " + memberPw);
