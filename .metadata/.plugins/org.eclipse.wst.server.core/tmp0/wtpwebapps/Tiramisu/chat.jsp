@@ -61,10 +61,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 <%}%>
 	$(document).ready(function() {
-		$("#left-frame").load("left-frame.html");
+		$("#left-frame").load("left-frame.jsp");
 	});
 	$(document).ready(function() {
-		$("#chatting_inner").load("chatting_inner.html");
+		$("#body-frame").load("body-chatting-frame.html");
 	});
 </script>
 <!--geo chart-->
@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				
 				<!--inner block start here-->
-				<div id="chatting_inner" style="width: 100%"></div>
+				<div id="body-frame" style="width: 100%"></div>
 				<!--inner block end here-->
 				<!--copy rights start here-->
 				<div class="copyrights">
