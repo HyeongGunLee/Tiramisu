@@ -138,6 +138,28 @@ public class TeamDao {
 		return 0;
 	}
 	
+	public int setOpen(String teamName) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("update team set ");
+		sql.append("open=? ");
+		sql.append("where team_name=?");
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, "TRUE");
+			pstmt.setString(2, teamName);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Team setOpen Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
+	
 	public boolean isOpen(String open) {
 		if(open.toUpperCase().equals("TRUE")) {
 			return true;
