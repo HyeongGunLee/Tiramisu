@@ -147,7 +147,7 @@ public class Member {
 	/**
 	 * @param image the image to set
 	 */
-	public void setImagePath(String image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
