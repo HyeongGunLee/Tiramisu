@@ -66,7 +66,7 @@ public class TeamController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		Boolean open = service.stringMakeBoolean(request.getParameter("teamOpen"));
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null){
-			service.setOpen(open);
+			setOpen();
 			System.out.println("Debug : make team's open success");
 		}
 		else{

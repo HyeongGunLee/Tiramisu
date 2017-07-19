@@ -24,8 +24,4 @@ public class TeamService {
 	public boolean makeTeam(String nickname, String teamName, String subject, Boolean open) {
 		return true;
 	}
-
-	public boolean setOpen(Boolean open) {
-		return true;
-	}
 }

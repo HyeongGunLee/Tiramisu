@@ -30,10 +30,6 @@ public class TeamController extends HttpServlet {
 		System.out.println("Debug : Enter TeamController Process");
 		switch (action) {
 		case "makeTeam":
-			makeTeam(request, response);
-			break;
-		case "setOpen":
-			setOpen(request, response);
 			break;
 		default:
 			break;
@@ -58,19 +54,6 @@ public class TeamController extends HttpServlet {
 			System.out.println("Debug : make team success");
 		} else {
 			System.out.println("Debug : make team fail");
-		}
-	}
-	
-	protected void setOpen(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		Boolean open = service.stringMakeBoolean(request.getParameter("teamOpen"));
-		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null){
-			service.setOpen(open);
-			System.out.println("Debug : make team's open success");
-		}
-		else{
-			System.out.println("Debug : make team's open fail");
 		}
 	}
 

@@ -12,20 +12,15 @@ public class TeamService {
 	}
 
 	public Boolean stringMakeBoolean(String bool) {
-		if (bool.equalsIgnoreCase("TRUE")) {
+		if(bool.equalsIgnoreCase("TRUE")){
 			return true;
-		} else if (bool.equalsIgnoreCase("FALSE")) {
+		}else if(bool.equalsIgnoreCase("FALSE")){
 			return false;
 		}
 		return null;
 	}
 
-	// 이미 팀 이름이 있는지 유효성 검사해야함.
-	public boolean makeTeam(String nickname, String teamName, String subject, Boolean open) {
-		return true;
-	}
-
-	public boolean setOpen(Boolean open) {
+	public boolean makeTeam(String teamName, String subject, Boolean open) {
 		return true;
 	}
 }
