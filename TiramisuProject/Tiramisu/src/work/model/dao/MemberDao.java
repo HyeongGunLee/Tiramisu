@@ -194,7 +194,28 @@ public class MemberDao {
 		} finally {
 			factory.close(rs,  pstmt, conn);
 		}
+		return 0;
+	}
+	
+	public int updatePassword(String memberId, String newMemberPw) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("update MEMBER set ");
+		sql.append("member_pw=? ");
+		sql.append("where member_id=?");
 		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, newMemberPw);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Member updatePassword Error: " + e.getMessage());		
+		} finally {
+			factory.close(rs,  pstmt, conn);
+		}
 		return 0;
 	}
 	
