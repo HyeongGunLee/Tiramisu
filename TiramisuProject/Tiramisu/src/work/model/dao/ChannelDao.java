@@ -22,7 +22,7 @@ public class ChannelDao {
 	}
 	
 	public int insert(Channel dto) {
-		String sql = "insert into team values(seq_channel.nextval,?,?)";
+		String sql = "insert into team values(?,?)";
 		
 		try {
 			conn = getConnection();
@@ -41,7 +41,7 @@ public class ChannelDao {
 	}
 	
 	public int insert(String channelName, String teamName) {
-		String sql = "insert into team values(seq_channel.nextval,?,?)";
+		String sql = "insert into team values(?,?)";
 		
 		try {
 			conn = getConnection();
@@ -59,13 +59,14 @@ public class ChannelDao {
 		return 0;
 	}
 	
-	public int delete(int channelId) {
-		String sql = "delete channel where channel_id=?";
+	public int delete(String channelName, String teamName) {
+		String sql = "delete channel where channel_name=? and team_name=?";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, channelId);
+			pstmt.setString(1, channelName);
+			pstmt.setString(2, teamName);
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -77,21 +78,21 @@ public class ChannelDao {
 		return 0;
 	}
 	
-	public Channel selectOne(int channelId) {
-		String sql = "select * from channel where channel_id=?";
+	public Channel selectOne(String channelName, String teamName) {
+		String sql = "select * from channel where channel_name=? and team_name=?";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, channelId);
+			pstmt.setString(1, channelName);
+			pstmt.setString(2, teamName);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
-				channelId = rs.getInt("channel_id");
-				String channelName = rs.getString("channel_name");
-				String teamName = rs.getString("team_name");
+			if(rs.next()) {
+				channelName = rs.getString("channel_name");
+				teamName = rs.getString("team_name");
 				
-				return new Channel(channelId, channelName, teamName);
+				return new Channel(channelName, teamName);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,11 +113,10 @@ public class ChannelDao {
 			Channel dto = null;
 			
 			while(rs.next()) {
-				int channelId = rs.getInt("channel_id");
 				String channelName = rs.getString("channel_name");
 				String teamName = rs.getString("team_name");
 				
-				dto = new Channel(channelId, channelName, teamName);
+				dto = new Channel(channelName, teamName);
 				list.add(dto);	
 			}
 			
@@ -129,18 +129,18 @@ public class ChannelDao {
 		return list;
 	}
 	
-	public int update(Channel dto) {
+	public int updateChannelName(Channel dto, String newChannelName) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update channel set ");
-		sql.append("channel_name=?, team_name=? ");
-		sql.append("where channel_id=?");
+		sql.append("channel_name=? ");
+		sql.append("where channel_name=? and team_name=?");
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
-			pstmt.setString(1, dto.getChannelName());
-			pstmt.setString(2, dto.getTeamName());
-			pstmt.setInt(3,  dto.getChannelId());
+			pstmt.setString(1, newChannelName);
+			pstmt.setString(2, dto.getChannelName());
+			pstmt.setString(3, dto.getTeamName());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
