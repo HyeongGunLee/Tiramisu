@@ -31,8 +31,6 @@ public class ChannelController extends HttpServlet {
 			break;
 		}
 	}
-	
-
 	protected void searchChannelMemberDialog(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);

@@ -27,12 +27,39 @@ public class ChannelController extends HttpServlet {
 		case "searchChannelMemberDialog":
 			searchChannelMemberDialog(request, response);
 			break;
+		case "dialogManagement":
+			break;
 		default:
 			break;
 		}
 	}
 	
-
+	protected void dialogManagement(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String sub = request.getParameter("sub");
+			switch (sub) {
+			case "newDialog":
+				break;
+			default:
+				break;
+			}
+		}
+		else{
+			System.out.println("Debug : Session Error for dialogManagement!");
+		}
+	}
+	
+	protected void newDialog(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String teamName = (String) session.getAttribute("teamName");
+			String channelName = (String) session.getAttribute("channelName");
+			String nickname = (String) session.getAttribute("nickname");
+		}
+	}
 	protected void searchChannelMemberDialog(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
