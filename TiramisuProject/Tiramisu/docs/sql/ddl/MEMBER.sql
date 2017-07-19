@@ -7,7 +7,7 @@ create table MEMBER (
 	question varchar2(60) not null, 	-- 질문 
 	answer varchar2(60) not null,  		-- 답변
 	nickname varchar2(60) not null,		-- 닉네임
-	image varchar2(60)		         	-- 사진명
+	image_path number(4)	         	-- 사진명
 );
 
 alter table MEMBER 

@@ -6,6 +6,7 @@ create table TEAM_MEMBER (
 	nickname varchar2(60) not null			-- ´Ð³×ÀÓ
 );
 
+
 alter table TEAM_MEMBER 
 add constraint FK_TEAM_MEMBER_TEAM_NAME foreign key (team_name)
 references TEAM(team_name);

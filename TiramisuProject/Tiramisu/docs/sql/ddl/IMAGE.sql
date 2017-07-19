@@ -2,7 +2,7 @@
  * 사진
  */
 create table IMAGE (
-	image_id varchar2(60),				-- ID
+	image_id number(4),					-- ID
 	file_name varchar2(600) not null 	-- 파일명
 );
 

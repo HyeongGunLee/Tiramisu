@@ -4,8 +4,8 @@
  */
 create table BIAS (
 	bias_id number(4),
-	vote_id number(4) not null,				-- 투표ID
-	bias_name varchar2(60) not null				-- 경향명
+	vote_id number(4) not null,					-- 투표ID
+	bias_name varchar2(30) not null				-- 경향명
 );
 
 

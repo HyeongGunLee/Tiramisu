@@ -8,6 +8,7 @@ create table OPINION (
 );
 
 
+
 alter table OPINION 
 add constraint FK_OPINION_NICKNAME foreign key (nickname)
 references MEMBER(nickname);
