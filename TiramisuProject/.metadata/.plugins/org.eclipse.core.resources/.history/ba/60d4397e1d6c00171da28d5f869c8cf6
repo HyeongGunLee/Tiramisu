@@ -13,7 +13,7 @@ public class Vote {
 	
 	private int voteId; 
 	
-	private String nickname; //≈ı«•∏Ì
+	private String nickname;
 	
 	private String teamName;
 

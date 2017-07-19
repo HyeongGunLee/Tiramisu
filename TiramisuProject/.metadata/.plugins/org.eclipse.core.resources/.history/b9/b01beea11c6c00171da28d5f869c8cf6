@@ -22,7 +22,7 @@ public class Member {
 	
 	private String nickname;
 	
-	private int imagePath;
+	private String imagePath;
 
 	/**
 	 * Member 기본생성자
@@ -57,7 +57,7 @@ public class Member {
 	 * @param nickname
 	 * @param image
 	 */
-	public Member(String memberId, String memberPw, String question, String answer, String nickname, int imagePath) {
+	public Member(String memberId, String memberPw, String question, String answer, String nickname, String imagePath) {
 		super();
 		this.memberId = memberId;
 		this.memberPw = memberPw;
@@ -140,14 +140,14 @@ public class Member {
 	/**
 	 * @return the image
 	 */
-	public int getImage() {
+	public String getImage() {
 		return imagePath;
 	}
 
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(int imagePath) {
+	public void setImage(String imagePath) {
 		this.imagePath = imagePath;
 	}
 

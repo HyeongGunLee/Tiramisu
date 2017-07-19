@@ -99,11 +99,11 @@ public class Dialog {
 		this.writer = writer;
 	}
 
-	public String getWriteDate() {
+	public String getwriteDate() {
 		return writeDate;
 	}
 
-	public void setWriteDate(String writeDate) {
+	public void setwriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
 

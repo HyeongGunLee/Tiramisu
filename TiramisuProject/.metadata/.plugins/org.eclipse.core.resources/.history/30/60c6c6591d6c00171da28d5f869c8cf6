@@ -78,7 +78,7 @@ public class Team {
 	/**
 	 * @return the open
 	 */
-	public String getOpen() {
+	public String isOpen() {
 		return open;
 	}
 

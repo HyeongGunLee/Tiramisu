@@ -19,6 +19,8 @@ values('IncheonDeepLearning', '인천딥러닝스터디', 'FALSE');
 
 
 
+
+
 --error check 
 --
 --team_name primary key check : work

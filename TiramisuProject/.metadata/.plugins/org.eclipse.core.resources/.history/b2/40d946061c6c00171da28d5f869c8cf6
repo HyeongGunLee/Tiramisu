@@ -52,14 +52,14 @@ public class Bias {
 	/**
 	 * @return the voteId
 	 */
-	public int getVoteId() {
+	public int getvoteId() {
 		return voteId;
 	}
 
 	/**
 	 * @param voteId the voteId to set
 	 */
-	public void setVoteId(int voteId) {
+	public void setvoteId(int voteId) {
 		this.voteId = voteId;
 	}
 
