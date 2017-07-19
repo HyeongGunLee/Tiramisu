@@ -9,14 +9,4 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>ChannelController</display-name>
-    <servlet-name>ChannelController</servlet-name>
-    <servlet-class>work.controller.ChannelController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ChannelController</servlet-name>
-    <url-pattern>/ChannelController</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -1,0 +1,8 @@
+package work.model.service;
+
+public class ChannelService {
+	public static ChannelService instance = new ChannelService();
+	public static ChannelService getInstance(){
+		return instance;
+	}
+}

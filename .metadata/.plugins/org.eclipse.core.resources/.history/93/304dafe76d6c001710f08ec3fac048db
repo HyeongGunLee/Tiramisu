@@ -1,0 +1,48 @@
+package work.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import work.model.service.MemberService;
+
+public class ChannelController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private MemberService service = MemberService.getInstance();
+
+	protected void process(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+		System.out.println("Debug : Process 진입");
+		switch (action) {
+		case "makeChannel":
+			break;
+		default:
+			break;
+		}
+	}
+
+	protected void makeChannel(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			session.getAttribute("Channel")
+		}
+		else{
+			System.out.println("Debug : session error to make channel.");
+		}
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		process(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		process(request, response);
+	}
+
+}

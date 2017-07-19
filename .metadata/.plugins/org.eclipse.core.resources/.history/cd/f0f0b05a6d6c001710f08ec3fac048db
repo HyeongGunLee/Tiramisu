@@ -1,0 +1,33 @@
+package work.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import work.model.service.MemberService;
+
+public class ChannelController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private MemberService service = MemberService.getInstance();
+	protected void process(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getParameter("action");
+		System.out.println("Debug : Process 진입");
+		switch (action) {
+		
+		default:
+			break;
+		}
+	}  
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		process(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		process(request, response);
+	}
+
+}
