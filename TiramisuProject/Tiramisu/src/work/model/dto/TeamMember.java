@@ -71,8 +71,4 @@ public class TeamMember {
 		builder.append(nickname);
 		return builder.toString();
 	}
-	
-	
-	
-	
 }
