@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -11,11 +9,7 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
 
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -48,28 +42,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Chartinator  -->
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
-	
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
-			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
-			System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
-			if (isLogin) {%>
-	$(document).ready(function() {
-		$("#header-frame").load("header-login-frame.html");
-	});
-	$(document).ready(function() {
-		$("#body-frame").load("body-chatting-frame.jsp");
-	});
+	System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
+	if (isLogin) {%>
+		$(document).ready(function() {$("#header-frame").load("header-login-frame.html");});
 <%} else {%>
-	$(document).ready(function() {
-		$("#header-frame").load("header-logout-frame.html");
-	});
-	$(document).ready(function() {
-		$("#body-frame").load("body-default-frame.jsp");
-	});
+		$(document).ready(function() {$("#header-frame").load("header-logout-frame.html");});
 <%}%>
-	$(document).ready(function() {
-		$("#left-frame").load("left-frame.jsp");
-	});
+$(document).ready(function() {
+	$("#left-frame").load("left-frame.html");
+});
+$(document).ready(function() {
+	$("#chatting_inner").load("chatting_inner.html");
+});
 </script>
 <!--geo chart-->
 
@@ -100,10 +85,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
 				<!-- /script-for sticky-nav -->
 				<!--inner block start here-->
+				<div id="chatting_inner"></div>				
 
-				<div id="body-frame">
-					<!--main-->
-				</div>
+
+
+
+
 
 				<!--inner block end here-->
 				<!--copy rights start here-->
@@ -130,4 +117,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- mother grid end here-->
 </body>
 </html>
-
