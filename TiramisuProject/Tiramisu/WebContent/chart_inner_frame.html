@@ -1,77 +1,91 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Â÷Æ® Å×½ºÆ®</title>
-<!-- Ã¤ÆÃ ¼Ò½º -->
+
+<meta charset="UTF-8">
+
+<!-- ì±„íŒ… ì†ŒìŠ¤ -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/chatting.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<!-- Ã¤ÆÃ ¼Ò½º ENd -->
+<!-- ì±„íŒ… ì†ŒìŠ¤ ENd -->
 
-<!-- ÆË¾÷ ¼Ò½º -->
+<!-- íŒì—… ì†ŒìŠ¤ -->
 <link href="css/popup.css" rel="stylesheet">
 <script src="js/popup.js"></script>
-<!-- ÆË¾÷ ¼Ò½º END -->
+<style>
 
+</style>
+<!-- íŒì—… ì†ŒìŠ¤ END -->
+
+<!-- ì°¨íŠ¸ api ì†ŒìŠ¤ -->
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);//µµ³ÓÂ÷Æ® 
-    google.charts.setOnLoadCallback(drawSeriesChart);//¹öºíÂ÷Æ®
+    google.charts.setOnLoadCallback(drawChart);//ë„ë„›ì°¨íŠ¸ 
+    google.charts.setOnLoadCallback(drawSeriesChart);//ë²„ë¸”ì°¨íŠ¸
     
+    function selectHandler(e) {
+  	  alert('The user selected' + PieChart.getSelection().length + ' items.');
+  }
     
-    function drawChart() { //µµ³ÓÂ÷Æ® Start
+    function drawChart() { //ë„ë„›ì°¨íŠ¸ Start
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'ÅõÇ¥¼ö'],
-          ['º¸½Ó',    15],
-          ['´ß¹ß',    7],
-          ['ÇÇÀÚ',  3]
+          ['Task', 'íˆ¬í‘œìˆ˜'],
+          ['ë³´ìŒˆ',    15],
+          ['ë‹­ë°œ',    7],
+          ['í”¼ì',  3]
         ]);
 
         var options = {
-          title: 'ÇÁ·ÎÁ§Æ® ÈÄ È¸½ÄÀ» ¾îµğ¼­?',
+          title: 'í”„ë¡œì íŠ¸ í›„ íšŒì‹ì„ ì–´ë””ì„œ?',
           pieHole: 0.4,
           fontSize : 15
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
-      }//µµ³ÓÂ÷Æ® End
+        
+        //ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+        function selectHandler(e) {
+        	
+        	document.getElementById("body").innerHTML +='<div id="abc"><div id="popupContact"><form action="#ì˜ê²¬ì²˜ë¦¬" id="voteform" method="post" name="voteform"><img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()"><h2 id="headH2">ì˜ê²¬ì„ ì‘ì„±í•´ì£¼ì„¸ìš”!</h2><hr><input id="name_readonly" name="name" type="text" value="ë³€ë‹¤ì˜" readonly><select id="bias" name="bias" style="width:82%;padding:10px;margin-top:30px;border:1px solid #ccc;	padding-left:40px;font-size:16px;font-family:raleway"><option value="">ì„ íƒí•´ì£¼ì„¸ìš”</option><option value="ë³´ìŒˆ">ë³´ìŒˆ</option><option value="ë‹­ë°œ">ë‹­ë°œ</option><option value="í”¼ì">í”¼ì</option>	</select><textarea id="opinion" name="opinion" placeholder="Please tell me your voice!"></textarea><a href="javascript:%20check_empty()" id="submit">Send</a></form></div></div>';
+        	console.log(document.getElementById("body").innerHTML);
+        	document.getElementById('abc').style.display = "block";
+        }
+    }//ë„ë„›ì°¨íŠ¸ End
     
-    function drawSeriesChart() { //¹öºíÂ÷Æ® Start
+    function drawSeriesChart() { //ë²„ë¸”ì°¨íŠ¸ Start
 
         var data = google.visualization.arrayToDataTable([
-          ['Nickname', 'xÃà', 'yÃà', 		'¹öºí»ö±ò',        '¹öºíÅ©±â'],
-          ['±èÅÂÁ¤',    92.11,   1.67,    'ÄÄÇ»ÅÍ°øÇĞ',  		33073],
-          ['º¯´Ù¿µ',    85.05,   1.36,    '°æ¿µÁ¤º¸ÇĞ',       40190],
-          ['ÀÌ¼º¹Î',    60.60,   1.84,     'µ¥ÀÌÅÍÇĞ',       55230],
-          ['ÀÌÇü°Ç',    55.42,   2.78,     'ÄÄÇ»ÅÍ°øÇĞ',  	24716]
+          ['Nickname', 'xì¶•', 'yì¶•', 		'ë²„ë¸”ìƒ‰ê¹”',        'ë²„ë¸”í¬ê¸°'],
+          ['ê¹€íƒœì •',    92.11,   1.67,    'ì»´í“¨í„°ê³µí•™',  		33073],
+          ['ë³€ë‹¤ì˜',    85.05,   1.36,    'ê²½ì˜ì •ë³´í•™',       40190],
+          ['ì´ì„±ë¯¼',    60.60,   1.84,     'ë°ì´í„°í•™',       55230],
+          ['ì´í˜•ê±´',    55.42,   2.78,     'ì»´í“¨í„°ê³µí•™',  	24716]
         ]);
 
         var options = {
-          title: 'º¸½ÓºÎ¼­ÀÇ '+ 'ÆÀ¿ø º° ±â¿©µµ/Âü¿©µµ',
+          title: 'ë³´ìŒˆë¶€ì„œì˜ '+ 'íŒ€ì› ë³„ ê¸°ì—¬ë„/ì°¸ì—¬ë„',
           fontSize : 18,
           /* titleTextStyle : { fontsize : 30}, */
-          hAxis: {title: 'xÃà'},
-          vAxis: {title: 'yÃà'},
+          hAxis: {title: 'xì¶•'},
+          vAxis: {title: 'yì¶•'},
           bubble: {textStyle: {fontSize: 15}}
           };
 
         var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
         chart.draw(data, options);
-      }//¹öºíÂ÷Æ® END
+      }//ë²„ë¸”ì°¨íŠ¸ END
       
       
       </script>
-</head>
-<body>
+<!-- ì°¨íŠ¸ apiì†ŒìŠ¤END -->
+<body id="body">
 	<!-- //Div that will hold the pie chart -->
 	<table style="background-color:white">
 		<tr>
-			<td><div id="donutchart" style="width: 750px; height: 380px;"></div></td>
+			<td><div id="donutchart" style="width: 750px; height: 380px; "></div></td>
 			<td>
 				<div style="overflow-y:scroll; height:380px;"> 
 				<div  class="chat-message" style="background-color:white">
@@ -79,60 +93,60 @@
 					<li class="left clearfix" >
                         <div class="chat-body clearfix"  style="margin-left: 0px; ">
                     		<div class="header">
-                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">º¸½Ó</strong>
-                    			<strong class="primary-font" style="font-size:18px">º¯´Ù¿µ</strong>
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">ë³´ìŒˆ</strong>
+                    			<strong class="primary-font" style="font-size:18px">ë³€ë‹¤ì˜</strong>
                     			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;7</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#ÁÁ¾Æ¿ä Ã³¸®"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<a href="#ì¢‹ì•„ìš” ì²˜ë¦¬"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
-                    			º¸½ÓÀº µ¿¸Æ°æÈ­Áõ, °íÇ÷¾Ğ µîÀÇ ¼ºÀÎº´À» ¸·´Â È¿´ÉÀ» ÇÏ±â ¶§¹®¿¡ Àú´Â È¸½ÄÀ» °¥ºñ·Î ÇÏ´Â °Í¿¡ ¹İ´ëÇÕ´Ï´Ù
+                    			ë³´ìŒˆì€ ë™ë§¥ê²½í™”ì¦, ê³ í˜ˆì•• ë“±ì˜ ì„±ì¸ë³‘ì„ ë§‰ëŠ” íš¨ëŠ¥ì„ í•˜ê¸° ë•Œë¬¸ì— ì €ëŠ” íšŒì‹ì„ ê°ˆë¹„ë¡œ í•˜ëŠ” ê²ƒì— ë°˜ëŒ€í•©ë‹ˆë‹¤
                     		</p>
                     	</div>
                     </li>
                     <li class="left clearfix" >
                         <div class="chat-body clearfix"  style="margin-left: 0px; ">
                     		<div class="header">
-                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">´ß¹ß</strong>
-                    			<strong class="primary-font" style="font-size:18px">ÀÌÇü°Ç</strong>
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">ë‹­ë°œ</strong>
+                    			<strong class="primary-font" style="font-size:18px">ì´í˜•ê±´</strong>
                     			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;6</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#ÁÁ¾Æ¿ä Ã³¸®"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<a href="#ì¢‹ì•„ìš” ì²˜ë¦¬"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
-                    			¼ö¿µ¿¡ °³Á¸¸À ´ß¹ßÀÌ ÀÖ¾î¿ä 
+                    			ìˆ˜ì˜ì— ê°œì¡´ë§› ë‹­ë°œì´ ìˆì–´ìš” 
                     		</p>
                     	</div>
                     </li>
                     <li class="left clearfix" >
                         <div class="chat-body clearfix"  style="margin-left: 0px; ">
                     		<div class="header">
-                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">´ß¹ß</strong>
-                    			<strong class="primary-font" style="font-size:18px">ÀÌ¼º¹Î</strong>
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">ë‹­ë°œ</strong>
+                    			<strong class="primary-font" style="font-size:18px">ì´ì„±ë¯¼</strong>
                     			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;3</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#ÁÁ¾Æ¿ä Ã³¸®"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<a href="#ì¢‹ì•„ìš” ì²˜ë¦¬"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
-                    			´ß¹ßÀÌ ´ÙÀÌ¾îÆ®¿¡ µµ¿òÀÌ µË´Ï´Ù.
+                    			ë‹­ë°œì´ ë‹¤ì´ì–´íŠ¸ì— ë„ì›€ì´ ë©ë‹ˆë‹¤.
                     		</p>
                     	</div>
                     </li>
                     <li class="left clearfix" >
                         <div class="chat-body clearfix"  style="margin-left: 0px; ">
                     		<div class="header">
-                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">ÇÇÀÚ</strong>
-                    			<strong class="primary-font" style="font-size:18px">±èÅÂÁ¤</strong>
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">í”¼ì</strong>
+                    			<strong class="primary-font" style="font-size:18px">ê¹€íƒœì •</strong>
                     			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;0</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#ÁÁ¾Æ¿ä Ã³¸®"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<a href="#ì¢‹ì•„ìš” ì²˜ë¦¬"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
-                    			ÇÇÀÚ...ÇÇÀÚ°¡ ÁÁ¾Æ
+                    			í”¼ì...í”¼ìê°€ ì¢‹ì•„
                     		</p>
                     	</div>
                     </li>
@@ -141,12 +155,9 @@
 				</div>
 			</td>
 		</tr>
-	 	<tr><td><div id="series_chart_div" style="width: 900px; height: 500px;"></div></td></tr>
+	 	<tr><td><div id="series_chart_div" style="width: 900px; height: 500px; border: 1px solid #ccc;"></div></td></tr>
 	</table>
 
-
-
 </body>
-</html>
 
 

@@ -4,6 +4,89 @@
 <html>
 <head>
 <title>티라미슈~~</title>
+
+
+<!-- 채팅 소스 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/chatting.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- 채팅 소스 ENd -->
+
+<!-- 팝업 소스 -->
+<link href="css/popup.css" rel="stylesheet">
+<script src="js/popup.js"></script>
+<!-- 팝업 소스 END -->
+
+
+<!-- 차트 api 소스 -->
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);//도넛차트 
+    google.charts.setOnLoadCallback(drawSeriesChart);//버블차트
+    
+    function selectHandler(e) {
+  	  alert('The user selected' + PieChart.getSelection().length + ' items.');
+  }
+    
+    function drawChart() { //도넛차트 Start
+        var data = google.visualization.arrayToDataTable([
+          ['Task', '투표수'],
+          ['보쌈',    15],
+          ['닭발',    7],
+          ['피자',  3]
+        ]);
+
+        var options = {
+          title: '프로젝트 후 회식을 어디서?',
+          pieHole: 0.4,
+          fontSize : 15
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+        
+        //이벤트 핸들러
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+        function selectHandler(e) {
+        	
+        	document.getElementById("body").innerHTML +='<div id="abc"><div id="popupContact"><form action="#의견처리" id="voteform" method="post" name="voteform"><img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()"><h2 id="headH2">의견을 작성해주세요!</h2><hr><input id="name_readonly" name="name" type="text" value="변다영" readonly><select id="bias" name="bias" style="width:82%;padding:10px;margin-top:30px;border:1px solid #ccc;	padding-left:40px;font-size:16px;font-family:raleway"><option value="">선택해주세요</option><option value="보쌈">보쌈</option><option value="닭발">닭발</option><option value="피자">피자</option>	</select><textarea id="opinion" name="opinion" placeholder="Please tell me your voice!"></textarea><a href="javascript:%20check_empty()" id="submit">Send</a></form></div></div>';
+        	console.log(document.getElementById("body").innerHTML);
+        	document.getElementById('abc').style.display = "block";
+        }
+    }//도넛차트 End
+    
+    function drawSeriesChart() { //버블차트 Start
+
+        var data = google.visualization.arrayToDataTable([
+          ['Nickname', 'x축', 'y축', 		'버블색깔',        '버블크기'],
+          ['김태정',    92.11,   1.67,    '컴퓨터공학',  		33073],
+          ['변다영',    85.05,   1.36,    '경영정보학',       40190],
+          ['이성민',    60.60,   1.84,     '데이터학',       55230],
+          ['이형건',    55.42,   2.78,     '컴퓨터공학',  	24716]
+        ]);
+
+        var options = {
+          title: '보쌈부서의 '+ '팀원 별 기여도/참여도',
+          fontSize : 18,
+          /* titleTextStyle : { fontsize : 30}, */
+          hAxis: {title: 'x축'},
+          vAxis: {title: 'y축'},
+          bubble: {textStyle: {fontSize: 15}}
+          };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+        chart.draw(data, options);
+      }//버블차트 END
+      
+      
+      </script>
+<!-- 차트 api소스END -->
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -63,9 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(document).ready(function() {
 		$("#left-frame").load("left-frame.jsp");
 	});
-	$(document).ready(function() {
-		$("#body-frame").load("body-chatting-frame.html");
-	});
+
 </script>
 <!--geo chart-->
 
@@ -73,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/skycons.js"></script>
 <!--//skycons-icons-->
 </head>
-<body>
+<body  id="body">
 	<div class="page-container">
 		<div class="left-content">
 			<div class="mother-grid-inner">
@@ -100,7 +181,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				
 				<!--inner block start here-->
-				<div id="body-frame" style="width: 100%"></div>
+					<!-- //Div that will hold the pie chart -->
+	<table style="background-color:white">
+		<tr>
+			<td><div id="donutchart" style="width: 750px; height: 380px; "></div></td>
+			<td>
+				<div style="overflow-y:scroll; height:380px;"> 
+				<div  class="chat-message" style="background-color:white; padding-top:20px;">
+					<h3 style="align:center; ">가장 추천을 많이 받은 의견입니다</h3>
+					<ul class="chat"  >
+					
+					<li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">보쌈</strong>
+                    			<strong class="primary-font" style="font-size:18px">변다영</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;7</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			보쌈은 동맥경화증, 고혈압 등의 성인병을 막는 효능을 하기 때문에 저는 회식을 갈비로 하는 것에 반대합니다
+                    		</p>
+                    	</div>
+                    </li>
+                    <li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">닭발</strong>
+                    			<strong class="primary-font" style="font-size:18px">이형건</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;6</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			수영에 개존맛 닭발이 있어요 
+                    		</p>
+                    	</div>
+                    </li>
+                    <li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">닭발</strong>
+                    			<strong class="primary-font" style="font-size:18px">이성민</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;3</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			닭발이 다이어트에 도움이 됩니다.
+                    		</p>
+                    	</div>
+                    </li>
+                    <li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">피자</strong>
+                    			<strong class="primary-font" style="font-size:18px">김태정</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;0</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			피자...피자가 좋아
+                    		</p>
+                    	</div>
+                    </li>
+					</ul>
+				</div>
+				</div>
+			</td>
+		</tr>
+		<tr>&nbsp;</tr>
+	 	<tr><td><div id="series_chart_div" style="width: 800px; height: 420px; border: 1px solid #ccc;"></div></td></tr>
+	</table>
+
 				<!--inner block end here-->
 				<!--copy rights start here-->
 				<div class="copyrights">
