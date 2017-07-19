@@ -22,8 +22,5 @@ alter table MESSAGE
 add constraint FK_MESSAGE_RECEIVER foreign key (receiver)
 references MEMBER(nickname); 
 
-
 create sequence seq_MESSAGE 
 start with 1 increment by 1 ;
-
-ALTER SEQUENCE seq_MESSAGE INCREMENT BY 1;

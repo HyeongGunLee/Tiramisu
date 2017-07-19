@@ -140,14 +140,14 @@ public class Member {
 	/**
 	 * @return the image
 	 */
-	public int getImage() {
+	public int getImagePath() {
 		return imagePath;
 	}
 
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(int imagePath) {
+	public void setImagePath(int imagePath) {
 		this.imagePath = imagePath;
 	}
 

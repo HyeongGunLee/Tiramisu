@@ -9,8 +9,6 @@ create table NOTIFICATION (
 	content varchar2(150) not null			-- ³»¿ë
 );
 
-
-
 alter table NOTIFICATION 
 add constraint PK_NOTIFICATION_ID primary key (notification_id);
 
@@ -21,5 +19,3 @@ references TEAM(team_name);
 
 create sequence seq_NOTIFICATION 
 start with 1 increment by 1 ;
-
-ALTER SEQUENCE seq_NOTIFICATION INCREMENT BY 1;

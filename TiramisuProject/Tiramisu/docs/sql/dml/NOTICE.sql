@@ -26,6 +26,10 @@ values(seq_NOTICE.NEXTVAL, 'IncheonDeepLearning', sysdate, '¼º¹Î', '³»ÀÏ Áö°¢ÇÒµ
 
 
 
+
+
+
+
 --error check 
 --
 --id pramary key check : work

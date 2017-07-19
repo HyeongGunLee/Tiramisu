@@ -10,5 +10,5 @@ values('태정', 1, '좋습니다.');
 
 
 insert into OPINION 
-values('다영', 2, '물론');
+values('다영', 2, '물론이죠');
 

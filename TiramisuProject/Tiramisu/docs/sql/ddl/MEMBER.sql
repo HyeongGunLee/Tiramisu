@@ -7,9 +7,8 @@ create table MEMBER (
 	question varchar2(60) not null, 	-- 질문 
 	answer varchar2(60) not null,  		-- 답변
 	nickname varchar2(60) not null,		-- 닉네임
-	image_path number(4)	         	-- 사진명
+	image_path varchar2(60)	         	-- 사진명
 );
-
 
 alter table MEMBER 
 add constraint PK_MEMBER_MEMBER_ID primary key (member_id);
@@ -18,6 +17,6 @@ alter table MEMBER
 add constraint UK_MEMBER_NICKNAME unique (nickname);
 
 alter table MEMBER 
-add constraint FK_MEMBER_IMAGE_PATH foreign key (image_path)
+add constraint FK_MEMBER_IMAGE foreign key (image_path)
 references IMAGE(image_id); 
 

@@ -4,11 +4,9 @@
  * 프라이머리(추천자,다이얼로그ID)
  */
 
-insert into LIKES 
-values(1, '태정');
+insert into LIKES values(1, '태정');
 
-insert into LIKES 
-values(4, '형건');
+insert into LIKES values(4, '형건');
 
 
 

@@ -17,7 +17,7 @@ insert into DIALOG
 values(seq_DIALOG.NEXTVAL, 3,  '여긴 알릴것만 적으세요','다영', sysdate, null);
 
 insert into DIALOG
-values(seq_DIALOG.NEXTVAL, 4, '자료입니다.', '형건', sysdate, 7);
+values(seq_DIALOG.NEXTVAL, 4, '자료입니다.', '형건', sysdate, 1);
 
 
 

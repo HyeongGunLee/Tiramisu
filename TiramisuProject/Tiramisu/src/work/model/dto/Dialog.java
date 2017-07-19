@@ -11,134 +11,151 @@ package work.model.dto;
  *
  */
 public class Dialog {
-	
-	private int dialogId;
-	
-	private int channelId;
-	
-	private String content;
-	
-	private String writer;
-	
-	private String writeDate;
-	
-	private int fileId;
+ 
+ private int dialogId;
+ 
+ private int channelId;
+ 
+ private String content;
+ 
+ private String writer;
+ 
+ private String writeDate;
+ 
+ private int fileId;
 
-	/**
-	 * Dialog 기본 생성자
-	 */
-	public Dialog() {
-		super();
-	}
+ /**
+  * Dialog 기본 생성자
+  */
+ public Dialog() {
+  super();
+ }
 
-	/**
-	 * Dialog 필수 데이터 생성자
-	 * @param dialogId
-	 * @param channelId
-	 * @param content
-	 * @param writer
-	 * @param writeDate
-	 */
-	public Dialog(int dialogId, int channelId, String content, String writer, String writeDate) {
-		super();
-		this.dialogId = dialogId;
-		this.channelId = channelId;
-		this.content = content;
-		this.writer = writer;
-		this.writeDate = writeDate;
-	}
+ /**
+  * Dialog 필수 데이터 생성자
+  * @param dialogId
+  * @param channelId
+  * @param content
+  * @param writer
+  * @param writeDate
+  */
+ public Dialog(int dialogId, int channelId, String content, String writer, String writeDate) {
+  super();
+  this.dialogId = dialogId;
+  this.channelId = channelId;
+  this.content = content;
+  this.writer = writer;
+  this.writeDate = writeDate;
+ }
 
-	/**
-	 * Dialog 모든 데이터 생성자
-	 * @param dialogId
-	 * @param channelId
-	 * @param content
-	 * @param writer
-	 * @param writeDate
-	 * @param fileId
-	 */
-	public Dialog(int dialogId, int channelId, String content, String writer, String writeDate, int fileId) {
-		super();
-		this.dialogId = dialogId;
-		this.channelId = channelId;
-		this.content = content;
-		this.writer = writer;
-		this.writeDate = writeDate;
-		this.fileId = fileId;
-	}
+ /**
+  * Dialog 모든 데이터 생성자
+  * @param dialogId
+  * @param channelId
+  * @param content
+  * @param writer
+  * @param writeDate
+  * @param fileId
+  */
+ public Dialog(int dialogId, int channelId, String content, String writer, String writeDate, int fileId) {
+  super();
+  this.dialogId = dialogId;
+  this.channelId = channelId;
+  this.content = content;
+  this.writer = writer;
+  this.writeDate = writeDate;
+  this.fileId = fileId;
+ }
+ 
+ 
+ /**
+  * 시퀀스 , sysdate 생성자
+  * @param channelId
+  * @param content
+  * @param writer
+  * @param fileId
+  */
 
-	public int getDialogId() {
-		return dialogId;
-	}
+ public Dialog(int channelId, String content, String writer, int fileId) {
+  super();
+  this.channelId = channelId;
+  this.content = content;
+  this.writer = writer;
+  this.fileId = fileId;
+ }
 
-	public void setDialogId(int dialogId) {
-		this.dialogId = dialogId;
-	}
+ public int getDialogId() {
+  return dialogId;
+ }
 
-	public int getChannelId() {
-		return channelId;
-	}
+ public void setDialogId(int dialogId) {
+  this.dialogId = dialogId;
+ }
 
-	public void setChannelId(int channelId) {
-		this.channelId = channelId;
-	}
+ public int getChannelId() {
+  return channelId;
+ }
 
-	public String getContent() {
-		return content;
-	}
+ public void setChannelId(int channelId) {
+  this.channelId = channelId;
+ }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+ public String getContent() {
+  return content;
+ }
 
-	public String getWriter() {
-		return writer;
-	}
+ public void setContent(String content) {
+  this.content = content;
+ }
 
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
+ public String getWriter() {
+  return writer;
+ }
 
-	public String getWriteDate() {
-		return writeDate;
-	}
+ public void setWriter(String writer) {
+  this.writer = writer;
+ }
 
-	public void setWriteDate(String writeDate) {
-		this.writeDate = writeDate;
-	}
+ public String getWriteDate() {
+  return writeDate;
+ }
 
-	public int getfileId() {
-		return fileId;
-	}
+ public void setWriteDate(String writeDate) {
+  this.writeDate = writeDate;
+ }
 
-	public void setfileId(int fileId) {
-		this.fileId = fileId;
-	}
+ public int getFileId() {
+  return fileId;
+ }
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(dialogId);
-		builder.append(", ");
-		builder.append(dialogId);
-		builder.append(", ");
-		builder.append(content);
-		builder.append(", ");
-		builder.append(writer);
-		builder.append(", ");
-		builder.append(writeDate);
-		builder.append(", ");
-		builder.append(fileId);
-		return builder.toString();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+ public void setFileId(int fileId) {
+  this.fileId = fileId;
+ }
+
+ @Override
+ public String toString() {
+  StringBuilder builder = new StringBuilder();
+  builder.append(dialogId);
+  builder.append(", ");
+  builder.append(dialogId);
+  builder.append(", ");
+  builder.append(content);
+  builder.append(", ");
+  builder.append(writer);
+  builder.append(", ");
+  builder.append(writeDate);
+  builder.append(", ");
+  builder.append(fileId);
+  return builder.toString();
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 }

@@ -9,7 +9,7 @@ create table MEMBER (
 	question varchar2(60) not null, 	-- 질문 
 	answer varchar2(60) not null,  		-- 답변
 	nickname varchar2(60) not null,		-- 닉네임
-	image_path number(4)	         	-- 사진명
+	image_path varchar2(60)	         	-- 사진명
 );
 
 
@@ -35,7 +35,7 @@ create table NOTIFICATION (
 create table NOTICE (
 	notice_id number(4),					-- ID
 	team_name varchar2(60) not null,		-- 팀명
-	write_date DATE not null,				-- 작성일
+	writer_date DATE not null,				-- 작성일
 	writer varchar2(60) not null,			-- 작성자
 	content varchar2(300) not null			-- 내용
 );
@@ -84,7 +84,7 @@ create table FILES (
 
 
 create table IMAGE (
-	image_id number(4),				-- ID
+	image_id varchar2(60),				-- ID
 	file_name varchar2(600) not null 	-- 파일명
 );
 
@@ -109,5 +109,5 @@ create table OPINION (
 create table BIAS (
 	bias_id number(4),
 	vote_id number(4) not null,					-- 투표ID
-	bias_name varchar2(30) not null				-- 경향명
+	bias_name varchar2(60) not null				-- 경향명
 );

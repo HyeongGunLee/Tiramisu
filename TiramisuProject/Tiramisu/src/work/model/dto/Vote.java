@@ -10,86 +10,98 @@ package work.model.dto;
  */
 
 public class Vote {
-	
-	private int voteId; 
-	
-	private String nickname; //투표명
-	
-	private String teamName;
+ 
+ private int voteId; 
+ 
+ private String nickname; //투표명
+ 
+ private String teamName;
 
-	/**
-	 * Vote 기본 생성자
-	 */
-	public Vote() {
-		super();
-	}
+ /**
+  * Vote 기본 생성자
+  */
+ public Vote() {
+  super();
+ }
 
-	/**
-	 * Vote 필수 / 모든 데이터 생성자
-	 * @param voteId
-	 * @param nickname
-	 * @param teamName
-	 */
-	public Vote(int voteId, String nickname, String teamName) {
-		super();
-		this.voteId = voteId;
-		this.nickname = nickname;
-		this.teamName = teamName;
-	}
+ /**
+  * Vote 필수 / 모든 데이터 생성자
+  * @param voteId
+  * @param nickname
+  * @param teamName
+  */
+ public Vote(int voteId, String nickname, String teamName) {
+  super();
+  this.voteId = voteId;
+  this.nickname = nickname;
+  this.teamName = teamName;
+ }
+ 
+ /**
+  * 시퀀스 생성자
+  * @param nickname
+  * @param teamName
+  */
 
-	/**
-	 * @return the voteId
-	 */
-	public int getVoteId() {
-		return voteId;
-	}
+ public Vote(String nickname, String teamName) {
+  super();
+  this.nickname = nickname;
+  this.teamName = teamName;
+ }
 
-	/**
-	 * @param voteId the voteId to set
-	 */
-	public void setVoteId(int voteId) {
-		this.voteId = voteId;
-	}
+ /**
+  * @return the voteId
+  */
+ public int getVoteId() {
+  return voteId;
+ }
 
-	/**
-	 * @return the nickname
-	 */
-	public String getNickname() {
-		return nickname;
-	}
+ /**
+  * @param voteId the voteId to set
+  */
+ public void setVoteId(int voteId) {
+  this.voteId = voteId;
+ }
 
-	/**
-	 * @param nickname the nickname to set
-	 */
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
+ /**
+  * @return the nickname
+  */
+ public String getNickname() {
+  return nickname;
+ }
 
-	/**
-	 * @return the teamName
-	 */
-	public String getTeamName() {
-		return teamName;
-	}
+ /**
+  * @param nickname the nickname to set
+  */
+ public void setNickname(String nickname) {
+  this.nickname = nickname;
+ }
 
-	/**
-	 * @param teamName the teamName to set
-	 */
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
+ /**
+  * @return the teamName
+  */
+ public String getTeamName() {
+  return teamName;
+ }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(voteId);
-		builder.append(", ");
-		builder.append(nickname);
-		builder.append(", ");
-		builder.append(teamName);
-		return builder.toString();
-	}
+ /**
+  * @param teamName the teamName to set
+  */
+ public void setTeamName(String teamName) {
+  this.teamName = teamName;
+ }
+
+ /* (non-Javadoc)
+  * @see java.lang.Object#toString()
+  */
+ @Override
+ public String toString() {
+  StringBuilder builder = new StringBuilder();
+  builder.append(voteId);
+  builder.append(", ");
+  builder.append(nickname);
+  builder.append(", ");
+  builder.append(teamName);
+  return builder.toString();
+ }
 }

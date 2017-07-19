@@ -5,7 +5,7 @@
 create table BIAS (
 	bias_id number(4),
 	vote_id number(4) not null,					-- 투표ID
-	bias_name varchar2(30) not null				-- 경향명
+	bias_name varchar2(60) not null				-- 경향명
 );
 
 
@@ -18,5 +18,3 @@ references VOTE(vote_id);
 
 create sequence seq_BIAS
 start with 1 increment by 1 ;
-
-ALTER SEQUENCE seq_BIAS INCREMENT BY 1;

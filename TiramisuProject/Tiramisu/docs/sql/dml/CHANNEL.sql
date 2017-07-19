@@ -23,6 +23,7 @@ values(seq_CHANNEL.NEXTVAL, 'DATA', 'GwangjuMachineLearning');
 
 
 
+
 --error check 
 --
 --channel primary key check : work

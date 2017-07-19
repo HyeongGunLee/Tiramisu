@@ -22,7 +22,6 @@ values('IncheonDeepLearning', '¼º¹Î');
 
 
 
-
 --error check 
 --
 --team_name reference TEAM(team_name) 

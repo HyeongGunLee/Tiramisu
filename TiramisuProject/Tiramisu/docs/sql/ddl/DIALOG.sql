@@ -27,5 +27,3 @@ references FILES(file_id);
 
 create sequence seq_DIALOG
 start with 1 increment by 1 ;
-
-ALTER SEQUENCE seq_DIALOG INCREMENT BY 1;
