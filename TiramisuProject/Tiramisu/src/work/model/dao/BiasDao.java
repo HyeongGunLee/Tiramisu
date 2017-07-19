@@ -41,7 +41,7 @@ public class BiasDao {
 	}
 	
 	public int delete(int biasId) {
-		String sql = "delete bias where bias_id=?";
+		String sql = "delete from bias where bias_id=?";
 		
 		try {
 			conn = getConnection();
