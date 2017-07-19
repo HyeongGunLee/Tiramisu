@@ -22,7 +22,7 @@ public class TeamController extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
-		System.out.println("Debug : Enter TeamController Process");
+		System.out.println("Debug : TeamController Process ¡¯¿‘");
 		switch (action) {
 		case "":
 			break;
