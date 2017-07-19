@@ -1,11 +1,22 @@
 
 
+
+
 insert into IMAGE 
-values(seq_IMAGE.NEXTVAL, 'good.jpg');
+values(seq_IMAGE.NEXTVAL, 'good.jpg'); --태정사진
 
+insert into MEMBER 
+values('user01', 'ps123', '부산대위치는', '부경대', '태정', 1);
 
-insert into FILES 
-values(seq_MESSAGE.NEXTVAL, 'pandas.ppt');
+insert into MEMBER 
+values('user02', 'ps234', '부산대위치는', '동아대', '다영', null);
+
+insert into MEMBER 
+values('user03', 'ps345', '부산대위치는', '부산대', '형건', null);
+
+insert into MEMBER 
+values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);
+
 
 
 insert into TEAM 
@@ -19,21 +30,6 @@ values('GwangjuMachineLearning', '광주머신러닝스터디', 'FALSE');
 
 insert into TEAM 
 values('IncheonDeepLearning', '인천딥러닝스터디', 'FALSE');
-
-
-
-
-insert into MEMBER 
-values('user01', 'ps123', '부산대위치는', '부경대', '태정', 1);
-
-insert into MEMBER 
-values('user02', 'ps234', '부산대위치는', '동아대', '다영', null);
-
-insert into MEMBER 
-values('user03', 'ps345', '부산대위치는', '부산대', '형건', null);
-
-insert into MEMBER 
-values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);
 
 
 
@@ -124,11 +120,18 @@ values(seq_DIALOG.NEXTVAL, 2, '파이썬 예습하도록 하죠.', '태정', sysdate, null )
 insert into DIALOG 
 values(seq_DIALOG.NEXTVAL, 3,  '여긴 알릴것만 적으세요','다영', sysdate, null);
 
+insert into FILES 
+values(seq_FILES.NEXTVAL, 'pandas.ppt');			
+
 insert into DIALOG
 values(seq_DIALOG.NEXTVAL, 4, '자료입니다.', '형건', sysdate, 1);
 
 
+insert into LIKES 
+values(1, '태정');
 
+insert into LIKES 
+values(4, '형건');
 
 
 
@@ -163,6 +166,7 @@ values('태정', 1, '좋습니다.');
 
 insert into OPINION 
 values('다영', 2, '물론이죠');
+
 
 
 

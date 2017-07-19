@@ -18,3 +18,4 @@ references MEMBER(nickname);
 
 alter table LIKES 
 add constraint PK_LIKES_PK primary key (dialog_id, liker);
+

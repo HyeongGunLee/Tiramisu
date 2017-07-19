@@ -28,7 +28,6 @@ values(seq_MESSAGE.NEXTVAL, '센세~', '다영', SYSDATE, '태정', 'FALSE');
 
 
 
-
 --error check
 --id 유니크 체크용 : work
 --insert into MESSAGE 

@@ -9,6 +9,5 @@ values(seq_MESSAGE.NEXTVAL, 'pandas.ppt');
 
 error check
 
-
 insert into FILES 
-values(seq_MESSAGE.NEXTVAL, 'pandas.ppt');
+values(seq_FILES.NEXTVAL, 'pandas.ppt');	

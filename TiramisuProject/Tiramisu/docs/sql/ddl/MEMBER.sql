@@ -10,6 +10,7 @@ create table MEMBER (
 	image_path number(4)	         	-- »çÁø¸í
 );
 
+
 alter table MEMBER 
 add constraint PK_MEMBER_MEMBER_ID primary key (member_id);
 
@@ -17,6 +18,6 @@ alter table MEMBER
 add constraint UK_MEMBER_NICKNAME unique (nickname);
 
 alter table MEMBER 
-add constraint FK_MEMBER_IMAGE foreign key (image)
+add constraint FK_MEMBER_IMAGE_PATH foreign key (image_path)
 references IMAGE(image_id); 
 

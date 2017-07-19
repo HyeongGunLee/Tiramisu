@@ -5,10 +5,10 @@
  */
 
 insert into LIKES 
-values(11, '태정');
+values(1, '태정');
 
 insert into LIKES 
-values(15, '형건');
+values(4, '형건');
 
 
 

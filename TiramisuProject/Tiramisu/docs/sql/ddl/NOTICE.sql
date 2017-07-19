@@ -22,3 +22,5 @@ references MEMBER(nickname);
 
 create sequence seq_NOTICE
 start with 1 increment by 1 ;
+
+ALTER SEQUENCE seq_NOTICE INCREMENT BY 1;

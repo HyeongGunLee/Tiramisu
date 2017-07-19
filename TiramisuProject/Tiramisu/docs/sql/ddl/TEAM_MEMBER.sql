@@ -17,3 +17,4 @@ references MEMBER(nickname);
 
 alter table TEAM_MEMBER 
 add constraint PK_TEAM_PK primary key (team_name, nickname);
+

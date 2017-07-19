@@ -16,3 +16,5 @@ references TEAM(team_name);
 
 create sequence seq_VOTE
 start with 1 increment by 1 ;
+
+ALTER SEQUENCE seq_VOTE INCREMENT BY 1;

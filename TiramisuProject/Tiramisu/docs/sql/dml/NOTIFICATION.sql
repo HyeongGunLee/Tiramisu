@@ -20,7 +20,6 @@ insert into NOTIFICATION
 values(seq_NOTIFICATION.NEXTVAL, 'IncheonDeepLearning', sysdate, '성민', '인천딥러닝스터디팀에 새글이 작성되었습니다.');
 
 
-
 --오류 체크
  
 --id 유니크 체크용 : work

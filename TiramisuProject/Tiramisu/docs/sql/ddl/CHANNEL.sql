@@ -17,3 +17,5 @@ references TEAM(team_name);
 
 create sequence seq_CHANNEL
 start with 1 increment by 1 ;
+
+ALTER SEQUENCE seq_CHANNEL INCREMENT BY 1;
