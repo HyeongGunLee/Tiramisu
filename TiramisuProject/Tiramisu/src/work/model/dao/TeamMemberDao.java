@@ -39,6 +39,26 @@ public class TeamMemberDao {
 		return 0;
 	}
 	
+	
+	public int insert(String teamName, String nickname) {
+		String sql = "insert into team_member values(?,?)";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, teamName);
+			pstmt.setString(2, nickname);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(TeamMember Insert Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
+	
 	public int delete(String teamName, String nickName) {
 		String sql = "delete team_member where team_name=? and nickname=?";
 		
