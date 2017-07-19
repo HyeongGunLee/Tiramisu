@@ -38,8 +38,7 @@ public class MemberDao {
 			pstmt.setString(3, dto.getQuestion());
 			pstmt.setString(4, dto.getAnswer());
 			pstmt.setString(5, dto.getNickname());
-			pstmt.setInt(6, dto.getImagePath());
-			
+			pstmt.setString(6, dto.getImage());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,9 +82,9 @@ public class MemberDao {
 				String question = rs.getString("question");
 				String answer = rs.getString("answer");
 				String nickname = rs.getString("nickname");
-				int imagePath = rs.getInt("image_path");
+				String image = rs.getString("image");
 				
-				return new Member(memberId, memberPw, question, answer, nickname, imagePath);	
+				return new Member(memberId, memberPw, question, answer, nickname, image);	
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,9 +111,9 @@ public class MemberDao {
 				String question = rs.getString("question");
 				String answer = rs.getString("answer");
 				String nickname = rs.getString("nickname");
-				int imagePath = rs.getInt("image_path");
+				String image = rs.getString("image");
 				
-				dto = new Member(memberId, memberPw, question, answer, nickname, imagePath);
+				dto = new Member(memberId, memberPw, question, answer, nickname, image);
 				list.add(dto);	
 			}
 			
@@ -130,7 +129,7 @@ public class MemberDao {
 	public int update(Member dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update MEMBER set ");
-		sql.append("member_pw=?, question=?, answer=?, nickname=?, image_path=? ");
+		sql.append("member_pw=?, question=?, answer=?, nickname=?, image=? ");
 		sql.append("where member_id=?");
 		
 		try {
@@ -140,7 +139,7 @@ public class MemberDao {
 			pstmt.setString(2, dto.getQuestion());
 			pstmt.setString(3, dto.getAnswer());
 			pstmt.setString(4, dto.getNickname());
-			pstmt.setInt(5, dto.getImagePath());
+			pstmt.setString(5, dto.getImage());
 			pstmt.setString(6, dto.getMemberId());
 			
 			return pstmt.executeUpdate();
