@@ -9,7 +9,7 @@ create table MEMBER (
 	question varchar2(60) not null, 	-- 질문 
 	answer varchar2(60) not null,  		-- 답변
 	nickname varchar2(60) not null,		-- 닉네임
-	image_path varchar2(60)	         	-- 사진명
+	image varchar2(60)	         	-- 사진명
 );
 
 
@@ -55,7 +55,6 @@ create table TEAM_MEMBER (
 
 
 create table CHANNEL (	
-	channel_id number(4),
 	channel_name varchar2(60) not null, 	-- 채널명
 	team_name varchar2(60) not null			-- 팀명
 );
@@ -63,7 +62,8 @@ create table CHANNEL (
 
 create table DIALOG (
 	dialog_id number(4),						-- ID
-	channel_id number(4) not null,				-- 채널ID
+	channel_name varchar2(60) not null, 		-- 채널명
+	team_name varchar2(60) not null,			-- 채널ID
 	content varchar2(900) not null,				-- 내용
 	writer varchar2(60) not null,				-- 작성자
 	write_date DATE not null,					-- 작성일

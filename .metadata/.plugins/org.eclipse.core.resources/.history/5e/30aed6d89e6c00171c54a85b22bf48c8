@@ -1,0 +1,155 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<!--header start here-->
+<div class="header-main">
+	<div class="header-left">	
+		<div class="search-box" style="border-color:#53270E">
+			<form action="#°Ë»öÃ³¸®">
+				<input type="text" placeholder="Ã¤ÆÃ ¹æ ³» °Ë»ö..." required="">	
+				<input type="submit" value="">					
+			</form>
+		</div>
+	
+	
+		<div class="clearfix"></div>
+	</div>
+	<div class="header-right">
+		<div class="profile_details_left">
+			<!--notifications of menu start -->
+			<ul class="nofitications-dropdown">
+				<li class="dropdown head-dpdn"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					aria-expanded="false"><i class="fa fa-envelope"></i><span
+						class="badge">N</span></a>
+					<ul class="dropdown-menu">
+						<li>
+							<div class="notification_header">
+								<h3>N°³ÀÇ »õ·Î¿î ¸Þ½ÃÁö°¡ ¿Ô½À´Ï´Ù</h3>
+							</div>
+						</li>
+						<li><a href="#">
+								<div class="user_img">
+									<img src="images/basic_user.png" alt="">
+								</div>
+								<div class="notification_desc">
+									<p>°¡Ã÷µ¿ ¸ÔÀ»·¡?</p>
+									<p>
+										<span><b>ÀÌ¼º¹Î</b> | 07-17 09:45</span>
+									</p>
+								</div>
+								<div class="clearfix"></div>
+						</a></li>
+						<li class="odd"><a href="#">
+								<div class="user_img">
+									<img src="images/basic_user.png" alt="">
+								</div>
+								<div class="notification_desc">
+									<p>ºÎ¹ÎÄ·ÆÛ½º¿¡¼­ ÇÏ½Ã´Â...</p>
+									<p>
+										<span><b>ÀÌÇü°Ç</b> | 07-17 09:45</span>
+									</p>
+								</div>
+								<div class="clearfix"></div>
+						</a></li>
+						<li><a href="#">
+								<div class="user_img">
+									<img src="images/basic_user.png" alt="">
+								</div>
+								<div class="notification_desc">
+									<p>¹ÎÆ®ÃÊÄÚ°¡ ÃÖ°í¾ß</p>
+									<p>
+										<span><b>±èÅÂÁ¤</b> | 07-17 09:45</span>
+									</p>
+								</div>
+								<div class="clearfix"></div>
+						</a></li>
+						<li>
+							<div class="notification_bottom">
+								<a href="#">See all messages</a>
+							</div>
+						</li>
+					</ul></li>
+				<li class="dropdown head-dpdn"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					aria-expanded="false"><i class="fa fa-bell"></i><span
+						class="badge blue">N</span></a>
+					<ul class="dropdown-menu">
+						<li>
+							<div class="notification_header">
+								<h3>N°³ÀÇ »õ·Î¿î ¾Ë¶÷ÀÌ ¿Ô½À´Ï´Ù</h3>
+							</div>
+						</li>
+						<li><a href="#">
+								<div class="notification_desc">
+									<p>»õ·Î¿î ÅõÇ¥°¡ µî·ÏµÇ¾ú½À´Ï´Ù</p>
+									<p>
+										<span>07-17 09:45
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>BigdataÇÁ·ÎÁ§Æ®</b>
+										</span>
+									</p>
+								</div>
+								<div class="clearfix"></div>
+						</a></li>
+						<li class="odd"><a href="#">
+								<div class="notification_desc">
+									<p>»õ·Î¿î °øÁö°¡ µî·ÏµÇ¾ú½À´Ï´Ù</p>
+									<p>
+										<span>07-16 18:40
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>JAVA½ºÅÍµð</b>
+										</span>
+									</p>
+								</div>
+								<div class="clearfix"></div>
+						</a></li>
+						<li><a href="#">
+								<div class="notification_desc">
+									<p>Âü¿©À² ²Ãµî! ºÐ¹ßÇÏ¼¼¿ä!</p>
+									<p>
+										<span>07-16 11:12
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<b>º¸½ÓºÎ¼­</b>
+										</span>
+									</p>
+								</div>
+								<div class="clearfix"></div>
+						</a></li>
+						<li>
+							<div class="notification_bottom">
+								<a href="#">See all notifications</a>
+							</div>
+						</li>
+					</ul></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!--notification menu end -->
+		<div class="profile_details">
+			<ul>
+				<li class="dropdown profile_details_drop"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					aria-expanded="false">
+						<div class="profile_img">
+							<span class="prfil-img"><img src="images/basic_user.png"
+								alt="" style="width: 50px; height: 50px;"> </span>
+							<div class="user-name">
+								<p>º¯´Ù¿µ</p>
+								<span>yeong@gmail.com</span>
+							</div>
+							<i class="fa fa-angle-down lnr"></i> <i
+								class="fa fa-angle-up lnr"></i>
+							<div class="clearfix"></div>
+						</div>
+				</a>
+					<ul class="dropdown-menu drp-mnu">
+						<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+						<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+						<li><a href="FrontController?action=logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<!--heder end here-->

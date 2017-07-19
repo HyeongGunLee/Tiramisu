@@ -12,7 +12,7 @@ add constraint PK_VOTE_VOTE_ID primary key (vote_id);
 
 alter table VOTE 
 add constraint FK_VOTE_TEAM_NAME foreign key (team_name)
-references TEAM(team_name);
+references TEAM(team_name) ON DELETE CASCADE;
 
 create sequence seq_VOTE
 start with 1 increment by 1 ;

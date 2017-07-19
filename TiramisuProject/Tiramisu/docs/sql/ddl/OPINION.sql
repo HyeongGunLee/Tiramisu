@@ -10,11 +10,11 @@ create table OPINION (
 
 alter table OPINION 
 add constraint FK_OPINION_NICKNAME foreign key (nickname)
-references MEMBER(nickname);
+references MEMBER(nickname) ON DELETE CASCADE;
 
 alter table OPINION 
 add constraint FK_OPINION_BIAS_ID foreign key (bias_id)
-references BIAS(bias_id);
+references BIAS(bias_id) ON DELETE CASCADE;
 
 alter table OPINION 
 add constraint PK_OPINION_PK primary key (nickname, bias_id);

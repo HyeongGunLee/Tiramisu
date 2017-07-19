@@ -10,11 +10,11 @@ create table LIKES (
 
 alter table LIKES 
 add constraint FK_LIKES_DIALOG_ID foreign key (dialog_id)
-references DIALOG(dialog_id);
+references DIALOG(dialog_id) ON DELETE CASCADE;
 
 alter table LIKES 
 add constraint FK_LIKES_LIKER foreign key (liker)
-references MEMBER(nickname);
+references MEMBER(nickname) ON DELETE CASCADE;
 
 alter table LIKES 
 add constraint PK_LIKES_PK primary key (dialog_id, liker);

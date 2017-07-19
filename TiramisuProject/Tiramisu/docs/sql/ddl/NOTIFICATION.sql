@@ -14,7 +14,7 @@ add constraint PK_NOTIFICATION_ID primary key (notification_id);
 
 alter table NOTIFICATION 
 add constraint FK_NOTIFICATION_TEAM_NAME foreign key (team_name)
-references TEAM(team_name); 
+references TEAM(team_name) ON DELETE CASCADE; 
 
 
 create sequence seq_NOTIFICATION 

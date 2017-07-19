@@ -24,16 +24,16 @@ values('IncheonDeepLearning', '인천딥러닝스터디', 'FALSE');
 
 
 insert into MEMBER 
-values('user01', 'ps123', '부산대위치는', '부경대', '태정', 1);
+values('user01@naver.com', 'ps123', '부산대위치는', '부경대', '태정', 1);
 
 insert into MEMBER 
-values('user02', 'ps234', '부산대위치는', '동아대', '다영', null);
+values('user02@daum.com', 'ps234', '부산대위치는', '동아대', '다영', null);
 
 insert into MEMBER 
-values('user03', 'ps345', '부산대위치는', '부산대', '형건', null);
+values('user03@gmail.com', 'ps345', '부산대위치는', '부산대', '형건', null);
 
 insert into MEMBER 
-values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);
+values('user04@facebook.com', 'ps345', '부산대위치는', '해양대', '성민', null);
 
 
 
@@ -100,16 +100,16 @@ values('IncheonDeepLearning', '성민');
 
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'DATA', 'BusanBigData');
+values('DATA', 'BusanBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'INFORMATION', 'BusanBigData');
+values('INFORMATION', 'BusanBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'NOTICE', 'SeoulBigData');
+values('NOTICE', 'SeoulBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'DATA', 'GwangjuMachineLearning');
+values('DATA', 'GwangjuMachineLearning');
 
 
 
