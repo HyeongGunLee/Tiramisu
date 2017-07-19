@@ -116,7 +116,6 @@ public class TeamMemberDao {
 				teamName = rs.getString("team_name");
 				list.add(teamName);
 			}
-			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Debug(TeamMember selectTeamList Error: " + e.getMessage());

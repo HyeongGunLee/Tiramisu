@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=euc-kr"
 	pageEncoding="euc-kr"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta charset="euc-kr">
 <%
 	request.setCharacterEncoding("utf-8");
@@ -11,6 +12,8 @@
 	<ul>
 		<li><a href="chatting.html"><img src="images/chat.png"
 				style="width: 19px; height: 19px;"> General chat</a></li>
+		<c:forEach var="no" begin="0" end="${teamArray.size()}" step="1" items="${teamArray}">
+		</c:forEach>
 		<li><a href="#"><img src="images/files.png"
 				style="width: 17px; height: 17px;"> data file</a></li>
 		<li><a href="#"><img src="images/chart.png"

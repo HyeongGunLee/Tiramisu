@@ -28,3 +28,6 @@ drop sequence seq_notification;
 drop sequence seq_vote;
 
 select * from member;
+select * from team;
+select * from team_member;
+select * from channel;
