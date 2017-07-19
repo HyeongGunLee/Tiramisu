@@ -29,7 +29,7 @@ public class VoteDao {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getNickname());
+			pstmt.setString(1, dto.getVoteName());
 			pstmt.setString(2, dto.getTeamName());
 			
 			return pstmt.executeUpdate();
@@ -97,10 +97,10 @@ public class VoteDao {
 			
 			while(rs.next()) {
 				int voteId = rs.getInt("vote_id");
-				String nickname = rs.getString("nickname");
+				String voteName = rs.getString("voteName");
 				String teamName = rs.getString("team_name");
 				
-				dto = new Vote(voteId, nickname, teamName);
+				dto = new Vote(voteId, voteName, teamName);
 				list.add(dto);	
 			}
 			
@@ -116,13 +116,13 @@ public class VoteDao {
 	public int update(Vote dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update vote set ");
-		sql.append("nickname=?, team_name=? ");
+		sql.append("vote_name=?, team_name=? ");
 		sql.append("where vote_id=?");
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
-			pstmt.setString(1, dto.getNickname());
+			pstmt.setString(1, dto.getVoteName());
 			pstmt.setString(2, dto.getTeamName());
 			pstmt.setInt(3, dto.getVoteId());
 			

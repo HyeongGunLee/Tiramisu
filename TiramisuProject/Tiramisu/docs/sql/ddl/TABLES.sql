@@ -9,7 +9,7 @@ create table MEMBER (
 	question varchar2(60) not null, 	-- 질문 
 	answer varchar2(60) not null,  		-- 답변
 	nickname varchar2(60) not null,		-- 닉네임
-	image_path varchar2(60)	         	-- 사진명
+	image varchar2(60)	       		  	-- 사진명
 );
 
 
@@ -91,7 +91,7 @@ create table IMAGE (
 
 create table VOTE (
 	vote_id number(4),				-- ID
-	nickname varchar2(60) not null,		-- 투표명
+	vote_name varchar2(60) not null,		-- 투표명
 	team_name varchar2(60) not null		-- 팀명
 );
 

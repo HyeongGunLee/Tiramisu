@@ -13,7 +13,7 @@ public class Vote {
  
  private int voteId; 
  
- private String nickname; //투표명
+ private String voteName; //투표명
  
  private String teamName;
 
@@ -30,22 +30,22 @@ public class Vote {
   * @param nickname
   * @param teamName
   */
- public Vote(int voteId, String nickname, String teamName) {
+ public Vote(int voteId, String voteName, String teamName) {
   super();
   this.voteId = voteId;
-  this.nickname = nickname;
+  this.voteName = voteName;
   this.teamName = teamName;
  }
  
  /**
   * 시퀀스 생성자
-  * @param nickname
+  * @param voteName
   * @param teamName
   */
 
- public Vote(String nickname, String teamName) {
+ public Vote(String voteName, String teamName) {
   super();
-  this.nickname = nickname;
+  this.voteName = voteName;
   this.teamName = teamName;
  }
 
@@ -66,15 +66,15 @@ public class Vote {
  /**
   * @return the nickname
   */
- public String getNickname() {
-  return nickname;
+ public String getVoteName() {
+  return voteName;
  }
 
  /**
   * @param nickname the nickname to set
   */
- public void setNickname(String nickname) {
-  this.nickname = nickname;
+ public void setVoteName(String voteName) {
+  this.voteName = voteName;
  }
 
  /**
@@ -99,7 +99,7 @@ public class Vote {
   StringBuilder builder = new StringBuilder();
   builder.append(voteId);
   builder.append(", ");
-  builder.append(nickname);
+  builder.append(voteName);
   builder.append(", ");
   builder.append(teamName);
   return builder.toString();

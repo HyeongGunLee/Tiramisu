@@ -2,9 +2,9 @@
  * 투표
  */
 create table VOTE (
-	vote_id number(4),				-- ID
-	nickname varchar2(60) not null,		-- 투표명
-	team_name varchar2(60) not null		-- 팀명
+	vote_id number(4),						-- ID
+	vote_name varchar2(60) not null,		-- 투표명
+	team_name varchar2(60) not null			-- 팀명
 );
 
 alter table VOTE 

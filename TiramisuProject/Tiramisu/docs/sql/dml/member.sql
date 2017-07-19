@@ -3,7 +3,7 @@
 */
 
 insert into MEMBER 
-values('user01', 'ps123', '부산대위치는', '부경대', '태정', 1);
+values('user01', 'ps123', '부산대위치는', '부경대', '태정', 'good.jpg');
 
 insert into MEMBER 
 values('user02', 'ps234', '부산대위치는', '동아대', '다영', null);

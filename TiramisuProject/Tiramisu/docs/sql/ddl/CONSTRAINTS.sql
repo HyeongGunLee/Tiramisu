@@ -19,8 +19,9 @@ alter table MEMBER
 add constraint UK_MEMBER_NICKNAME unique (nickname);
 
 alter table MEMBER 
-add constraint FK_MEMBER_IMAGE foreign key (image_path)
-references IMAGE(image_id); 
+add constraint FK_MEMBER_IMAGE foreign key (image)
+references IMAGE(file_name); 
+
 
 
 
