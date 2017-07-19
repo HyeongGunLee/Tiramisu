@@ -23,15 +23,16 @@ public class DialogDao {
 	}
 	
 	public int insert(Dialog dto) {
-		String sql = "insert into dialog values(seq_dialog.nextval,?,?,?,sysdate,?)";
+		String sql = "insert into dialog values(seq_dialog.nextval,?,?,?,?,sysdate,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getChannelId());
-			pstmt.setString(2, dto.getContent());
-			pstmt.setString(3, dto.getWriter());
-			pstmt.setInt(4, dto.getFileId());
+			pstmt.setString(1, dto.getChannelName());
+			pstmt.setString(2, dto.getTeamName());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4, dto.getWriter());
+			pstmt.setInt(5, dto.getFileId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -73,13 +74,14 @@ public class DialogDao {
 			
 			while(rs.next()) {
 				dialogId = rs.getInt("dialog_id");
-				int channelId = rs.getInt("channel_id");
+				String channelName = rs.getString("channel_name");
+				String teamName = rs.getString("team_name");
 				String content = rs.getString("content");
 				String writer = rs.getString("writer");
 				String writeDate = rs.getString("write_date");
 				int fileId = rs.getInt("file_id");
 				
-				return new Dialog(dialogId, channelId, content, writer, writeDate, fileId); 	
+				return new Dialog(dialogId, channelName, teamName, content, writer, writeDate, fileId); 	
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,13 +104,14 @@ public class DialogDao {
 			
 			if(rs.next()) {
 				int dialogId = rs.getInt("dialog_id");
-				int channelId = rs.getInt("channel_id");
+				String channelName = rs.getString("channel_name");
+				String teamName = rs.getString("team_name");
 				String content = rs.getString("content");
 				writer = rs.getString("writer");
 				writeDate = rs.getString("write_date");
 				int fileId = rs.getInt("file_id");
 				
-				return new Dialog(dialogId, channelId, content, writer, writeDate, fileId); 	
+				return new Dialog(dialogId, channelName, teamName, content, writer, writeDate, fileId); 	
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -130,13 +133,14 @@ public class DialogDao {
 			
 			while(rs.next()) {
 				int dialogId = rs.getInt("dialog_id");
-				int channelId = rs.getInt("channel_id");
+				String channelName = rs.getString("channel_name");
+				String teamName = rs.getString("team_name");
 				String content = rs.getString("content");
 				String writer = rs.getString("writer");
 				String writeDate = rs.getString("write_date");
 				int fileId = rs.getInt("file_id");
 				
-				dto = new Dialog(dialogId, channelId, content, writer, writeDate, fileId);
+				dto = new Dialog(dialogId, channelName, teamName, content, writer, writeDate, fileId);
 				list.add(dto);	
 			}
 			
@@ -152,17 +156,18 @@ public class DialogDao {
 	public int update(Dialog dto) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("update dialog set ");
-		sql.append("channel_id=?, content=?, writer=?, write_date=sysdate, file_id=?");
+		sql.append("channel_name=?, team_name=?, content=?, writer=?, write_date=sysdate, file_id=?");
 		sql.append("where dialog_id=?");
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
-			pstmt.setInt(1, dto.getChannelId());
-			pstmt.setString(2, dto.getContent());
-			pstmt.setString(3, dto.getWriter());
-			pstmt.setInt(4, dto.getFileId());
-			pstmt.setInt(5, dto.getDialogId());
+			pstmt.setString(1, dto.getChannelName());
+			pstmt.setString(2, dto.getTeamName());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4, dto.getWriter());
+			pstmt.setInt(5, dto.getFileId());
+			pstmt.setInt(6, dto.getDialogId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
