@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="utf-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -51,15 +51,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
 			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
-			System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
-				if (isLogin) {%>
-					$(document).ready(function() {$("#header-frame").load("header-login-frame.html");});
-					$(document).ready(function() {$("#body-frame").load("body-default-frame.jsp");});
-			  <%} else {%>
-					$(document).ready(function() {$("#header-frame").load("header-logout-frame.html");});
-					$(document).ready(function() {$("#body-frame").load("body-default-frame.jsp");});
-		 	 <%}%>
-$(document).ready(function() { $("#left-frame").load("left-frame.jsp");});
+			if (isLogin) {%>
+	$(document).ready(function() {
+		$("#header-frame").load("header-login-frame.html");
+	});
+<%} else {%>
+	$(document).ready(function() {
+		$("#header-frame").load("header-logout-frame.html");
+	});
+<%}%>
+	$(document).ready(function() {
+		$("#left-frame").load("left-frame.jsp");
+	});
+	$(document).ready(function() {
+		$("#body-frame").load("body-chatting-frame.html");
+	});
 </script>
 <!--geo chart-->
 
@@ -73,6 +79,8 @@ $(document).ready(function() { $("#left-frame").load("left-frame.jsp");});
 			<div class="mother-grid-inner">
 				<div id="header-frame"></div>
 				<!-- <div id="header-login-frame"></div> -->
+				
+				
 				<!-- script-for sticky-nav -->
 				<script>
 					$(document).ready(function() {
@@ -89,12 +97,10 @@ $(document).ready(function() { $("#left-frame").load("left-frame.jsp");});
 					});
 				</script>
 				<!-- /script-for sticky-nav -->
+				
+				
 				<!--inner block start here-->
-
-				<div id="body-frame">
-					<!--main-->
-				</div>
-
+				<div id="body-frame" style="width: 100%"></div>
 				<!--inner block end here-->
 				<!--copy rights start here-->
 				<div class="copyrights">
@@ -120,4 +126,3 @@ $(document).ready(function() { $("#left-frame").load("left-frame.jsp");});
 	<!-- mother grid end here-->
 </body>
 </html>
-

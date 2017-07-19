@@ -11,14 +11,21 @@
 		<!-- Popup Div Starts Here -->
 		<div id="popupContact">
 			<!-- Contact Us Form -->
-			<form action="#" id="form" method="post" name="form">
+			<form action="#의견처리" id="form" method="post" name="form">
 				<img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()">
-				<h2>Pop Name </h2>
+				<h2>의견을 작성해주세요! </h2>
 				<hr>
-				<input id="name" name="name" placeholder="Name" type="text">
-				<input id="email" name="email" placeholder="Email" type="text">
-				<textarea id="msg" name="message" placeholder="Message"></textarea>
-				<a href="javascript:%20check_empty()" id="submit">Send</a><!-- 비었는지 체크함 -->
+				<input id="name" name="name" type="text" value="변다영" readonly>
+				<select id="bias" name="bias"
+				style="width:82%;padding:10px;margin-top:30px;border:1px solid #ccc;
+				padding-left:40px;font-size:16px;font-family:raleway">
+					<option value="">선택해주세요</option>
+					<option value="보쌈">보쌈</option>
+					<option value="닭발">닭발</option>
+					<option value="피자">피자</option>
+				</select>
+				<textarea id="opinion" name="opinion" placeholder="Please tell me your voice!"></textarea>
+				<a href="javascript:%20check_empty()" id="submit">Send</a><!-- 비었는지 체크하면서 보냄 -->
 			</form>
 		</div>
 		<!-- Popup Div Ends Here -->

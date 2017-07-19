@@ -1,9 +1,9 @@
 function check_empty() {
-if (document.getElementById('name').value == "" || document.getElementById('email').value == "" || document.getElementById('msg').value == "") {
-alert("Fill All Fields !");
+if (document.getElementById('name').value == "" || document.getElementById('bias').value == "" || document.getElementById('opinion').value == "") {
+alert("빈 칸을 채워주세요! !");
 } else {
 document.getElementById('form').submit();
-alert("Form Submitted Successfully...");
+alert("의견이 성공적으로 작성되었습니다!");
 }
 }
 //Function To Display Popup

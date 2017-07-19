@@ -65,7 +65,7 @@ background-image:url(../images/name.jpg);
 background-repeat:no-repeat;
 background-position:5px 7px
 }
-#email {
+#email, #bias {
 background-image:url(../images/email.png);
 background-repeat:no-repeat;
 background-position:5px 7px

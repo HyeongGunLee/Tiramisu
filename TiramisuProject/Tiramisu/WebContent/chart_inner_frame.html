@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>차트 테스트</title>
+<!-- 채팅 소스 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/chatting.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- 채팅 소스 ENd -->
+
+<!-- 팝업 소스 -->
+<link href="css/popup.css" rel="stylesheet">
+<script src="js/popup.js"></script>
+<!-- 팝업 소스 END -->
+
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);//도넛차트 
+    google.charts.setOnLoadCallback(drawSeriesChart);//버블차트
+    
+    
+    function drawChart() { //도넛차트 Start
+        var data = google.visualization.arrayToDataTable([
+          ['Task', '투표수'],
+          ['보쌈',    15],
+          ['닭발',    7],
+          ['피자',  3]
+        ]);
+
+        var options = {
+          title: '프로젝트 후 회식을 어디서?',
+          pieHole: 0.4,
+          fontSize : 15
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }//도넛차트 End
+    
+    function drawSeriesChart() { //버블차트 Start
+
+        var data = google.visualization.arrayToDataTable([
+          ['Nickname', 'x축', 'y축', 		'버블색깔',        '버블크기'],
+          ['김태정',    92.11,   1.67,    '컴퓨터공학',  		33073],
+          ['변다영',    85.05,   1.36,    '경영정보학',       40190],
+          ['이성민',    60.60,   1.84,     '데이터학',       55230],
+          ['이형건',    55.42,   2.78,     '컴퓨터공학',  	24716]
+        ]);
+
+        var options = {
+          title: '보쌈부서의 '+ '팀원 별 기여도/참여도',
+          fontSize : 18,
+          /* titleTextStyle : { fontsize : 30}, */
+          hAxis: {title: 'x축'},
+          vAxis: {title: 'y축'},
+          bubble: {textStyle: {fontSize: 15}}
+          };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+        chart.draw(data, options);
+      }//버블차트 END
+      
+      
+      </script>
+</head>
+<body>
+	<!-- //Div that will hold the pie chart -->
+	<table style="background-color:white">
+		<tr>
+			<td><div id="donutchart" style="width: 750px; height: 380px;"></div></td>
+			<td>
+				<div style="overflow-y:scroll; height:380px;"> 
+				<div  class="chat-message" style="background-color:white">
+					<ul class="chat"  >
+					<li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">보쌈</strong>
+                    			<strong class="primary-font" style="font-size:18px">변다영</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;7</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			보쌈은 동맥경화증, 고혈압 등의 성인병을 막는 효능을 하기 때문에 저는 회식을 갈비로 하는 것에 반대합니다
+                    		</p>
+                    	</div>
+                    </li>
+                    <li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">닭발</strong>
+                    			<strong class="primary-font" style="font-size:18px">이형건</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;6</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			수영에 개존맛 닭발이 있어요 
+                    		</p>
+                    	</div>
+                    </li>
+                    <li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">닭발</strong>
+                    			<strong class="primary-font" style="font-size:18px">이성민</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;3</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			닭발이 다이어트에 도움이 됩니다.
+                    		</p>
+                    	</div>
+                    </li>
+                    <li class="left clearfix" >
+                        <div class="chat-body clearfix"  style="margin-left: 0px; ">
+                    		<div class="header">
+                    		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">피자</strong>
+                    			<strong class="primary-font" style="font-size:18px">김태정</strong>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;0</b></strong>
+                    			<small class="pull-right text-muted">
+                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
+                    			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
+                    		</div>
+                    		<p style="font-size:15px">
+                    			피자...피자가 좋아
+                    		</p>
+                    	</div>
+                    </li>
+					</ul>
+				</div>
+				</div>
+			</td>
+		</tr>
+	 	<tr><td><div id="series_chart_div" style="width: 900px; height: 500px;"></div></td></tr>
+	</table>
+
+
+
+</body>
+</html>
+
+
