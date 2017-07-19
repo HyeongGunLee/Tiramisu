@@ -90,6 +90,35 @@ public class DialogDao {
 		return null;
 	}
 	
+	public Dialog selectOne(String writer, String writeDate) {
+		String sql = "select * from dialog where writer=? and write_date=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, writer);
+			pstmt.setString(2, writeDate);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				int dialogId = rs.getInt("dialog_id");
+				int channelId = rs.getInt("channel_id");
+				String content = rs.getString("content");
+				writer = rs.getString("writer");
+				writeDate = rs.getString("write_date");
+				int fileId = rs.getInt("file_id");
+				
+				return new Dialog(dialogId, channelId, content, writer, writeDate, fileId); 	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(Dialog SelectOne Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return null;
+	}
+	
 	public ArrayList<Dialog> selectAll() {
 		ArrayList<Dialog> list = new ArrayList<Dialog>();
 		String sql = "select * from dialog";
