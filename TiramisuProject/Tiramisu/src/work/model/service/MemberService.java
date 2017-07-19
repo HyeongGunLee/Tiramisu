@@ -67,4 +67,8 @@ public class MemberService {
 		tmp.add("보쌈 부서");
 		return tmp;
 	}
+
+	public String memberIdToNickname(String memberId) {
+		return "변다영";
+	}
 }

@@ -136,6 +136,7 @@ public class MemberController extends HttpServlet {
 				sess.setAttribute("memberId", memberId);
 				sess.setAttribute("isLogin", isLogin);
 				sess.setAttribute("teamArray", service.memberHaveTeam(memberId));
+				sess.setAttribute("nickname", service.memberIdToNickname(memberId));
 				System.out.println("Debug : 濡�洹몄�� �깃났");
 				System.out.println("Debug : sess.isNew() : " + sess.isNew());
 				System.out.println("Debug : sess.getId() : " + sess.getId());
@@ -157,6 +158,8 @@ public class MemberController extends HttpServlet {
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			session.removeAttribute("memberId");
 			session.removeAttribute("isLogin");
+			session.removeAttribute("nickname");
+			session.removeAttribute("teamArray");
 			session.invalidate();
 			response.sendRedirect("index.jsp");
 			System.out.println("Debug : 濡�洹몄���� �깃났");

@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
 			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
+			System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
 			if (isLogin) {%>
 	$(document).ready(function() {
 		$("#header-frame").load("header-login-frame.html");

@@ -5,6 +5,78 @@
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript">
+	var textarea = document.getElementById("chat");
+	var webSocket = new WebSocket('ws://localhost:8070/Tiramisu/broadcasting');
+	var inputMessage = document.getElementById('dialogInput');
+	var nickname = null;
+	var time = null;
+	var content = null;
+	webSocket.onerror = function(event) {
+		onError(event)
+	};
+	webSocket.onopen = function(event) {
+		onOpen(event)
+	};
+	webSocket.onmessage = function(event) {
+		onMessage(event)
+	};
+	function onMessage(event) {
+		var recMessage = event.data;
+		console.log(recMessage);
+		recMessage = recMessage.split('`');
+		console.log(recMessage[0]);
+		console.log(recMessage[1]);
+		console.log(recMessage[2]);
+		textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
+			<img src="images/tirami.PNG" alt="User Avatar">\
+		</span>\
+			<div class="chat-body clearfix">\
+				<div class="header">\
+					<strong class="primary-font">'+ recMessage[0] +'</strong> <small\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+
+						+ recMessage[1] +'</small>\
+				</div>\
+				<p>'+ recMessage[2] +'</p>\
+			</div></li>';
+		//textarea.value += "상대 : " + event.data + "\n";
+	}
+	function onOpen(event) {
+		console.log("연결 성공\n");
+	}
+	function onError(event) {
+		alert(event.data);
+	}
+	function send() {
+		content = document.getElementById("dialogInput").value;
+		time = new Date();
+		nickname = "<%=session.getAttribute("nickname")%>";
+
+		textarea.innerHTML += '<li class="right clearfix"><span class="chat-img pull-right">\
+			<img src="images/me.jpg" alt="User Avatar">\
+		</span>\
+			<div class="chat-body clearfix">\
+				<div class="header">\
+					<strong class="primary-font">'+ nickname +'</strong> <small\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+
+						+ time +'</small>\
+				</div>\
+				<p>'+ content +'</p>\
+			</div></li>';
+		sendMessage = nickname+"`"+time+"`"+content;
+		webSocket.send(sendMessage);
+		inputMessage.value = "";
+	}
+	/*Debug function*/
+	function dialogSubmit(){
+		content = document.getElementById("dialogInput").value;
+		time = new Date();
+		nickname = "<%=session.getAttribute("nickname")%>";
+		/*document.writeln(content);
+		document.writeln(time);
+		document.writeln(nickname);*/
+	}
+</script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <link
@@ -23,7 +95,7 @@
 		<!-- selected chat -->
 		<div class="col-md-8 bg-white ">
 			<div class="chat-message">
-				<ul class="chat">
+				<ul class="chat" id="chat">
 					<jsp:include page="/chatting-left-clearfix.jsp" flush="false">
 						<jsp:param name="chatNickname" value="이형건"></jsp:param>
 						<jsp:param name="chatTime" value="2017-07-18 AM 05:45"></jsp:param>
@@ -94,9 +166,10 @@
 			<div class="chat-box bg-white">
 				<div class="input-group">
 					<input class="form-control border no-shadow no-rounded"
-						placeholder="Type your message here"> <span
+						placeholder="Type your message here" id="dialogInput"> <span
 						class="input-group-btn">
-						<button class="btn btn-success no-rounded" type="button">Send</button>
+						<button class="btn btn-success no-rounded" type="button"
+							onclick="send()">Send</button>
 					</span>
 				</div>
 				<!-- /input-group -->

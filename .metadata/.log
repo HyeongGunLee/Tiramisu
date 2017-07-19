@@ -1300,3 +1300,15 @@ Binding(ALT+SHIFT+X R,
 
 !ENTRY org.eclipse.jface.text 2 0 2017-07-18 21:52:30.443
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-07-19 09:41:31.997
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-07-19 09:41:32.009
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-07-19 10:22:59.665
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-07-19 10:22:59.666
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
