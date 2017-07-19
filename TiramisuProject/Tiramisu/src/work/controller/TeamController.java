@@ -35,12 +35,20 @@ public class TeamController extends HttpServlet {
 		case "setOpen":
 			setOpen(request, response);
 			break;
+		case "sendMessage":
+			sendMessage(request, response);
+			break;
+		case "opinionManagement":
+			opinionManagement(request, response);
+			break;
+		case "dropTeam" :
+			dropTeam(request, response);
+			break;
 		default:
 			break;
 		}
 	}
 
-	
 	protected void makeTeam(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String teamName = request.getParameter("teamTeamName");
@@ -51,7 +59,7 @@ public class TeamController extends HttpServlet {
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			String nickname = (String) session.getAttribute("nickname");
 			if (service.makeTeam(nickname, teamName, subject, open)) {
-				((ArrayList<String>)session.getAttribute("teamArray")).add(teamName);
+				((ArrayList<String>) session.getAttribute("teamArray")).add(teamName);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			}
@@ -60,17 +68,123 @@ public class TeamController extends HttpServlet {
 			System.out.println("Debug : make team fail");
 		}
 	}
-	
+
 	protected void setOpen(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		Boolean open = service.stringMakeBoolean(request.getParameter("teamOpen"));
-		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null){
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			service.setOpen(open);
 			System.out.println("Debug : make team's open success");
-		}
-		else{
+		} else {
 			System.out.println("Debug : make team's open fail");
+		}
+	}
+
+	protected void sendMessage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String writer = (String) session.getAttribute("memberId");
+			String receiver = request.getParameter("teamMessageReceiver");
+			String content = request.getParameter("teamMessageContent");
+			service.makeMessage(writer, receiver, content);
+		} else {
+			System.out.println("Debug : send fail!");
+		}
+	}
+	protected void dropTeam(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String memberId = (String) session.getAttribute("memberId");
+			String teamName = (String) session.getAttribute("teamName");
+			service.dropTeam(memberId,teamName);
+			System.out.println("Debug : drop team.");
+		}else{
+			System.out.println("Debug : session error to drop team fail.");
+		}
+	}
+
+	protected void opinionManagement(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String sub = request.getParameter("sub");
+			switch (sub) {
+			case "makeOpinion":
+				makeOpinion(request, response);
+				break;
+			case "deleteOpinion":
+				deleteOpinion(request, response);
+				break;
+			case "likesOpinion":
+				likesOpinion(request, response);
+				break;
+			case "editOpinion":
+				editOpinion(request, response);
+				break;
+			default:
+				break;
+			}
+		} else {
+			System.out.println("Debug : Session Error for opinionManagement!");
+		}
+	}
+
+	protected void makeOpinion(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String nickname = (String) session.getAttribute("teamMOpinoinNickname");
+			String biasName = request.getParameter("teamMOpinionBiasName");
+			String content = request.getParameter("teamMOpinionContent");
+			String voteName = request.getParameter("teamMOpinionvoteName");
+			service.makeOpinion(nickname, voteName, biasName, content);
+			System.out.println("Debug : Vote complete!");
+		} else {
+			System.out.println("Debug : Session Error for makeOpinion!");
+		}
+	}
+
+	protected void deleteOpinion(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String nickname = (String) session.getAttribute("teamDOpinoinNickname");
+			String biasName = request.getParameter("teamDOpinionBiasName");
+			String voteName = request.getParameter("teamDOpinionVoteName");
+			String teamName = request.getParameter("teamDOpinionTeamName");
+			service.deleteOpinion(nickname, biasName, voteName, teamName);
+			System.out.println("Debug : Opinioin deletion complete!");
+		} else {
+			System.out.println("Debug : Session Error for deleteOpinion!");
+		}
+	}
+
+	protected void editOpinion(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String nickname = (String) session.getAttribute("teamEOpinoiNickname");
+			String biasName = request.getParameter("teamEOpinionBiasName");
+			String content = request.getParameter("teamEOpinionContent");
+			String voteName = request.getParameter("teamEOpinionvoteName");
+			String teamName = request.getParameter("teamDOpinionTeamName");
+			service.editOpinion(nickname, biasName, voteName, teamName, content);
+		}
+	}
+
+	protected void likesOpinion(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String writer = request.getParameter("teamLOpinionWriter");
+			String writeDate = request.getParameter("teamLOpinionWriteDate");
+			String liker = request.getParameter("teamLOpinionLiker");
+			service.likesOpinion(writer, writeDate, liker);
+		} else {
+			System.out.println("Debug : Session Error for likeOpinion!");
 		}
 	}
 
