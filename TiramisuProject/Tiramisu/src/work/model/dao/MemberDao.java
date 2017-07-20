@@ -221,5 +221,6 @@ public class MemberDao {
 		return 0;
 	}
 	
+	
 
 }
