@@ -157,3 +157,64 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
 	at java.security.cert.CertPathBuilder.build(Unknown Source)
 	... 30 more
+!SESSION 2017-07-21 07:59:57.482 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-07-21 08:00:46.877
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.arduino.core.descriptorType
+
+!ENTRY org.eclipse.jface 2 0 2017-07-21 08:00:48.454
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-07-21 08:00:48.454
+!MESSAGE A conflict occurred for ALT+SHIFT+X H:
+Binding(ALT+SHIFT+X H,
+	ParameterizedCommand(Command(com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut.run,Run GWT JUnit Test,
+		Run GWT JUnit Test,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@20724c21,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X H,
+	ParameterizedCommand(Command(org.eclipse.php.deubg.ui.phpexeShortcut.run,Run CLI Application,
+		Run CLI Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@c0cb9c2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-07-21 08:00:48.454
+!MESSAGE A conflict occurred for ALT+SHIFT+D H:
+Binding(ALT+SHIFT+D H,
+	ParameterizedCommand(Command(com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut.debug,Debug GWT JUnit Test,
+		Debug GWT JUnit Test,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@eb66b47,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D H,
+	ParameterizedCommand(Command(org.eclipse.php.deubg.ui.phpexeShortcut.debug,Debug CLI Application,
+		Debug CLI Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11e75942,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 4 0 2017-07-21 08:00:54.894
+!MESSAGE The org.eclipse.ui.IStartup extension from 'com.google.gdt.eclipse.designer' does not provide a valid 'startup' element.
+
+!ENTRY org.eclipse.ui 4 0 2017-07-21 08:00:54.899
+!MESSAGE The org.eclipse.ui.IStartup extension from 'com.google.gdt.eclipse.designer.GXT' does not provide a valid 'startup' element.
+
+!ENTRY org.eclipse.ui 4 0 2017-07-21 08:00:54.904
+!MESSAGE The org.eclipse.ui.IStartup extension from 'com.google.gdt.eclipse.designer.SmartGWT' does not provide a valid 'startup' element.
+
+!ENTRY org.eclipse.ui 4 0 2017-07-21 08:00:54.909
+!MESSAGE The org.eclipse.ui.IStartup extension from 'com.google.gdt.eclipse.designer.UiBinder' does not provide a valid 'startup' element.
