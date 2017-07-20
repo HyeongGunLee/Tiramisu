@@ -40,7 +40,7 @@ public class ImageDao {
 		return 0;
 	}
 	
-	public int delete(int imageId) {
+	public int delete(Integer imageId) {
 		String sql = "delete image where image_id=?";
 		
 		try {
@@ -58,7 +58,7 @@ public class ImageDao {
 		return 0;
 	}
 	
-	public Image selectOne(int imageId) {
+	public Image selectOne(Integer imageId) {
 		String sql = "select * from image where image_id=?";
 		
 		try {

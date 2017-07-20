@@ -9,7 +9,7 @@ package work.model.dto;
  */
 public class Image {
  
- private int imageId;
+ private Integer imageId;
  
  private String fileName;
 
@@ -25,7 +25,7 @@ public class Image {
   * @param imageId
   * @param fileName
   */
- public Image(int imageId, String fileName) {
+ public Image(Integer imageId, String fileName) {
   super();
   this.imageId = imageId;
   this.fileName = fileName;
@@ -51,7 +51,7 @@ public class Image {
  /**
   * @param imageId the imageId to set
   */
- public void setImageId(int imageId) {
+ public void setImageId(Integer imageId) {
   this.imageId = imageId;
  }
 

@@ -3,16 +3,16 @@
 */
 
 insert into MEMBER 
-values('user01', 'ps123', '부산대위치는', '부경대', '태정', 1);
+values('user01@naver.com', 'ps123', '부산대위치는', '부경대', '태정', 1);
 
 insert into MEMBER 
-values('user02', 'ps234', '부산대위치는', '동아대', '다영', null);
+values('user02@daum.com', 'ps234', '동아대위치는', '동아대', '다영', null);
 
 insert into MEMBER 
-values('user03', 'ps345', '부산대위치는', '부산대', '형건', null);
+values('user03@gmail.com', 'ps345', '부산대위치는', '부산대', '형건', null);
 
 insert into MEMBER 
-values('user04', 'ps345', '부산대위치는', '해양대', '성민', null);
+values('user04@facebook.com', 'ps345', '부산대위치는', '해양대', '성민', null);
 
 
 

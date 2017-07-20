@@ -80,11 +80,12 @@ public class TeamMemberDao {
 	/* teamName에 포함된 member들의 nickname 검색 */
 	public ArrayList<String> selectTeamMember(String teamName) {
 		ArrayList<String> list = new ArrayList<String>();
-		String sql = "select * from team_member";
+		String sql = "select * from team_member where team_name=?";
 		try {
 			conn = getConnection();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, teamName);
+			rs = pstmt.executeQuery(sql);
 			String nickname = null;
 			
 			while(rs.next()) {

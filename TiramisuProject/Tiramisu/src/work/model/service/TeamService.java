@@ -101,7 +101,7 @@ public class TeamService {
 		int biasId = 0;
 		int voteId = 0;
 		for(int i=0; i<voteList.size(); ++i) {
-			if(voteList.get(i).getNickname().equals(voteName)) {
+			if(voteList.get(i).getVoteName().equals(voteName)) {
 				for(int j=0; j<biasList.size(); ++j) {
 					if(biasList.get(j).getBiasName().equals(biasName)) {
 						voteId = voteList.get(i).getVoteId();
@@ -125,7 +125,7 @@ public class TeamService {
 		int voteId =0;
 		int biasId = 0;
 		for(int i=0; i<voteList.size(); ++i) {
-			if(voteList.get(i).getNickname().equals(voteName)) {
+			if(voteList.get(i).getVoteName().equals(voteName)) {
 				for(int j=0; j<biasList.size(); ++j) {
 					if(biasList.get(j).getBiasName().equals(biasName)) {
 						voteId = voteList.get(i).getVoteId();
@@ -180,7 +180,7 @@ public class TeamService {
 		
 		//biasList, voteList에서 각각의 이름에 맞는 voteId, biasId 검색 후 set.
 		for(int i=0; i<voteList.size(); ++i) {
-			if(voteList.get(i).getNickname().equals(voteName)) {
+			if(voteList.get(i).getVoteName().equals(voteName)) {
 				for(int j=0; j<biasList.size(); ++j) {
 					if(biasList.get(i).getBiasName().equals(biasName)) {
 						voteId = voteList.get(i).getVoteId();
