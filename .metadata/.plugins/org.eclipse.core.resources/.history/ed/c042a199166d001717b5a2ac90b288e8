@@ -35,7 +35,7 @@ String.prototype.zf = function(len){return "0".string(len - this.length) + this;
 Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 	var textarea = document.getElementById("chat");
-	var webSocket = new WebSocket('ws://164.125.34.38:8070/Tiramisu/broadcasting');
+	var webSocket = new WebSocket('ws://localhost:8070/Tiramisu/broadcasting');
 	var inputMessage = document.getElementById('dialogInput');
 	var nickname = null;
 	var time = null;
@@ -63,8 +63,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		console.log(recMessage[2]);
 		console.log(recMessage[3]);
 		console.log(recMessage[4]);
-		
-		if(teamName=='<%=session.getAttribute("teamName")%>'&&channelName=='<%=session.getAttribute("channelName")%>'){
+		if(teamName==<%=session.getAttribute("teamName")%>&&channelName=<%=session.getAttribute("channelName")%>){
 			textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
 				<img src="images/tirami.PNG" alt="User Avatar">\
 			</span>\

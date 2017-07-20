@@ -35,7 +35,7 @@ String.prototype.zf = function(len){return "0".string(len - this.length) + this;
 Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 	var textarea = document.getElementById("chat");
-	var webSocket = new WebSocket('ws://164.125.34.38:8070/Tiramisu/broadcasting');
+	var webSocket = new WebSocket('ws://localhost:8070/Tiramisu/broadcasting');
 	var inputMessage = document.getElementById('dialogInput');
 	var nickname = null;
 	var time = null;
@@ -63,20 +63,17 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		console.log(recMessage[2]);
 		console.log(recMessage[3]);
 		console.log(recMessage[4]);
-		
-		if(teamName=='<%=session.getAttribute("teamName")%>'&&channelName=='<%=session.getAttribute("channelName")%>'){
-			textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
-				<img src="images/tirami.PNG" alt="User Avatar">\
-			</span>\
-				<div class="chat-body clearfix">\
-					<div class="header">\
-						<strong class="primary-font">'+ recMessage[2] +'</strong> <small\
-							class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ recMessage[3] +'</small>\
-					</div>\
-					<p>'+ recMessage[4] +'</p>\
-				</div></li>';
-			//textarea.value += "상대 : " + event.data + "\n";
-		}
+		textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
+			<img src="images/tirami.PNG" alt="User Avatar">\
+		</span>\
+			<div class="chat-body clearfix">\
+				<div class="header">\
+					<strong class="primary-font">'+ recMessage[2] +'</strong> <small\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ recMessage[3] +'</small>\
+				</div>\
+				<p>'+ recMessage[4] +'</p>\
+			</div></li>';
+		//textarea.value += "상대 : " + event.data + "\n";
 	}
 	function onOpen(event) {
 		console.log("연결 성공\n");
@@ -107,6 +104,10 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 	}
 	/*Debug function*/
 	function dialogSubmit(){
+		content = document.getElementById("dialogInput").value;
+		time = new Date();
+		nickname = "<%=session.getAttribute("nickname")%>
+	";
 		/*document.writeln(content);
 		document.writeln(time);
 		document.writeln(nickname);*/

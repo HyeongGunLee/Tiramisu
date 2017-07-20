@@ -63,8 +63,8 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		console.log(recMessage[2]);
 		console.log(recMessage[3]);
 		console.log(recMessage[4]);
-		
-		if(teamName=='<%=session.getAttribute("teamName")%>'&&channelName=='<%=session.getAttribute("channelName")%>'){
+		<%System.out.println(session.getAttribute("teamName"));%>
+		if(teamName=='<%=session.getAttribute("teamName")%>'&&channelName==<%=session.getAttribute("channelName")%>){
 			textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
 				<img src="images/tirami.PNG" alt="User Avatar">\
 			</span>\
