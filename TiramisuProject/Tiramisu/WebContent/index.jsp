@@ -12,8 +12,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -110,7 +108,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								$(".header-main").removeClass("fixed");
 							}
 						});
-
 					});
 				</script>
 				<!-- /script-for sticky-nav -->
@@ -145,4 +142,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- mother grid end here-->
 </body>
 </html>
-

@@ -55,7 +55,6 @@
 		content = document.getElementById("dialogInput").value;
 		time = new Date();
 		nickname = "<%=session.getAttribute("nickname")%>";
-
 		textarea.innerHTML += '<li class="right clearfix"><span class="chat-img pull-right">\
 			<img src="images/me.jpg" alt="User Avatar">\
 		</span>\

@@ -40,7 +40,7 @@ function page_move(team,channel){
 			for (int i = 0; i < channelNameArray.size(); i++) {
 		%>
 
-		<li><a href="javascript:page_move('<%=teamName %>','<%=channelNameArray.get(i) %>')" id="channelSelect"><img src="images/chat.png"
+		<li><a href="index.jsp?teamName='<%=teamName %>'&channelName='<%=channelNameArray.get(i) %>')" id="channelSelect"><img src="images/chat.png"
 				style="width: 19px; height: 19px;"> <%=channelNameArray.get(i) %></a></li>
 		<%
 			}
