@@ -23,7 +23,7 @@ public class DialogDao {
 	}
 	
 	public int insert(Dialog dto) {
-		String sql = "insert into dialog values(seq_dialog.nextval,?,?,?,?,sysdate,?)";
+		String sql = "insert into dialog values(seq_dialog.nextval,?,?,?,?,sysdate,null)";
 		
 		try {
 			conn = getConnection();
@@ -32,7 +32,6 @@ public class DialogDao {
 			pstmt.setString(2, dto.getTeamName());
 			pstmt.setString(3, dto.getContent());
 			pstmt.setString(4, dto.getWriter());
-			pstmt.setInt(5, dto.getFileId());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

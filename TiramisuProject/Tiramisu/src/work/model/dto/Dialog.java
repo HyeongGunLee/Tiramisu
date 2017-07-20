@@ -21,7 +21,7 @@ public class Dialog {
 
 	private String writeDate;
 
-	private int fileId;
+	private Integer fileId;
 
 	/**
 	 * Dialog 기본 생성자
@@ -60,7 +60,7 @@ public class Dialog {
 	 * @param fileId
 	 */
 	public Dialog(int dialogId, String channelName, String teamName, String content, String writer, String writeDate,
-			int fileId) {
+			Integer fileId) {
 		super();
 		this.dialogId = dialogId;
 		this.channelName = channelName;
@@ -80,7 +80,7 @@ public class Dialog {
 	 * @param fileId
 	 */
 
-	public Dialog(String channelName, String teamName, String content, String writer, int fileId) {
+	public Dialog(String channelName, String teamName, String content, String writer, Integer fileId) {
 		super();
 		this.channelName = channelName;
 		this.teamName = teamName;
