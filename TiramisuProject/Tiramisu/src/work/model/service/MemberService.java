@@ -198,37 +198,120 @@ public class MemberService {
 	}
 
 	/**
-	 * 올바른 Member인지 Check
+	 * Id가 정확한지 확인하는 메소드
+	 * id 4~10글자 소문자만 허용
+	 * @
+	 * 도메인 길이 '.'있는지 확인
+	 * @param memberId
+	 * @return
 	 */
-	public boolean isCorrectMember(Member member) {
-		if (isCorrectId(member.getMemberId()) && isCorrectPw(member.getMemberPw()) && isCorrectAnswer(member.getAnswer()) 
-				&& isCorrectNickname(member.getNickname()) && isCorrectImage(member.getImage())) {
+	public boolean checkMemberId(String memberId) {
+		String regex = "^([a-z0-9]{3,10})\\@([a-z0-9]{3,10})\\.([a-z0-9]{3,10})";
+		if ( memberId.matches(regex)) {
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean isCorrectId(String memberId) {
-		
+	/**
+	 * pw가 정확한지 확인하는 메소드
+	 * @param memberPw
+	 * @return
+	 */
+	public boolean checkMemberPw(String memberPw) {
+		String regex = "^[a-zA-Z0-9]{8,20}";
+		if ( memberPw.matches(regex)) {
+			return true;
+		}
 		return false;
 	}
 	
-	public boolean isCorrectPw(String memberPw) {
+	/**
+	 * 답변의 길이가 1자 이상 20자 이하 인지 확인하는 메소드
+	 * @param memberPw
+	 * @return
+	 */
+	public boolean checkAnswerLength(String answer) {
+		int length = answer.length();
+		if (length >= 1 && length <= 20) {
+			return true;
+		}
+		return false;
+	}
+	/**
+	 * 닉네임의 길이가 정확한지 확인하는 메소드 
+	 * 닉네임의 유니크는 디비에서 확인?
+	 * @param nickname
+	 * @return
+	 */
+	public boolean checkNicknameLength(String nickname) {
+		int length = nickname.length();
+		if (length >= 1 && length <= 20) {
+			return true;
+		}
 		return false;
 	}
 	
-	public boolean isCorrectAnswer(String answer) {
-		return false;
+	/**
+	 * 멤버를 불러와서 닉네임이랑 확인후 닉네임이 있으면 false 리턴 없으면 true 리턴
+	 * 닉네임 있는지 없는지 확인가능
+	 * @param nickname
+	 * @return
+	 */
+	public boolean checkNicknameIsUnique(String nickname) {
+		ArrayList<Member> members = dao.selectAll();
+		for (int i = 0 ; i < members.size() ; i ++) {
+			if (nickname.equals(members.get(i).getNickname())) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
-	public boolean isCorrectNickname(String nickname) {
-		return false;
+	/**
+	 * checkNicknameLength + checkNicknameIsUnique 을 이용해서 닉네임의 사용가능을 체크하는 메소드
+	 * @param nickname
+	 * @return
+	 */
+	public boolean checkNickname(String nickname) {
+		if (checkNicknameLength(nickname) == false) {
+			return false;
+		} else {
+			if (checkNicknameIsUnique(nickname) == true) {
+				return true;
+			}
+			return false;
+		}
+	}
+
+	
+	/**
+	 * 스트링 타입의 불린값을 넣으면 불린 데이터로 변환하는 메소드 
+	 * @param bool
+	 * @return
+	 */
+	public boolean stringBooleanDataToTypeData(String bool) {
+		if (bool.equals("FALSE")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
-	public boolean isCorrectImage(Integer image) {
+	/**
+	 * checkNicknameIsUnique 와 반대 있으면 true //가독성때매 추가 
+	 * @param nickname
+	 * @return
+	 */
+	public boolean isInNickname(String nickname) {
+		ArrayList<Member> members = dao.selectAll();
+		for (int i = 0 ; i < members.size() ; i ++) {
+			if (nickname.equals(members.get(i).getNickname())) {
+				return true;
+			}
+		}
 		return false;
 	}
-	
 	
 	
 }
