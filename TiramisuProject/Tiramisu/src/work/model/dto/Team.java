@@ -14,7 +14,7 @@ public class Team {
 	
 	private String subject;
 	
-	private String open ;
+	private String open;
 
 	/**
 	 * Team 기본 생성자
