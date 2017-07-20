@@ -40,36 +40,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"
 	type="text/javascript"></script>
 <script>
-	window.modernizr
-			|| document
-					.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')
+	window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')
 </script>
 <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
 <!-- Chartinator  -->
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
 	
-<%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
-			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
-			System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
-			if (isLogin) {%>
-	$(document).ready(function() {
-		$("#header-frame").load("header-chatting-frame.jsp");
-	});
-	$(document).ready(function() {
-		$("#body-frame").load("body-chatting-frame.jsp");
-	});
-<%} else {%>
-	$(document).ready(function() {
-		$("#header-frame").load("header-logout-frame.jsp");
-	});
-	$(document).ready(function() {
-		$("#body-frame").load("body-default-frame.jsp");
-	});
-<%}%>
-	$(document).ready(function() {
+$(document).ready(function() {
+		$("#header-frame").load("header-search-frame.jsp");
+});
+
+$(document).ready(function() {
 		$("#left-frame").load("left-frame.jsp");
-	});
+});
+$(document).ready(function() {
+		$("#body-frame").load("search-inner-frame.html");
+});
 </script>
 <!--geo chart-->
 
@@ -106,14 +93,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 				<!--inner block end here-->
-				<!--copy rights start here-->
-				<div class="copyrights">
+<!-- 				copy rights start here
+				<footer class="copyrights">
 					<p>© 2017 Tiramisu. | 부산대학교 자연대연구실험동 301호</p>
 					<p>
 						<b>김태정 변다영 이성민 이형건 </b>
 					</p>
-				</div>
-				<!--COPY rights end here-->
+				</footer>
+				COPY rights end here -->
 			</div>
 		</div>
 		<div id="left-frame"></div>

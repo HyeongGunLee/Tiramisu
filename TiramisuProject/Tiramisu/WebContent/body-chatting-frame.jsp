@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
 	var textarea = document.getElementById("chat");
-	var webSocket = new WebSocket('ws://164.125.34.39:8060/Tiramisu/broadcasting');
+	var webSocket = new WebSocket('ws://localhost:8070/Tiramisu/broadcasting');
 	var inputMessage = document.getElementById('dialogInput');
 	var nickname = null;
 	var time = null;
@@ -29,8 +29,8 @@
 		console.log(recMessage[1]);
 		console.log(recMessage[2]);
 		textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
-									<img src="images/tirami.PNG" alt="User Avatar">\
-									</span>\
+			<img src="images/tirami.PNG" alt="User Avatar">\
+		</span>\
 			<div class="chat-body clearfix">\
 				<div class="header">\
 					<strong class="primary-font">'+ recMessage[0] +'</strong> <small\

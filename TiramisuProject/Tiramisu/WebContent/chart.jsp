@@ -136,11 +136,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
 			if (isLogin) {%>
 	$(document).ready(function() {
-		$("#header-frame").load("header-login-frame.html");
+		$("#header-frame").load("header-login-frame.jsp");
 	});
 <%} else {%>
 	$(document).ready(function() {
-		$("#header-frame").load("header-logout-frame.html");
+		$("#header-frame").load("header-logout-frame.jsp");
 	});
 <%}%>
 	$(document).ready(function() {
@@ -196,9 +196,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     		<div class="header">
                     		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">보쌈</strong>
                     			<strong class="primary-font" style="font-size:18px">변다영</strong>
-                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;7</b></strong>
+                    			<a href="#" class="hvr-icon-bounce" style="background-color:white; padding:0px 0px 10px 0px; width:70px; height:20px;">좋아요!</a>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>7</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
@@ -211,9 +211,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     		<div class="header">
                     		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">닭발</strong>
                     			<strong class="primary-font" style="font-size:18px">이형건</strong>
-                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;6</b></strong>
+                    			<a href="#" class="hvr-icon-bounce" style="background-color:white; padding:0px 0px 10px 0px; width:70px; height:20px;">좋아요!</a>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>6</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
@@ -226,9 +226,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     		<div class="header">
                     		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">닭발</strong>
                     			<strong class="primary-font" style="font-size:18px">이성민</strong>
-                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;3</b></strong>
+                    			<a href="#" class="hvr-icon-bounce" style="background-color:white; padding:0px 0px 10px 0px; width:70px; height:20px;">좋아요!</a>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>3</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
@@ -241,9 +241,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     		<div class="header">
                     		    <strong class="primary-font" style="color:#990000; font-size:18px; padding-right:1em">피자</strong>
                     			<strong class="primary-font" style="font-size:18px">김태정</strong>
-                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>&nbsp;0</b></strong>
+                    			<a href="#" class="hvr-icon-bounce" style="background-color:white; padding:0px 0px 10px 0px; width:70px; height:20px;">좋아요!</a>
+                    			<strong class="primary-font" style="font-size:18px; color:#FFBA00"><b>0</b></strong>
                     			<small class="pull-right text-muted">
-                    			<a href="#좋아요 처리"><img src="images/like-btn.png" style="float:left; position:relative; width:90px; padding-top:0"></a>
                     			<i class="fa fa-clock-o"></i> 2017-07-18 AM 05:50</small>
                     		</div>
                     		<p style="font-size:15px">
