@@ -9,5 +9,5 @@ alter table FILES
 add constraint PK_FILES_FILE_ID primary key (file_id);
 
 create sequence seq_FILES
-start with 1 increment by 1 ;
+start with 2 increment by 1 ;
 

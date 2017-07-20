@@ -47,9 +47,10 @@ public class Notice {
  /*
   * ½ÃÄö½º sysdate
   */
- public Notice(String teamName, String writer, String content) {
+ public Notice(String teamName, String writeDate, String writer, String content) {
   super();
   this.teamName = teamName;
+  this.writeDate = writeDate;
   this.writer = writer;
   this.content = content;
  }

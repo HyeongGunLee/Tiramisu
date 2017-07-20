@@ -5,16 +5,16 @@
 */
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'DATA', 'BusanBigData');
+values('DATA', 'BusanBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'INFORMATION', 'BusanBigData');
+values('INFORMATION', 'BusanBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'NOTICE', 'SeoulBigData');
+values('NOTICE', 'SeoulBigData');
 
 insert into CHANNEL 
-values(seq_CHANNEL.NEXTVAL, 'DATA', 'GwangjuMachineLearning');
+values('DATA', 'GwangjuMachineLearning');
 
 
 

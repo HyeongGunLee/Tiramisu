@@ -39,7 +39,7 @@ public class Vote {
  
  /**
   * 시퀀스 생성자
-  * @param voteName
+  * @param nickname
   * @param teamName
   */
 

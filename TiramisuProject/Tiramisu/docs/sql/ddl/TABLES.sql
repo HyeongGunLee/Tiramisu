@@ -9,7 +9,7 @@ create table MEMBER (
 	question varchar2(60) not null, 	-- 질문 
 	answer varchar2(60) not null,  		-- 답변
 	nickname varchar2(60) not null,		-- 닉네임
-	image varchar2(60)	       		  	-- 사진명
+	image number(4)	         			-- 사진명
 );
 
 
@@ -17,7 +17,7 @@ create table MESSAGE (
 	message_id number(4),					-- ID
 	content varchar2(3000) not null,		-- 내용
 	writer varchar2(60) not null,			-- 작성자
-	write_date DATE not null,				-- 작성일
+	write_date varchar2(20) not null,				-- 작성일
 	receiver varchar2(60) not null,			-- 수신자
 	confirm varchar2(10) DEFAULT 'FALSE'	-- 확인
 );
@@ -26,7 +26,7 @@ create table MESSAGE (
 create table NOTIFICATION (
 	notification_id NUMBER(4),				-- ID
 	team_name varchar2(60) not null,		-- 팀명
-	write_date DATE not null,				-- 작성일
+	write_date varchar2(20) null,				-- 작성일
 	writer varchar2(60) not null,			-- 작성자
 	content varchar2(150) not null			-- 내용
 );
@@ -35,7 +35,7 @@ create table NOTIFICATION (
 create table NOTICE (
 	notice_id number(4),					-- ID
 	team_name varchar2(60) not null,		-- 팀명
-	writer_date DATE not null,				-- 작성일
+	write_date varchar2(20) null,				-- 작성일
 	writer varchar2(60) not null,			-- 작성자
 	content varchar2(300) not null			-- 내용
 );
@@ -55,7 +55,6 @@ create table TEAM_MEMBER (
 
 
 create table CHANNEL (	
-	channel_id number(4),
 	channel_name varchar2(60) not null, 	-- 채널명
 	team_name varchar2(60) not null			-- 팀명
 );
@@ -63,10 +62,11 @@ create table CHANNEL (
 
 create table DIALOG (
 	dialog_id number(4),						-- ID
-	channel_id number(4) not null,				-- 채널ID
+	channel_name varchar2(60) not null, 		-- 채널명
+	team_name varchar2(60) not null,			-- 채널ID
 	content varchar2(900) not null,				-- 내용
 	writer varchar2(60) not null,				-- 작성자
-	write_date DATE not null,					-- 작성일
+	write_date varchar2(20) not null,					-- 작성일
 	file_id number(4) default null				-- 파일ID
 );
 
@@ -84,7 +84,7 @@ create table FILES (
 
 
 create table IMAGE (
-	image_id varchar2(60),				-- ID
+	image_id number(4),				-- ID
 	file_name varchar2(600) not null 	-- 파일명
 );
 

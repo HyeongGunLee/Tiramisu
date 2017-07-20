@@ -72,7 +72,7 @@ public class VoteDao {
 			
 			while(rs.next()) {
 				voteId = rs.getInt("vote_id");
-				String nickname = rs.getString("nickname");
+				String nickname = rs.getString("vote_name");
 				String teamName = rs.getString("team_name");
 				
 				return new Vote(voteId, nickname, teamName);
@@ -97,10 +97,10 @@ public class VoteDao {
 			
 			while(rs.next()) {
 				int voteId = rs.getInt("vote_id");
-				String voteName = rs.getString("voteName");
+				String nickname = rs.getString("vote_name");
 				String teamName = rs.getString("team_name");
 				
-				dto = new Vote(voteId, voteName, teamName);
+				dto = new Vote(voteId, nickname, teamName);
 				list.add(dto);	
 			}
 			

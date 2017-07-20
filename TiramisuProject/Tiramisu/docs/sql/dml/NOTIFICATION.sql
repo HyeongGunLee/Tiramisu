@@ -7,17 +7,17 @@
 */
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'BusanBigData', sysdate, '태정', '부산빅데이터스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'BusanBigData', '2017-06-01', '태정', '부산빅데이터스터디팀에 새글이 작성되었습니다.');
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'SeoulBigData', sysdate, '다영', '서울빅데이터스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'SeoulBigData', '2017-06-02', '다영', '서울빅데이터스터디팀에 새글이 작성되었습니다.');
 
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'GwangjuMachineLearning', sysdate, '형건', '광주머신러닝스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'GwangjuMachineLearning', '2017-06-03', '형건', '광주머신러닝스터디팀에 새글이 작성되었습니다.');
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'IncheonDeepLearning', sysdate, '성민', '인천딥러닝스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'IncheonDeepLearning', '2017-06-04', '성민', '인천딥러닝스터디팀에 새글이 작성되었습니다.');
 
 
 

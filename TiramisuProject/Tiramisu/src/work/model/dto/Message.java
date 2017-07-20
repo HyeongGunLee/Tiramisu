@@ -22,7 +22,7 @@ public class Message {
  
  private String receiver;
  
- private String confirm ;
+ private String confirm  = "FALSE";
 
  /**
   * Message 기본 생성자
@@ -51,20 +51,38 @@ public class Message {
  }
  
  /**
-  * 시퀀스 sysdate 수정
+  * 시퀀스수정
   * @param content
   * @param writer
   * @param receiver
   * @param confirm
   */
 
- public Message(String content, String writer, String receiver, String confirm) {
+ public Message(String content, String writer, String writeDate, String receiver, String confirm) {
   super();
   this.content = content;
   this.writer = writer;
+  this.writeDate = writeDate;
   this.receiver = receiver;
   this.confirm = confirm;
  }
+ 
+ /**
+  * 
+  * @param content
+  * @param writer
+  * @param receiver
+  * @param confirm
+  */
+
+ public Message(String content, String writer, String writeDate, String receiver) {
+  super();
+  this.content = content;
+  this.writer = writer;
+  this.writeDate = writeDate;
+  this.receiver = receiver;
+ }
+ 
 
  /**
   * @return the messageId

@@ -1,161 +1,187 @@
 package work.model.dto;
 
 /**
- * ID : 시퀀스 + 프라이머리
- * 채널ID : 채널 릴레이션의 채널ID 레퍼런스
- * 내용 : 300자
- * 작성자 : 회원 릴레이션의 닉네임 레퍼런스
- * 작성일 : Date
- * 파일ID : 파일 릴레이션의 ID 레퍼런스 + null허용 + null default
+ * ID : 시퀀스 + 프라이머리 채널ID : 채널 릴레이션의 채널ID 레퍼런스 내용 : 300자 작성자 : 회원 릴레이션의 닉네임 레퍼런스
+ * 작성일 : Date 파일ID : 파일 릴레이션의 ID 레퍼런스 + null허용 + null default
+ * 
  * @author cse
  *
  */
 public class Dialog {
- 
- private int dialogId;
- 
- private int channelId;
- 
- private String content;
- 
- private String writer;
- 
- private String writeDate;
- 
- private int fileId;
 
- /**
-  * Dialog 기본 생성자
-  */
- public Dialog() {
-  super();
- }
+	private int dialogId;
 
- /**
-  * Dialog 필수 데이터 생성자
-  * @param dialogId
-  * @param channelId
-  * @param content
-  * @param writer
-  * @param writeDate
-  */
- public Dialog(int dialogId, int channelId, String content, String writer, String writeDate) {
-  super();
-  this.dialogId = dialogId;
-  this.channelId = channelId;
-  this.content = content;
-  this.writer = writer;
-  this.writeDate = writeDate;
- }
+	private String channelName;
 
- /**
-  * Dialog 모든 데이터 생성자
-  * @param dialogId
-  * @param channelId
-  * @param content
-  * @param writer
-  * @param writeDate
-  * @param fileId
-  */
- public Dialog(int dialogId, int channelId, String content, String writer, String writeDate, int fileId) {
-  super();
-  this.dialogId = dialogId;
-  this.channelId = channelId;
-  this.content = content;
-  this.writer = writer;
-  this.writeDate = writeDate;
-  this.fileId = fileId;
- }
- 
- 
- /**
-  * 시퀀스 , sysdate 생성자
-  * @param channelId
-  * @param content
-  * @param writer
-  * @param fileId
-  */
+	private String teamName;
 
- public Dialog(int channelId, String content, String writer, int fileId) {
-  super();
-  this.channelId = channelId;
-  this.content = content;
-  this.writer = writer;
-  this.fileId = fileId;
- }
+	private String content;
 
- public int getDialogId() {
-  return dialogId;
- }
+	private String writer;
 
- public void setDialogId(int dialogId) {
-  this.dialogId = dialogId;
- }
+	private String writeDate;
 
- public int getChannelId() {
-  return channelId;
- }
+	private int fileId = 1 ;
 
- public void setChannelId(int channelId) {
-  this.channelId = channelId;
- }
+	/**
+	 * Dialog 기본 생성자
+	 */
+	public Dialog() {
+		super();
+	}
 
- public String getContent() {
-  return content;
- }
+	/**
+	 * Dialog 필수 데이터 생성자
+	 * 
+	 * @param dialogId
+	 * @param channelId
+	 * @param content
+	 * @param writer
+	 * @param writeDate
+	 */
+	public Dialog(int dialogId, String channelName, String teamName, String content, String writer, String writeDate) {
+		super();
+		this.dialogId = dialogId;
+		this.channelName = channelName;
+		this.teamName = teamName;
+		this.content = content;
+		this.writer = writer;
+		this.writeDate = writeDate;
+	}
 
- public void setContent(String content) {
-  this.content = content;
- }
+	/**
+	 * Dialog 모든 데이터 생성자
+	 * 
+	 * @param dialogId
+	 * @param channelId
+	 * @param content
+	 * @param writer
+	 * @param writeDate
+	 * @param fileId
+	 */
+	public Dialog(int dialogId, String channelName, String teamName, String content, String writer, String writeDate,
+			int fileId) {
+		super();
+		this.dialogId = dialogId;
+		this.channelName = channelName;
+		this.teamName = teamName;
+		this.content = content;
+		this.writer = writer;
+		this.writeDate = writeDate;
+		this.fileId = fileId;
+	}
 
- public String getWriter() {
-  return writer;
- }
+	/**
+	 * 시퀀스 생성자
+	 * 
+	 * @param channelId
+	 * @param content
+	 * @param writer
+	 * @param fileId
+	 */
 
- public void setWriter(String writer) {
-  this.writer = writer;
- }
+	public Dialog(String channelName, String teamName, String content, String writer, String writeDate, int fileId) {
+		super();
+		this.channelName = channelName;
+		this.teamName = teamName;
+		this.content = content;
+		this.writer = writer;
+		this.writeDate = writeDate;
+		this.fileId = fileId;
+	}
+	
+	/**
+	 * 시퀀스 생성자
+	 * 
+	 * @param channelId
+	 * @param content
+	 * @param writer
+	 * @param fileId
+	 */
 
- public String getWriteDate() {
-  return writeDate;
- }
+	public Dialog(String channelName, String teamName, String content, String writer, String writeDate) {
+		super();
+		this.channelName = channelName;
+		this.teamName = teamName;
+		this.content = content;
+		this.writer = writer;
+		this.writeDate = writeDate;
+		
+	}
 
- public void setWriteDate(String writeDate) {
-  this.writeDate = writeDate;
- }
+	public int getDialogId() {
+		return dialogId;
+	}
 
- public int getFileId() {
-  return fileId;
- }
+	public void setDialogId(int dialogId) {
+		this.dialogId = dialogId;
+	}
 
- public void setFileId(int fileId) {
-  this.fileId = fileId;
- }
+	public String getChannelName() {
+		return this.channelName;
+	}
+	
+	public void setChannelName(String channelName) {
+		this.channelName = channelName;
+	}
+	
+	public String getTeamName()	{
+		return this.teamName;
+	}
+	
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
 
- @Override
- public String toString() {
-  StringBuilder builder = new StringBuilder();
-  builder.append(dialogId);
-  builder.append(", ");
-  builder.append(dialogId);
-  builder.append(", ");
-  builder.append(content);
-  builder.append(", ");
-  builder.append(writer);
-  builder.append(", ");
-  builder.append(writeDate);
-  builder.append(", ");
-  builder.append(fileId);
-  return builder.toString();
- }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public String getWriteDate() {
+		return writeDate;
+	}
+
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
+	}
+
+	public int getFileId() {
+		return fileId;
+	}
+
+	public void setFileId(int fileId) {
+		this.fileId = fileId;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(dialogId);
+		builder.append(", ");
+		builder.append(channelName);
+		builder.append(", ");
+		builder.append(teamName);
+		builder.append(", ");
+		builder.append(content);
+		builder.append(", ");
+		builder.append(writer);
+		builder.append(", ");
+		builder.append(writeDate);
+		builder.append(", ");
+		builder.append(fileId);
+		return builder.toString();
+	}
+
 }

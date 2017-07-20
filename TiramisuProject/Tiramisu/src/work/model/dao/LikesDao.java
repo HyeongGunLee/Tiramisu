@@ -22,12 +22,13 @@ public class LikesDao {
 	}
 	
 	public int insert(Likes dto) {
-		String sql = "insert into MEMBER values(seq_likes.nextval,?)";
+		String sql = "insert into LIKES values(?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getLiker());
+			pstmt.setInt(1, dto.getDialogId());
+			pstmt.setString(2, dto.getLiker());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

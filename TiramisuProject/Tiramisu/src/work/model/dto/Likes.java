@@ -33,6 +33,15 @@ public class Likes {
 	}
 
 	/**
+	 * 좋아요 누른 사람만 생성
+	 * @param liker
+	 */
+	public Likes(String liker) {
+		super();
+		this.liker = liker;
+	}
+
+	/**
 	 * @return the dialogId
 	 */
 	public int getDialogId() {

@@ -2,9 +2,9 @@
  * ≈ı«•
  */
 create table VOTE (
-	vote_id number(4),						-- ID
+	vote_id number(4),				-- ID
 	vote_name varchar2(60) not null,		-- ≈ı«•∏Ì
-	team_name varchar2(60) not null			-- ∆¿∏Ì
+	team_name varchar2(60) not null		-- ∆¿∏Ì
 );
 
 alter table VOTE 
@@ -12,7 +12,8 @@ add constraint PK_VOTE_VOTE_ID primary key (vote_id);
 
 alter table VOTE 
 add constraint FK_VOTE_TEAM_NAME foreign key (team_name)
-references TEAM(team_name);
+references TEAM(team_name) ON DELETE CASCADE;
+
 
 create sequence seq_VOTE
 start with 1 increment by 1 ;

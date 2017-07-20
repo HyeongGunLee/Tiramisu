@@ -21,14 +21,15 @@ public class NoticeDao {
 	}
 	
 	public int insert(Notice dto) {
-		String sql = "insert into notice values(seq_notice.nextval,?,sysdate,?,?)";
+		String sql = "insert into notice values(seq_notice.nextval,?,?,?,?)";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getTeamName());
-			pstmt.setString(2, dto.getWriter());
-			pstmt.setString(3, dto.getContent());
+			pstmt.setString(2, dto.getWriteDate());
+			pstmt.setString(3, dto.getWriter());
+			pstmt.setString(4, dto.getContent());
 			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -98,7 +99,7 @@ public class NoticeDao {
 				String teamName = rs.getString("team_name");
 				String writeDate = rs.getString("write_date");
 				String writer = rs.getString("writer");
-				String content = rs.getString("contetn");
+				String content = rs.getString("content");
 				
 				dto = new Notice(noticeId, teamName, writeDate, writer, content);
 				list.add(dto);	

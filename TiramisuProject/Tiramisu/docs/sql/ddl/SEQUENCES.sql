@@ -35,7 +35,7 @@ ALTER SEQUENCE seq_DIALOG INCREMENT BY 1;
 
 
 create sequence seq_FILES
-start with 1 increment by 1 ;
+start with 2 increment by 1 ;
 
 ALTER SEQUENCE seq_FILES INCREMENT BY 1;
 
@@ -44,7 +44,7 @@ ALTER SEQUENCE seq_FILES INCREMENT BY 1;
 
 
 create sequence seq_IMAGE
-start with 1 increment by 1 ;
+start with 2 increment by 1 ;
 
 ALTER SEQUENCE seq_IMAGE INCREMENT BY 1;
 
@@ -64,3 +64,9 @@ start with 1 increment by 1 ;
 
 
 ALTER SEQUENCE seq_BIAS INCREMENT BY 1;
+
+
+create sequence seq_LIKES
+start with 1 increment by 1 ;
+
+ALTER SEQUENCE seq_LIKES INCREMENT BY 1;

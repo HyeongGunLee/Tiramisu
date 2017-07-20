@@ -23,15 +23,16 @@ public class MessageDao {
 	}
 
 	public int insert(Message dto) {
-		String sql = "insert into MESSAGE values(seq_message.nextval,?,?,sysdate,?,?)";
+		String sql = "insert into MESSAGE values(seq_message.nextval,?,?,?,?,?)";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getContent());
 			pstmt.setString(2, dto.getWriter());
-			pstmt.setString(3, dto.getReceiver());
-			pstmt.setString(4, dto.getConfirm());
+			pstmt.setString(3, dto.getWriteDate());
+			pstmt.setString(4, dto.getReceiver());
+			pstmt.setString(5, dto.getConfirm());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -43,13 +44,13 @@ public class MessageDao {
 		return 0;
 	}
 
-	public int delete(String messageId) {
+	public int delete(int messageId) {
 		String sql = "delete MESSAGE where message_id=?";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, messageId);
+			pstmt.setInt(1, messageId);
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {

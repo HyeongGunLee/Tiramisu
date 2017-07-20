@@ -39,6 +39,26 @@ public class TeamMemberDao {
 		return 0;
 	}
 	
+	
+	public int insert(String teamName, String nickname) {
+		String sql = "insert into team_member values(?,?)";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, teamName);
+			pstmt.setString(2, nickname);
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Debug(TeamMember Insert Error: " + e.getMessage());
+		} finally {
+			factory.close(rs, pstmt, conn);
+		}
+		return 0;
+	}
+	
 	public int delete(String teamName, String nickName) {
 		String sql = "delete team_member where team_name=? and nickname=?";
 		
@@ -81,7 +101,8 @@ public class TeamMemberDao {
 		return list;
 	}
 	/* nickname으로 TeamName 검색 */
-	public String selectTeam(String nickname) {
+	public ArrayList<String> selectTeamList(String nickname) {
+		ArrayList<String> list = new ArrayList<String>();
 		String sql = "select team_name from team_member where nickname=?";
 		
 		try {
@@ -89,15 +110,16 @@ public class TeamMemberDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, nickname);
 			rs = pstmt.executeQuery();
+			String teamName = null;
 			
 			while(rs.next()) {
-				String teamName = rs.getString("team_name");
-				
-				return teamName;
+				teamName = rs.getString("team_name");
+				list.add(teamName);
 			}
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Debug(TeamMember selectTeam Error: " + e.getMessage());
+			System.out.println("Debug(TeamMember selectTeamList Error: " + e.getMessage());
 		} finally {
 			factory.close(rs, pstmt, conn);
 		}

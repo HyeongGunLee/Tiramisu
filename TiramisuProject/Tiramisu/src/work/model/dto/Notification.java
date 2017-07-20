@@ -47,14 +47,15 @@ public class Notification {
  }
 
  /**
-  * 시퀀스 date 생성자
+  * 시퀀스 생성자
   * @param teamName
   * @param writer
   * @param content
   */
- public Notification(String teamName, String writer, String content) {
+ public Notification(String teamName, String writeDate, String writer, String content) {
   super();
   this.teamName = teamName;
+  this.writeDate = writeDate;
   this.writer = writer;
   this.content = content;
  }
