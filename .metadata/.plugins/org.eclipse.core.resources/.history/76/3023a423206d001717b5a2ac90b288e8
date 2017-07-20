@@ -1,0 +1,24 @@
+package work.model.service;
+
+import java.util.ArrayList;
+
+import work.model.dao.DialogDao;
+import work.model.dto.Dialog;
+
+public class DialogService {
+	public static DialogService instance = new DialogService();
+	private DialogDao dao = new DialogDao();
+	
+	private DialogService(){
+		
+	}
+	
+	public static DialogService getInstance(){
+		return instance;
+	}
+	
+	public ArrayList<Dialog> inTeamChannelDialog(){
+		ArrayList<Dialog> returnList = new ArrayList<>();
+		ArrayList<Dialog> allList = dao.selectAll();
+	}
+}

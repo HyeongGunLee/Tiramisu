@@ -93,7 +93,8 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		channelName = "<%=session.getAttribute("channelName")%>";
 		content = document.getElementById("dialogInput").value;
 		time = new Date().format("yyyy-MM-dd a/p hh:mm:ss");
-		nickname = "<%=session.getAttribute("nickname")%>";
+		nickname = "<%=session.getAttribute("nickname")%>
+	";
 		textarea.innerHTML += '<li class="right clearfix"><span class="chat-img pull-right">\
 			<img src="images/me.jpg" alt="User Avatar">\
 		</span>\

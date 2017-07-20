@@ -93,7 +93,8 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		channelName = "<%=session.getAttribute("channelName")%>";
 		content = document.getElementById("dialogInput").value;
 		time = new Date().format("yyyy-MM-dd a/p hh:mm:ss");
-		nickname = "<%=session.getAttribute("nickname")%>";
+		nickname = "<%=session.getAttribute("nickname")%>
+	";
 		textarea.innerHTML += '<li class="right clearfix"><span class="chat-img pull-right">\
 			<img src="images/me.jpg" alt="User Avatar">\
 		</span>\
@@ -153,28 +154,16 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 						</span>
 							<div class="chat-body clearfix">
 								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
+									<strong class="primary-font"><%=d.getWriter() %></strong> <small
 										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
+										2017-07-18 AM 05:49</small>
 								</div>
-								<p><%=d.getContent()%></p>
+								<p>오빠도 먹죠</p>
 							</div></li>
 						<%
 							} else {
-						%>
-						<li class="left clearfix"><span class="chat-img pull-left">
-								<img src="images/tirami.PNG" alt="User Avatar">
-						</span>
-							<div class="chat-body clearfix">
-								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
-										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
-								</div>
-								<p><%=d.getContent()%></p>
-							</div></li>
-						<%
-							}
+
+								}
 							}
 						%>
 					</ul>

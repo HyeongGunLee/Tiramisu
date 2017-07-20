@@ -99,25 +99,18 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		</span>\
 			<div class="chat-body clearfix">\
 				<div class="header">\
-					<strong class="primary-font">'
-				+ nickname
-				+ '</strong> <small\
-						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '
-				+ time
-				+ '</small>\
+					<strong class="primary-font">'+ nickname +'</strong> <small\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ time +'</small>\
 				</div>\
-				<p>'
-				+ content
-				+ '</p>\
+				<p>'+ content +'</p>\
 			</div></li>';
-		sendMessage = teamName + "`" + channelName + "`" + nickname + "`"
-				+ time + "`" + content;
+		sendMessage = teamName+"`"+channelName+"`"+nickname+"`"+time+"`"+content;
 		console.log(sendMessage);
 		webSocket.send(sendMessage);
 		inputMessage.value = "";
 	}
 	/*Debug function*/
-	function dialogSubmit() {
+	function dialogSubmit(){
 		/*document.writeln(content);
 		document.writeln(time);
 		document.writeln(nickname);*/
@@ -143,39 +136,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 					<ul class="chat" id="chat">
 						<%
 							DialogService service = DialogService.getInstance();
-							ArrayList<Dialog> dialogList = service.inTeamChannelDialog((String) session.getAttribute("teamName"),
-									(String) session.getAttribute("channelName"));
-							for (Dialog d : dialogList) {
-								if (d.getWriter().equals((String) session.getAttribute("nickname"))) {
-						%>
-						<li class="right clearfix"><span class="chat-img pull-right">
-								<img src="images/me.jpg" alt="User Avatar">
-						</span>
-							<div class="chat-body clearfix">
-								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
-										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
-								</div>
-								<p><%=d.getContent()%></p>
-							</div></li>
-						<%
-							} else {
-						%>
-						<li class="left clearfix"><span class="chat-img pull-left">
-								<img src="images/tirami.PNG" alt="User Avatar">
-						</span>
-							<div class="chat-body clearfix">
-								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
-										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
-								</div>
-								<p><%=d.getContent()%></p>
-							</div></li>
-						<%
-							}
-							}
+							ArrayList<Dialog> dialogList = service.inTeamChannelDialog((String)session.getAttribute("teamName"), (String)session.getAttribute("channelName"));
 						%>
 					</ul>
 				</div>

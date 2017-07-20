@@ -1,7 +1,3 @@
-<%@page import="work.model.dto.Dialog"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="work.model.service.DialogService"%>
-<%@page import="work.model.dao.DialogDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -99,25 +95,18 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		</span>\
 			<div class="chat-body clearfix">\
 				<div class="header">\
-					<strong class="primary-font">'
-				+ nickname
-				+ '</strong> <small\
-						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '
-				+ time
-				+ '</small>\
+					<strong class="primary-font">'+ nickname +'</strong> <small\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ time +'</small>\
 				</div>\
-				<p>'
-				+ content
-				+ '</p>\
+				<p>'+ content +'</p>\
 			</div></li>';
-		sendMessage = teamName + "`" + channelName + "`" + nickname + "`"
-				+ time + "`" + content;
+		sendMessage = teamName+"`"+channelName+"`"+nickname+"`"+time+"`"+content;
 		console.log(sendMessage);
 		webSocket.send(sendMessage);
 		inputMessage.value = "";
 	}
 	/*Debug function*/
-	function dialogSubmit() {
+	function dialogSubmit(){
 		/*document.writeln(content);
 		document.writeln(time);
 		document.writeln(nickname);*/
@@ -141,42 +130,71 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 			<div style="overflow-y: scroll; height: 700px;">
 				<div class="chat-message">
 					<ul class="chat" id="chat">
-						<%
-							DialogService service = DialogService.getInstance();
-							ArrayList<Dialog> dialogList = service.inTeamChannelDialog((String) session.getAttribute("teamName"),
-									(String) session.getAttribute("channelName"));
-							for (Dialog d : dialogList) {
-								if (d.getWriter().equals((String) session.getAttribute("nickname"))) {
-						%>
-						<li class="right clearfix"><span class="chat-img pull-right">
-								<img src="images/me.jpg" alt="User Avatar">
-						</span>
-							<div class="chat-body clearfix">
-								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
-										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
-								</div>
-								<p><%=d.getContent()%></p>
-							</div></li>
-						<%
-							} else {
-						%>
+						<jsp:include page="/chatting-left-clearfix.jsp" flush="false">
+							<jsp:param name="chatNickname" value="이형건"></jsp:param>
+							<jsp:param name="chatTime" value="2017-07-18 AM 05:45"></jsp:param>
+							<jsp:param name="chatContent" value="오늘 11시까지인데 밥언제 먹나요...:("></jsp:param>
+						</jsp:include>
+						<jsp:include page="/chatting-right-clearfix.jsp" flush="false">
+							<jsp:param name="chatNickname" value="변다영"></jsp:param>
+							<jsp:param name="chatTime" value="2017-07-18 AM 05:46"></jsp:param>
+							<jsp:param name="chatContent" value="지금 당장 먹어도 시원찮습니다"></jsp:param>
+						</jsp:include>
 						<li class="left clearfix"><span class="chat-img pull-left">
 								<img src="images/tirami.PNG" alt="User Avatar">
 						</span>
 							<div class="chat-body clearfix">
 								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
+									<strong class="primary-font">이성민</strong> <small
 										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
+										2017-07-18 AM 05:47</small>
 								</div>
-								<p><%=d.getContent()%></p>
+								<p>나도 머글랭</p>
 							</div></li>
-						<%
-							}
-							}
-						%>
+						<li class="right clearfix"><span class="chat-img pull-right">
+								<img src="images/me.jpg" alt="User Avatar">
+						</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">변다영</strong> <small
+										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
+										2017-07-18 AM 05:49</small>
+								</div>
+								<p>오빠도 먹죠</p>
+							</div></li>
+						<li class="left clearfix"><span class="chat-img pull-left">
+								<img src="images/tirami.PNG" alt="User Avatar">
+						</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">김태정</strong> <small
+										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
+										2017-07-18 AM 05:50</small>
+								</div>
+								<p>나는 아무거나 괜찮아요.</p>
+							</div></li>
+						<li class="right clearfix"><span class="chat-img pull-right">
+								<img src="images/me.jpg" alt="User Avatar">
+						</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">변다영</strong> <small
+										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
+										2017-07-18 AM 05:50</small>
+								</div>
+								<p>그 놈의 아무거나</p>
+							</div></li>
+						<li class="right clearfix"><span class="chat-img pull-right">
+								<img src="images/me.jpg" alt="User Avatar">
+						</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">변다영</strong> <small
+										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
+										2017-07-18 AM 05:51</small>
+								</div>
+								<p>아악!</p>
+							</div></li>
 					</ul>
 				</div>
 			</div>
