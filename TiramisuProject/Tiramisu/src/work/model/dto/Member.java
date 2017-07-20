@@ -1,13 +1,10 @@
 package work.model.dto;
 
 /**
- * 회원
- * 아이디 : 형식 이메일 + 프라이머리
- * 패스워드 : 영문자 + 숫자 (8자 이상 ~ 20자 이하)
- * 질문 : 정해진 문자열 (나중에 조사)
- * 답변 : 1(3바이트)자 이상 20자 이하+
- * 닉네임 : 1(3바이트)자 이상 20자 이하 + 유니크
- * 사진명 : 사진 릴레이션의 ID 레퍼런스 + null허용
+ * 회원 아이디 : 형식 이메일 + 프라이머리 패스워드 : 영문자 + 숫자 (8자 이상 ~ 20자 이하) 질문 : 정해진 문자열 (나중에
+ * 조사) 답변 : 1(3바이트)자 이상 20자 이하+ 닉네임 : 1(3바이트)자 이상 20자 이하 + 유니크 사진명 : 사진 릴레이션의 ID
+ * 레퍼런스 + null허용
+ * 
  * @author cse
  *
  */
@@ -22,7 +19,7 @@ public class Member {
 	
 	private String nickname;
 	
-	private int image =1 ;
+	private Integer image;
 
 	/**
 	 * Member 기본생성자
@@ -57,7 +54,7 @@ public class Member {
 	 * @param nickname
 	 * @param image
 	 */
-	public Member(String memberId, String memberPw, String question, String answer, String nickname, int image) {
+	public Member(String memberId, String memberPw, String question, String answer, String nickname, Integer image) {
 		super();
 		this.memberId = memberId;
 		this.memberPw = memberPw;
@@ -142,17 +139,18 @@ public class Member {
 	/**
 	 * @return the image
 	 */
-	public int getImage() {
+	public Integer getImage() {
 		return image;
 	}
 
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(int image) {
+	public void setImage(Integer image) {
 		this.image = image;
 	}
-
+	
+	
 	/* (non-Javadoc)
 	 * Pw, answer 에서 답변이 일단 보이게 하고 나주에 차후 수정 or 윗단에서 수정
 	 * @see java.lang.Object#toString()
@@ -174,7 +172,5 @@ public class Member {
 		return builder.toString();
 	}
 	
-	
-	
-	
+
 }

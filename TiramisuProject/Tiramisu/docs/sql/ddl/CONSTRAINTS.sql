@@ -149,4 +149,3 @@ add constraint PK_OPINION_PK primary key (nickname, bias_id);
 
 
 
-

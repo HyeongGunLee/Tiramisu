@@ -10,13 +10,14 @@
 */
 
 insert into MESSAGE 
-values(seq_MESSAGE.NEXTVAL, '오늘은 닭발?', '형건', '2016-07-06', '성민', 'FALSE');
+values(seq_MESSAGE.NEXTVAL, '오늘은 닭발?', '형건', sysdate, '성민', 'FALSE');
 
 insert into MESSAGE 
-values(seq_MESSAGE.NEXTVAL, '닭발은 뼈없는 닭발이지', '태정', '2016-07-07', '다영', 'FALSE');
+values(seq_MESSAGE.NEXTVAL, '닭발은 뼈없는 닭발이지', '태정', sysdate, '다영', 'FALSE');
 
 insert into MESSAGE 
-values(seq_MESSAGE.NEXTVAL, '센세~', '다영', '2016-07-08', '태정', 'FALSE');
+values(seq_MESSAGE.NEXTVAL, '센세~', '다영', sysdate, '태정', 'FALSE');
+
 
 
 

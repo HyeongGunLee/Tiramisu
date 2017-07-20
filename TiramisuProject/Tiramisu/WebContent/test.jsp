@@ -3,6 +3,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import = "work.model.dto.*" %>
 <%@ page import = "work.model.dao.*" %>
+<%@ page import = "work.model.service.MemberService" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,22 +26,15 @@
 	TeamDao teamDao = new TeamDao();
 	TeamMemberDao teamMemberDao = new TeamMemberDao();
 	VoteDao voteDao = new VoteDao();
+	
+	
 %>	
 
-
 <%
-	out.println("SelctONe : ");
-	Member dto = memberDao.selectOne("user02");
-	out.println(dto);
-%><br><br>
-<% 
-	out.println("selectAll : ");
-	ArrayList<Member> members = memberDao.selectAll();
-	
-	for ( int i = 0 ; i < members.size() ; i ++) {
-		out.println(members.get(i)+"\n");
-	}
-%><br><br>
+	boolean check = MemberService.getInstance().loginCheck("babo751@naver.com","ps345");
+	out.println(check);
+%>
+
 
 
 

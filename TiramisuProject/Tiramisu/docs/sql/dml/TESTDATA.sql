@@ -34,46 +34,46 @@ values('IncheonDeepLearning', '인천딥러닝스터디', 'FALSE');
 
 
 insert into MESSAGE 
-values(seq_MESSAGE.NEXTVAL, '오늘은 닭발?', '형건', '2016-07-06', '성민', 'FALSE');
+values(seq_MESSAGE.NEXTVAL, '오늘은 닭발?', '형건', sysdate, '성민', 'FALSE');
 
 insert into MESSAGE 
-values(seq_MESSAGE.NEXTVAL, '닭발은 뼈없는 닭발이지', '태정', '2016-07-07', '다영', 'FALSE');
+values(seq_MESSAGE.NEXTVAL, '닭발은 뼈없는 닭발이지', '태정', sysdate, '다영', 'FALSE');
 
 insert into MESSAGE 
-values(seq_MESSAGE.NEXTVAL, '센세~', '다영', '2016-07-08', '태정', 'FALSE');
+values(seq_MESSAGE.NEXTVAL, '센세~', '다영', sysdate, '태정', 'FALSE');
 
 
 
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'BusanBigData', '2017-06-01', '태정', '부산빅데이터스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'BusanBigData', sysdate, '태정', '부산빅데이터스터디팀에 새글이 작성되었습니다.');
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'SeoulBigData', '2017-06-02', '다영', '서울빅데이터스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'SeoulBigData', sysdate, '다영', '서울빅데이터스터디팀에 새글이 작성되었습니다.');
 
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'GwangjuMachineLearning', '2017-06-03', '형건', '광주머신러닝스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'GwangjuMachineLearning', sysdate, '형건', '광주머신러닝스터디팀에 새글이 작성되었습니다.');
 
 insert into NOTIFICATION 
-values(seq_NOTIFICATION.NEXTVAL, 'IncheonDeepLearning', '2017-06-04', '성민', '인천딥러닝스터디팀에 새글이 작성되었습니다.');
+values(seq_NOTIFICATION.NEXTVAL, 'IncheonDeepLearning', sysdate, '성민', '인천딥러닝스터디팀에 새글이 작성되었습니다.');
 
 
 
 
 
 insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'BusanBigData', '2017-05-01', '태정', '오늘 지각하면 벌금');
+values(seq_NOTICE.NEXTVAL, 'BusanBigData', sysdate, '태정', '오늘 지각하면 벌금');
 
 insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'SeoulBigData', '2017-05-02', '다영', '수육 진짜 좋아하는데 먹으러 가죠');
+values(seq_NOTICE.NEXTVAL, 'SeoulBigData', sysdate, '다영', '수육 진짜 좋아하는데 먹으러 가죠');
 
 
 insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'GwangjuMachineLearning', '2017-05-03', '형건', '다음에 한번 같이 가죠');
+values(seq_NOTICE.NEXTVAL, 'GwangjuMachineLearning', sysdate, '형건', '다음에 한번 같이 가죠');
 
 insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'IncheonDeepLearning', '2017-05-04', '성민', '내일 지각할듯요');
+values(seq_NOTICE.NEXTVAL, 'IncheonDeepLearning', sysdate, '성민', '내일 지각할듯요');
 
 
 
@@ -114,16 +114,16 @@ values('DATA', 'GwangjuMachineLearning');
 
 
 insert into DIALOG 
-values(seq_DIALOG.NEXTVAL, 'DATA', 'BusanBigData','이거 데이터인가?', '태정', '2017-01-01', null);
+values(seq_DIALOG.NEXTVAL, 'DATA', 'BusanBigData','이거 데이터인가?', '태정', sysdate, null);
 
 insert into DIALOG 
-values(seq_DIALOG.NEXTVAL, 'INFORMATION', 'BusanBigData', '파이썬 예습하도록 하죠.', '태정', '2017-01-02', null );
+values(seq_DIALOG.NEXTVAL, 'INFORMATION', 'BusanBigData', '파이썬 예습하도록 하죠.', '태정', sysdate, null );
 
 insert into DIALOG 
-values(seq_DIALOG.NEXTVAL, 'NOTICE', 'SeoulBigData',  '여긴 알릴것만 적으세요','다영', '2017-01-03', null);
+values(seq_DIALOG.NEXTVAL, 'NOTICE', 'SeoulBigData',  '여긴 알릴것만 적으세요','다영', sysdate, null);
 
 insert into DIALOG
-values(seq_DIALOG.NEXTVAL, 'DATA', 'GwangjuMachineLearning', '자료입니다.', '형건', '2017-01-04', 1);
+values(seq_DIALOG.NEXTVAL, 'DATA', 'GwangjuMachineLearning', '자료입니다.', '형건', sysdate, 4);
 
 
 

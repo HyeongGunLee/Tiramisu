@@ -3,11 +3,11 @@
  */
 create table DIALOG (
 	dialog_id number(4),						-- ID
-	channel_name varchar2(60) not null, 	-- 채널명
-	team_name varchar2(60) not null,				-- 채널ID
+	channel_name varchar2(60) not null,	
+	team_name varchar2(60) not null,	
 	content varchar2(900) not null,				-- 내용
 	writer varchar2(60) not null,				-- 작성자
-	write_date varchar2(20) not null,					-- 작성일
+	write_date DATE not null,					-- 작성일
 	file_id number(4) default null				-- 파일ID
 );
 

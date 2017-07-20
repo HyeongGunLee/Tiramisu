@@ -6,7 +6,7 @@ create table MESSAGE (
 	message_id number(4),					-- ID
 	content varchar2(3000) not null,		-- 내용
 	writer varchar2(60) not null,			-- 작성자
-	write_date varchar2(20) not null,		-- 작성일 2016-01-02
+	write_date DATE not null,				-- 작성일
 	receiver varchar2(60) not null,			-- 수신자
 	confirm varchar2(10) DEFAULT 'FALSE'	-- 확인
 );

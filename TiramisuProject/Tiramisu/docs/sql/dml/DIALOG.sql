@@ -8,18 +8,16 @@
  */
 
 insert into DIALOG 
-values(seq_DIALOG.NEXTVAL, 'DATA', 'BusanBigData','이거 데이터인가?', '태정', '2017-01-01', null);
+values(seq_DIALOG.NEXTVAL, 'DATA', 'BusanBigData','이거 데이터인가?', '태정', sysdate, null);
 
 insert into DIALOG 
-values(seq_DIALOG.NEXTVAL, 'INFORMATION', 'BusanBigData', '파이썬 예습하도록 하죠.', '태정', '2017-01-02', null );
+values(seq_DIALOG.NEXTVAL, 'INFORMATION', 'BusanBigData', '파이썬 예습하도록 하죠.', '태정', sysdate, null );
 
 insert into DIALOG 
-values(seq_DIALOG.NEXTVAL, 'NOTICE', 'SeoulBigData',  '여긴 알릴것만 적으세요','다영', '2017-01-03', null);
+values(seq_DIALOG.NEXTVAL, 'NOTICE', 'SeoulBigData',  '여긴 알릴것만 적으세요','다영', sysdate, null);
 
 insert into DIALOG
-values(seq_DIALOG.NEXTVAL, 'DATA', 'GwangjuMachineLearning', '자료입니다.', '형건', '2017-01-04', 1);
-
-
+values(seq_DIALOG.NEXTVAL, 'DATA', 'GwangjuMachineLearning', '자료입니다.', '형건', sysdate, 4);
 
 
 --error check

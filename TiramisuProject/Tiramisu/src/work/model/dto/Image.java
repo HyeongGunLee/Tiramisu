@@ -1,83 +1,88 @@
 package work.model.dto;
 
 /**
- * 사진
- * ID : 시퀀스 + 프라이머리
- * 파일명 : 200자
+ * 사진 ID : 시퀀스 + 프라이머리 파일명 : 200자
+ * 
  * @author cse
  *
  */
 public class Image {
- 
- private int imageId;
- 
- private String fileName;
 
- /**
-  * Image 기본 생성자
-  */
- public Image() {
-  super();
- }
+	private Integer imageId;
 
- /**
-  * Image 필수 / 모든 데이터 생성자
-  * @param imageId
-  * @param fileName
-  */
- public Image(int imageId, String fileName) {
-  super();
-  this.imageId = imageId;
-  this.fileName = fileName;
- }
- 
- /**
-  * 시퀀스 생성자 
-  * @param fileName
-  */
+	private String fileName;
 
- public Image(String fileName) {
-  super();
-  this.fileName = fileName;
- }
+	/**
+	 * Image 기본 생성자
+	 */
+	public Image() {
+		super();
+	}
 
- /**
-  * @return the imageId
-  */
- public int getImageId() {
-  return imageId;
- }
+	/**
+	 * Image 필수 / 모든 데이터 생성자
+	 * 
+	 * @param imageId
+	 * @param fileName
+	 */
+	public Image(Integer imageId, String fileName) {
+		super();
+		this.imageId = imageId;
+		this.fileName = fileName;
+	}
 
- /**
-  * @param imageId the imageId to set
-  */
- public void setImageId(int imageId) {
-  this.imageId = imageId;
- }
+	/**
+	 * 시퀀스 생성자
+	 * 
+	 * @param fileName
+	 */
 
- /**
-  * @return the fileName
-  */
- public String getFileName() {
-  return fileName;
- }
+	public Image(String fileName) {
+		super();
+		this.fileName = fileName;
+	}
 
- /**
-  * @param fileName the fileName to set
-  */
- public void setFileName(String fileName) {
-  this.fileName = fileName;
- }
+	/**
+	 * @return the imageId
+	 */
+	public Integer getImageId() {
+		return imageId;
+	}
 
- /* (non-Javadoc)
-  * @see java.lang.Object#toString()
-  */
- @Override
- public String toString() {
-  StringBuilder builder = new StringBuilder();
-  builder.append(imageId);
-  builder.append(", ");
-  builder.append(fileName);
-  return builder.toString();
- }
+	/**
+	 * @param imageId
+	 *            the imageId to set
+	 */
+	public void setImageId(Integer imageId) {
+		this.imageId = imageId;
+	}
+
+	/**
+	 * @return the fileName
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+
+	/**
+	 * @param fileName
+	 *            the fileName to set
+	 */
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(imageId);
+		builder.append(", ");
+		builder.append(fileName);
+		return builder.toString();
+	}
 }
