@@ -64,7 +64,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 			<div class="chat-body clearfix">\
 				<div class="header">\
 					<strong class="primary-font">'+ recMessage[2] +'</strong> <small\
-						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ recMessage[3] +'</small>\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+ recMessage[3] +'</small>\
 				</div>\
 				<p>'+ recMessage[4] +'</p>\
 			</div></li>';
@@ -88,7 +88,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 			<div class="chat-body clearfix">\
 				<div class="header">\
 					<strong class="primary-font">'+ nickname +'</strong> <small\
-						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ time +'</small>\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+ time +'</small>\
 				</div>\
 				<p>'+ content +'</p>\
 			</div></li>';

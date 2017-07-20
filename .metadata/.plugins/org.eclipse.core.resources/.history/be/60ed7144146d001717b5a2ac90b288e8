@@ -24,7 +24,7 @@ Date.prototype.format = function(f) {
             case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2);
             case "mm": return d.getMinutes().zf(2);
             case "ss": return d.getSeconds().zf(2);
-            case "a/p": return d.getHours() < 12 ? "AM" : "PM";
+            case "a/p": return d.getHours() < 12 ? "오전" : "오후";
             default: return $1;
         }
     });
@@ -64,7 +64,8 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 			<div class="chat-body clearfix">\
 				<div class="header">\
 					<strong class="primary-font">'+ recMessage[2] +'</strong> <small\
-						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ recMessage[3] +'</small>\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+
+						+ recMessage[3] +'</small>\
 				</div>\
 				<p>'+ recMessage[4] +'</p>\
 			</div></li>';
@@ -80,7 +81,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		teamName = "<%=session.getAttribute("teamName")%>";
 		channelName = "<%=session.getAttribute("channelName")%>";
 		content = document.getElementById("dialogInput").value;
-		time = new Date().format("yyyy-MM-dd a/p hh:mm:ss");
+		time = new Date();
 		nickname = "<%=session.getAttribute("nickname")%>";
 		textarea.innerHTML += '<li class="right clearfix"><span class="chat-img pull-right">\
 			<img src="images/me.jpg" alt="User Avatar">\
@@ -88,7 +89,8 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 			<div class="chat-body clearfix">\
 				<div class="header">\
 					<strong class="primary-font">'+ nickname +'</strong> <small\
-						class="pull-right text-muted"><i class="fa fa-clock-o"></i> '+ time +'</small>\
+						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+
+						+ time +'</small>\
 				</div>\
 				<p>'+ content +'</p>\
 			</div></li>';

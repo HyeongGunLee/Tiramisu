@@ -2,9 +2,7 @@ INDEX VERSION 1.3+C:\Tiramisu\.metadata\.plugins\org.eclipse.wst.jsdt.core\index
 1446474971.index
 1398448521.index
 2696422166.index
-1645412930.index
 3130669021.index
-3987036860.index
 3357277902.index
 4121088006.index
 190289726.index
