@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
 	var textarea = document.getElementById("chat");
-	var webSocket = new WebSocket('ws://164.125.34.38:8070/Tiramisu/broadcasting');
+	var webSocket = new WebSocket('ws://localhost:8070/Tiramisu/broadcasting');
 	var inputMessage = document.getElementById('dialogInput');
 	var nickname = null;
 	var time = null;
@@ -28,16 +28,18 @@
 		console.log(recMessage[0]);
 		console.log(recMessage[1]);
 		console.log(recMessage[2]);
+		console.log(recMessage[3]);
+		console.log(recMessage[4]);
 		textarea.innerHTML += '<li class="left clearfix"><span class="chat-img pull-left">\
 			<img src="images/tirami.PNG" alt="User Avatar">\
 		</span>\
 			<div class="chat-body clearfix">\
 				<div class="header">\
-					<strong class="primary-font">'+ recMessage[0] +'</strong> <small\
+					<strong class="primary-font">'+ recMessage[2] +'</strong> <small\
 						class="pull-right text-muted"><i class="fa fa-clock-o"></i>'+
-						+ recMessage[1] +'</small>\
+						+ recMessage[3] +'</small>\
 				</div>\
-				<p>'+ recMessage[2] +'</p>\
+				<p>'+ recMessage[4] +'</p>\
 			</div></li>';
 		//textarea.value += "상대 : " + event.data + "\n";
 	}
@@ -48,6 +50,8 @@
 		alert(event.data);
 	}
 	function send() {
+		teamName = "<%=session.getAttribute("teamName")%>";
+		channelName = "<%=session.getAttribute("channelName")%>";
 		content = document.getElementById("dialogInput").value;
 		time = new Date();
 		nickname = "<%=session.getAttribute("nickname")%>";
@@ -63,7 +67,8 @@
 				</div>\
 				<p>'+ content +'</p>\
 			</div></li>';
-		sendMessage = nickname+"`"+time+"`"+content;
+		sendMessage = teamName+"`"+channelName+"`"+nickname+"`"+time+"`"+content;
+		console.log(sendMessage);
 		webSocket.send(sendMessage);
 		inputMessage.value = "";
 	}
@@ -71,8 +76,7 @@
 	function dialogSubmit(){
 		content = document.getElementById("dialogInput").value;
 		time = new Date();
-		nickname = "<%=session.getAttribute("nickname")%>
-	";
+		nickname = "<%=session.getAttribute("nickname")%>";
 		/*document.writeln(content);
 		document.writeln(time);
 		document.writeln(nickname);*/
