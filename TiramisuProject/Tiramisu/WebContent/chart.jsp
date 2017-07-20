@@ -188,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<td>
 				<div style="overflow-y:scroll; height:380px;"> 
 				<div  class="chat-message" style="background-color:white; padding-top:20px;">
-					<h3 style="align:center; ">가장 추천을 많이 받은 의견입니다</h3>
+					<h3 style="align:center; ">의견을 추천 순으로 보여드립니다</h3>
 					<ul class="chat"  >
 					
 					<li class="left clearfix" >

@@ -42,11 +42,11 @@
 		<%
 			for (int i = 0; i < channelNameArray.size(); i++) {
 		%>
-		<li><a href="#" class="hvr-grow-shadow"style="background-color:#a0522d; font-size:15px"> <%=channelNameArray.get(i) %></a></li>
+		<li><a href="" class="hvr-grow-shadow"style="background-color:#a0522d; font-size:15px"> <%=channelNameArray.get(i) %></a></li>
 		<%
 			}
 		%>
 		<li><a href="#"><img src="images/files.png" style="width: 17px; height: 17px;"> data file</a></li>
-		<li><a href="/chart.jsp"><img src="images/chart.png" style="width: 17px; height: 17px;"> charts</a></li>
+		<li><a href="chart.jsp"><img src="images/chart.png" style="width: 17px; height: 17px;"> charts</a></li>
 		<li><a href="#"><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
 	</ul></li>
