@@ -33,33 +33,7 @@
 <link href="css/hover.css" rel="stylesheet" media="all">
 <!--//but-->
 <!-- 버튼End -->
-<!-- 팝업  -->
-<link href="css/popup.css" rel="stylesheet">
-<script src="js/popup.js"></script>
-<!-- 팝업 END -->
 
-
-
-<div id="body" style="overflow: hidden;">
-	<div id="abc">
-		<!-- Popup Div Starts Here -->
-		<div id="popupContact" >
-			<!-- Contact Us Form -->
-			<form action="TeamController?action=makeTeam" id="form" method="post" name="form">
-				<img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()">
-				<h2>Team Build</h2>
-				<hr>
-				<input id="name" name="name" placeholder="Team Name" type="text" style="width:200px;">
-				<div style="align:center; padding:10px 0px 0px 40px">
-				<label>공개</label><input type="radio" id="teamOpen" name="teamOpen" value="open" checked>
-				<label>&nbsp;&nbsp;비공개</label><input type="radio" id="teamOpen" name="teamOpen" value="NonOpen">
-				</div>
-				<textarea id="msg" name="message" placeholder="Team`s Subject" style="width:200px;"></textarea>
-				<input type="submit" id="submit" value="만들기">
-			</form>
-		</div>
-	</div>
-</div>
 
 <div class="sidebar-menu">
 	<div class="menu">
@@ -71,7 +45,7 @@
                        <jsp:param name="teamName" value="${no}"></jsp:param>
                </jsp:include>
             </c:forEach>
-            <li><a href="#" class="hvr-icon-float-away" style="background-color:#53270E; font-size:15px" id="popup" onclick="div_show()">Build Team</a></li>
+            <li><a href="buildTeamPop.html" class="hvr-icon-float-away" style="background-color:#53270E; font-size:15px" >Build Team</a></li>
             <li style="padding:0px 50px 0px 50px; position:fixed; bottom:30px;"><a href="#"><i class="fa fa-cogs"></i><span style="font-size:15px">Setting</span></a></li>
 		</ul>
 	</div>
