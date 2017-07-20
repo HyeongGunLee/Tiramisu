@@ -7,18 +7,20 @@
  * 내용(content)
  */
 
-insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'BusanBigData', '2017-05-01', '태정', '오늘 지각하면 벌금');
-
-insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'SeoulBigData', '2017-05-02', '다영', '수육 진짜 좋아하는데 먹으러 가죠');
 
 
 insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'GwangjuMachineLearning', '2017-05-03', '형건', '다음에 한번 같이 가죠');
+values(seq_NOTICE.NEXTVAL, 'BusanBigData', sysdate, '태정', '오늘 지각하면 벌금');
 
 insert into NOTICE 
-values(seq_NOTICE.NEXTVAL, 'IncheonDeepLearning', '2017-05-04', '성민', '내일 지각할듯요');
+values(seq_NOTICE.NEXTVAL, 'SeoulBigData', sysdate, '다영', '수육 진짜 좋아하는데 먹으러 가죠');
+
+
+insert into NOTICE 
+values(seq_NOTICE.NEXTVAL, 'GwangjuMachineLearning', sysdate, '형건', '다음에 한번 같이 가죠');
+
+insert into NOTICE 
+values(seq_NOTICE.NEXTVAL, 'IncheonDeepLearning', sysdate, '성민', '내일 지각할듯요');
 
 
 
