@@ -11,11 +11,15 @@
 		}
 	}
 %>
+
 <meta charset="euc-kr">
 <div class="sidebar-menu">
 	<div class="menu">
 		<ul id="menu">
-			<li id="menu-home"><a href="index.jsp"><img alt="Logo" src="images/Tiramisu.png" style="width: 75px; height: 75px;"><p style="font-size:20px">TIRAMISU</p></a></li>
+			<li id="menu-home"><a href="index.jsp"><%
+				session.removeAttribute("teamName");
+				session.removeAttribute("channelName");
+			%><img alt="Logo" src="images/Tiramisu.png" style="width: 75px; height: 75px;"><p style="font-size:20px">TIRAMISU</p></a></li>
 			<br>
 			<c:forEach var="no" begin="0" end="${teamArray.size()}" step="1" items="${teamArray}">
 			<jsp:include page="/team.jsp" flush="false">

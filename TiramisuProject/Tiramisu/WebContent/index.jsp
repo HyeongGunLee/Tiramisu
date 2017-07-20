@@ -13,7 +13,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
 
 
 
@@ -50,26 +62,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 	
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
-			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
-			System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
+			//System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
+			//System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
 			if (isLogin) {%>
 	$(document).ready(function() {
 		$("#header-frame").load("header-chatting-frame.jsp");
-	});
-	$(document).ready(function() {
-		$("#body-frame").load("body-chatting-frame.jsp");
 	});
 <%} else {%>
 	$(document).ready(function() {
 		$("#header-frame").load("header-logout-frame.jsp");
 	});
+<%}%>
 	$(document).ready(function() {
 		$("#body-frame").load("body-default-frame.jsp");
 	});
-<%}%>
 	$(document).ready(function() {
 		$("#left-frame").load("left-frame.jsp");
 	});
+<%String teamName = request.getParameter("teamName");
+			String channelName = request.getParameter("channelName");
+			//System.out.println(teamName + ":" + channelName);
+			if (channelName != null & teamName != null) {
+				session.setAttribute("teamName", teamName);
+				session.setAttribute("channelName", channelName);%>
+	$(document).ready(function() {
+		$("#body-frame").load("body-chatting-frame.jsp");
+	});
+<%}%>
+	
 </script>
 <!--geo chart-->
 

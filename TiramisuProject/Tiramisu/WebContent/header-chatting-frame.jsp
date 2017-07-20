@@ -1,19 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String teamName = (String) session.getAttribute("teamName");
+	String channelName = (String) session.getAttribute("channelName");
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<link href="css/bootstrap.css" rel="stylesheet">
 <!--header start here-->
 <div class="header-main">
-	<div class="header-left">	
-		<div class="search-box" style="border-color:#53270E">
+
+	<div class="header-left">
+		<%
+			if (teamName != null && channelName != null) {
+		%>
+		<div class="logo-name" style="align: center; color: #53270E">
+			<a href="index.html">
+				<h4 style="align: center; color: #53270E">
+					<strong><%=teamName %>팀 </strong>
+				</h4>
+				<h5 style="align: center; color: #53270E">
+					<b><%=channelName %></b>
+				</h5>
+			</a>
+		</div>
+		<div class="search-box" style="border-color: #53270E">
 			<form action="#검색처리">
-				<input type="text" placeholder="채팅 방 내 검색..." required="">	
-				<input type="submit" value="">					
+				<input type="text" placeholder="채팅 방 내 검색..." required=""> <input
+					type="submit" value="">
 			</form>
 		</div>
-	
-	
+		<%
+			}
+		%>
+		
 		<div class="clearfix"></div>
 	</div>
+
+
 	<div class="header-right">
 		<div class="profile_details_left">
 			<!--notifications of menu start -->
@@ -133,8 +156,8 @@
 							<span class="prfil-img"><img src="images/basic_user.png"
 								alt="" style="width: 50px; height: 50px;"> </span>
 							<div class="user-name">
-								<p><%=(String)session.getAttribute("nickname") %></p>
-								<span><%=(String)session.getAttribute("memberId") %></span>
+								<p><%=(String) session.getAttribute("nickname")%></p>
+								<span><%=(String) session.getAttribute("memberId")%></span>
 							</div>
 							<i class="fa fa-angle-down lnr"></i> <i
 								class="fa fa-angle-up lnr"></i>
@@ -144,7 +167,8 @@
 					<ul class="dropdown-menu drp-mnu">
 						<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
 						<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-						<li><a href="MemberController?action=logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+						<li><a href="MemberController?action=logout"><i
+								class="fa fa-sign-out"></i> Logout</a></li>
 					</ul></li>
 			</ul>
 		</div>
