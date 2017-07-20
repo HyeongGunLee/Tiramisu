@@ -11,7 +11,11 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -44,16 +48,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Chartinator  -->
 <script src="js/chartinator.js"></script>
 <script type="text/javascript">
+	
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
-	System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
-	if (isLogin) {%>
-		$(document).ready(function() {$("#header-frame").load("header-login-frame.html");});
+			System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
+			System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
+			if (isLogin) {%>
+	$(document).ready(function() {
+		$("#header-frame").load("header-chatting-frame.jsp");
+	});
+	$(document).ready(function() {
+		$("#body-frame").load("body-chatting-frame.jsp");
+	});
 <%} else {%>
-		$(document).ready(function() {$("#header-frame").load("header-logout-frame.html");});
+	$(document).ready(function() {
+		$("#header-frame").load("header-logout-frame.jsp");
+	});
+	$(document).ready(function() {
+		$("#body-frame").load("body-default-frame.jsp");
+	});
 <%}%>
-$(document).ready(function() {
-	$("#left-frame").load("left-frame.html");
-});
+	$(document).ready(function() {
+		$("#left-frame").load("left-frame.jsp");
+	});
 </script>
 <!--geo chart-->
 
@@ -84,18 +100,11 @@ $(document).ready(function() {
 				</script>
 				<!-- /script-for sticky-nav -->
 				<!--inner block start here-->
-				<div style="width: 100%; height: 500px; position: relative;">
-					<section id="wrapper" style="align: center; margin: 350px;">
-						<div id="main_search">
-							<form>
-								<input type="text" id="search_space"> <input
-									type="submit" class="solid" value="Search">
-							</form>
-						</div>
-						<!--main-->
-					</section>
-					<!--wrapper-->
+
+				<div id="body-frame">
+					<!--main-->
 				</div>
+
 				<!--inner block end here-->
 				<!--copy rights start here-->
 				<div class="copyrights">
