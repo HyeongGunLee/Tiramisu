@@ -29,4 +29,16 @@ public class DialogService {
 		}
 		return returnList;
 	}
+	public ArrayList<Dialog> inTeamNicknameDialog(String teamName, String nickname){
+		ArrayList<Dialog> returnList = new ArrayList<>();
+		ArrayList<Dialog> allList = dao.selectAll();
+		System.out.println("Debug : inTeamChannelDialog - "+teamName+":"+nickname);
+		for(Dialog d : allList){
+			if(d.getWriter().equals(nickname)&&d.getTeamName().equals(teamName)){
+				returnList.add(d);
+				System.out.println("LDebug : inTeamChannelDialog - "+d.getTeamName()+":"+d.getChannelName());
+			}
+		}
+		return returnList;
+	}
 }

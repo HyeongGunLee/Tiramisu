@@ -11,7 +11,9 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -47,6 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%boolean isLogin = (session != null && session.getAttribute("memberId") != null ? true : false);
 			//System.out.println("Debug index.jsp : " + session.getAttribute("memberId"));
 			//System.out.println("Debug index.jsp : " + session.getAttribute("nickname"));
+	
 			if (isLogin) {%>
 	$(document).ready(function() {
 		$("#header-frame").load("header-chatting-frame.jsp");
@@ -72,6 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$("#body-frame").load("body-chatting-frame.jsp");
 	});
 <%}%>
+	
 <%
 	if(request.getParameter("action")!=null){
 		if(request.getParameter("action").equals("null")){
@@ -80,9 +84,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			System.out.println(session.getAttribute("action"));
 		}
 	}
-	
+
 %>
-	
+
 </script>
 <!--geo chart-->
 

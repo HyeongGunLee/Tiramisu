@@ -123,11 +123,14 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		document.writeln(nickname);*/
 	}
 	$(document).ready(function(){
-		$('#outUserEvent').click(function(){
-			$('#list').load('outUserEvent.jsp');
+		$('#chatSub').click(function(){
+			$('#list').load('right-chatting-frame.jsp');
 			return false;
 		});
 	});
+	function chatClick(nick){
+		$('#list').load('right-chatting-frame.jsp',{nickname:nick,teamName:'<%=session.getAttribute("teamName")%>'});
+	}
 </script>
 <script>
 
@@ -155,13 +158,13 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 									(String) session.getAttribute("channelName"));
 							for (Dialog d : dialogList) {
 								if (d.getWriter().equals((String) session.getAttribute("nickname"))) {
-						%>
-						<li class="right clearfix"><span class="chat-img pull-right">
+								%>
+						<li class="right clearfix"><span class="chat-img pull-right" id="chatSub" onclick="chatClick('<%=d.getWriter()%>')">
 								<img src="images/me.jpg" alt="User Avatar">
 						</span>
 							<div class="chat-body clearfix">
 								<div class="header">
-									<strong class="primary-font"><%=d.getWriter()%></strong> <small
+									<strong class="primary-font" id="prime"><%=d.getWriter()%></strong> <small
 										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
 										<%=d.getWriteDate()%></small>
 								</div>
@@ -170,7 +173,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 						<%
 							} else {
 						%>
-						<li class="left clearfix"><span class="chat-img pull-left">
+						<li class="left clearfix"><span class="chat-img pull-left" onclick="chatClick('<%=d.getWriter()%>')">
 								<img src="images/tirami.PNG" alt="User Avatar">
 						</span>
 							<div class="chat-body clearfix">
@@ -202,8 +205,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 		</div>
 		<!--오른쪽 면 -->
-		
-
+		<div id="list">
 	</div>
 </div>
 
@@ -212,5 +214,5 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 %>
 <!--  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
 <script type="text/javascript">
-	
+
 </script>
