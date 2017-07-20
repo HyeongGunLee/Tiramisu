@@ -52,7 +52,7 @@ function page_move(team,channel){
       <input type="hidden" name="teamName"/>
       <input type="hidden" name="channelName"/>
 </form>
-<li><a href="#" class="hvr-grow-shadow"style="background-color:#a0522d; font-size:15px;"><%=teamName%></a>
+<li><a href="#" class="hvr-grow-shadow"style="background-color:#a0522d;"><%=teamName%></a>
 	<ul>
 		<!-- <li><a href="#" id="General"><img src="images/chat.png"
 				style="width: 19px; height: 19px;"> General chat</a></li> -->

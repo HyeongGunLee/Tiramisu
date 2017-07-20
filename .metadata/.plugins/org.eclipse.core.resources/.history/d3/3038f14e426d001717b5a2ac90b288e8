@@ -39,21 +39,15 @@
 <div class="sidebar-menu">
 	<div class="menu">
 		<ul id="menu">
-			<li id="menu-home"><a href="index.jsp?action=null"><img alt="Logo" src="images/Tiramisu.png" style="width: 75px; height: 75px;"><p style="font-size:20px">TIRAMISU</p></a></li>
+			<li id="menu-home"><a href="index.jsp"><img alt="Logo" src="images/Tiramisu.png" style="width: 75px; height: 75px;"><p style="font-size:20px">TIRAMISU</p></a></li>
 			<br>
 			<c:forEach var="no" begin="0" end="${teamArray.size()}" step="1" items="${teamArray}">
 			<jsp:include page="/team.jsp" flush="false">
                        <jsp:param name="teamName" value="${no}"></jsp:param>
                </jsp:include>
             </c:forEach>
-            <%
-            	if(session != null && session.getAttribute("memberId") != null){
-            %>
             <li><a href="#" class="hvr-icon-float-away" style="background-color:#53270E; font-size:15px">Build Team</a></li>
             <li style="padding:0px 50px 0px 50px; position:fixed; bottom:30px;"><a href="#"><i class="fa fa-cogs"></i><span style="font-size:15px">Setting</span></a></li>
-			<%
-            	}
-			%>
 		</ul>
 	</div>
 

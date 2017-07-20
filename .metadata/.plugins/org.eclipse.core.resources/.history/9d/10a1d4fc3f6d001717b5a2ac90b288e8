@@ -43,15 +43,15 @@ input[type="submit"].iogin {
 </style>
 
 <!--header start here-->
-<div class="header-main" style="height:110px">
-    
-    <div class="header-right" >
-    <form action="loginAndSignup.jsp">
-        <input type="submit" value="Login & Sign Up" class="iogin" style="font-size:18px; padding:0px 50px 0px 50px; position:absolute; top:20px; right:20px;">  
-        </form>
-    <div class="clearfix"></div>
-    </div>
-    <div class="clearfix"></div>
+<div class="header-main">
+	
+	<div class="header-right" style="">
+		<form action="loginAndSignup.jsp">
+		<input type="submit" value="Login & Sign Up" class="iogin" style="font-size:18px; padding:0px 50px 0px 50px; position:absolute; top:20px; right:20px;">   
+		</form>
+	<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
 </div>
 <!--heder end here-->
 

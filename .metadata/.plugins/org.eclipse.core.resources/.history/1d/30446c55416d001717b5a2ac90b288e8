@@ -52,7 +52,7 @@ function page_move(team,channel){
       <input type="hidden" name="teamName"/>
       <input type="hidden" name="channelName"/>
 </form>
-<li><a href="#" class="hvr-grow-shadow"style="background-color:#a0522d; font-size:15px;"><%=teamName%></a>
+<li><a href="#" class="hvr-grow-shadow"style="background-color:#a0522d;"><%=teamName%></a>
 	<ul>
 		<!-- <li><a href="#" id="General"><img src="images/chat.png"
 				style="width: 19px; height: 19px;"> General chat</a></li> -->
@@ -67,7 +67,7 @@ function page_move(team,channel){
 		%>
 		<li><a href="#"><img src="images/files.png"
 				style="width: 17px; height: 17px;"> data file</a></li>
-		<li><a href="chart.jsp"><img src="images/chart.png"
+		<li><a href="#"><img src="images/chart.png"
 				style="width: 17px; height: 17px;"> charts</a></li>
 		<li><a href="#"><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
 	</ul></li>
