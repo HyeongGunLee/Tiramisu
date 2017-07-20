@@ -122,15 +122,7 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		document.writeln(time);
 		document.writeln(nickname);*/
 	}
-	$(document).ready(function(){
-		$('#outUserEvent').click(function(){
-			$('#list').load('outUserEvent.jsp');
-			return false;
-		});
-	});
 </script>
-<script>
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <link
@@ -203,7 +195,6 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 		</div>
 		<!--오른쪽 면 -->
 		
-
 	</div>
 </div>
 
