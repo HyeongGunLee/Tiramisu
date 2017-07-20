@@ -161,6 +161,7 @@ public class MemberController extends HttpServlet {
 			session.removeAttribute("isLogin");
 			session.removeAttribute("nickname");
 			session.removeAttribute("teamArray");
+			session.removeAttribute("voteName");
 			session.invalidate();
 			response.sendRedirect("index.jsp");
 			System.out.println("Debug : ë¡?ê·¸ì???? ?±ê³µ");

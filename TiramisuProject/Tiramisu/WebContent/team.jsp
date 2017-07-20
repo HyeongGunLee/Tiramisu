@@ -4,7 +4,19 @@
 	pageEncoding="euc-kr"%>
 <meta charset="euc-kr">
 
-
+<%
+	request.setCharacterEncoding("utf-8");
+	String teamName = request.getParameter("teamName");
+	TeamService service = TeamService.getInstance();
+	ArrayList<String> channelNameArray = service.teamHasChannel(teamName);
+	if (channelNameArray != null) {
+		for (String str : channelNameArray) {
+			System.out.println("team.jsp : " + str);
+		}
+	}
+	System.out.println(channelNameArray.size());
+	boolean existChart = service.existChart(teamName);
+%>
 <!-- 버튼 api-->
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,6 +36,10 @@
 <!--//but-->
 <!-- 버튼End -->
 
+<!-- 팝업 소스 -->
+<link href="css/popup.css" rel="stylesheet">
+<script src="js/popup.js"></script>
+<!-- 팝업 소스 END -->
 
 <script>
 function page_move(team,channel){
@@ -36,18 +52,7 @@ function page_move(team,channel){
     console.log('enter');
 }
 </script>
-<%
-	request.setCharacterEncoding("utf-8");
-	String teamName = request.getParameter("teamName");
-	TeamService service = TeamService.getInstance();
-	ArrayList<String> channelNameArray = service.teamHasChannel(teamName);
-	if (channelNameArray != null) {
-		for (String str : channelNameArray) {
-			System.out.println("team.jsp : " + str);
-		}
-	}
-	System.out.println(channelNameArray.size());
-%>
+
 <form name="paging">
       <input type="hidden" name="teamName"/>
       <input type="hidden" name="channelName"/>
@@ -67,7 +72,28 @@ function page_move(team,channel){
 		%>
 		<li><a href="#"><img src="images/files.png"
 				style="width: 17px; height: 17px;"> data file</a></li>
-		<li><a href="chart.jsp"><img src="images/chart.png"
+		<li><a href="#" onclick="clickChart()"><img src="images/chart.png"
 				style="width: 17px; height: 17px;"> charts</a></li>
 		<li><a href="#"><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
 	</ul></li>
+	<script type="text/javascript">
+	function clickChart(){
+		if(<%=existChart%>){
+			location.href="chart.jsp?teamName="+'<%=teamName%>';
+		}
+		else{
+			console.log(document.getElementById("body").innerHTML);
+			
+	    	document.getElementById("body").innerHTML +='<div id="abc">\
+	    	<div id="popupContact">\
+	    	<form action="TeamController?action=makeChart" id="voteform" method="post" name="voteform">\
+	    			<img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()">\
+	    			<h2 id="headH2">투표할 주제를 적어주세요!</h2><hr>\
+				<input style="width:200px" id="teamVoteName" name="teamVoteName" type="text">\
+				<input type="submit" id="submit"></form></div></div>';
+	    	document.getElementById('abc').style.display = "block";
+		}
+		
+	}
+
+	</script>

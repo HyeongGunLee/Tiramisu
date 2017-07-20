@@ -4,4 +4,3 @@ activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 configDescList=org.eclipse.launchbar.core.descriptorType.default\:Tomcat v8.5 Server at localhost
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:Tomcat\ v8.5\ Server\ at\ localhost/activeLaunchMode=run
-org.eclipse.launchbar.core.descriptorType.default\:Tomcat\ v8.5\ Server\ at\ localhost/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

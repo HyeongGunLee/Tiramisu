@@ -31,3 +31,9 @@ select * from member;
 select * from team;
 select * from team_member;
 select * from channel;
+select * from opinion;
+select * from bias;
+select * from vote;
+
+insert into team_member values('BusanBigData','´Ù¿µ')
+commit;

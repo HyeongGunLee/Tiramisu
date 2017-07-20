@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utillity.Tool;
 import work.model.service.TeamService;
 
 //import work.model.service.TeamService;
@@ -41,11 +42,34 @@ public class TeamController extends HttpServlet {
 		case "opinionManagement":
 			opinionManagement(request, response);
 			break;
-		case "dropTeam" :
+		case "dropTeam":
 			dropTeam(request, response);
+			break;
+		case "makeChart":
+			makeChart(request, response);
 			break;
 		default:
 			break;
+		}
+	}
+
+	protected void makeChart(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
+			String voteName = request.getParameter("teamVoteName");
+			String teamName = (String) session.getAttribute("teamName");
+			System.out.println("Debug : maeke chart - " + voteName + ":" + teamName);
+			if (service.makeVote(Tool.toKSC5601(voteName), teamName)) {
+				session.setAttribute("voteName", voteName);
+			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/chart.jsp");
+			dispatcher.forward(request, response);
+			System.out.println("Debug : make chart success");
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response);
+			System.out.println("Debug : make chart fail");
 		}
 	}
 
@@ -94,15 +118,16 @@ public class TeamController extends HttpServlet {
 			System.out.println("Debug : send fail!");
 		}
 	}
+
 	protected void dropTeam(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			String memberId = (String) session.getAttribute("memberId");
 			String teamName = (String) session.getAttribute("teamName");
-			service.dropTeam(memberId,teamName);
+			service.dropTeam(memberId, teamName);
 			System.out.println("Debug : drop team.");
-		}else{
+		} else {
 			System.out.println("Debug : session error to drop team fail.");
 		}
 	}
@@ -137,11 +162,13 @@ public class TeamController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
-			String nickname = (String) session.getAttribute("teamMOpinoinNickname");
+			String nickname = (String) session.getAttribute("nickname");
 			String biasName = request.getParameter("teamMOpinionBiasName");
 			String content = request.getParameter("teamMOpinionContent");
-			String voteName = request.getParameter("teamMOpinionvoteName");
-			service.makeOpinion(nickname, voteName, biasName, content);
+			String voteName = (String) session.getAttribute("voteName");
+			service.makeOpinion(Tool.toKSC5601(nickname), Tool.toKSC5601(voteName), Tool.toKSC5601(biasName),
+					Tool.toKSC5601(content));
+
 			System.out.println("Debug : Vote complete!");
 		} else {
 			System.out.println("Debug : Session Error for makeOpinion!");

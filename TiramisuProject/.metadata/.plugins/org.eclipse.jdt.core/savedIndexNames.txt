@@ -1,2 +1,0 @@
-INDEX VERSION 1.130+E:\Tiramisu\TiramisuProject\.metadata\.plugins\org.eclipse.jdt.core
-4121088006.index

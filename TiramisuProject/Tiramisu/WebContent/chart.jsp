@@ -1,10 +1,30 @@
+<%@page import="work.model.dto.Opinion"%>
+<%@page import="work.model.dto.Bias"%>
+<%@page import="work.model.dto.Vote"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="work.model.service.TeamService"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="utf-8"%>
+<%
+	TeamService service = TeamService.getInstance();
+	String teamName = request.getParameter("teamName");
+	String voteName = service.getVote(teamName);
+	session.setAttribute("voteName", voteName);
+	ArrayList<Bias> biasList = service.getVoteBias(voteName);
+	ArrayList<Opinion> opinionList = service.getVoteOpinion(voteName);
+	int bcount = 0;
+	for(Opinion o : opinionList){
+		for(Bias b : biasList){
+			if(o.getBiasId()==b.getBiasId()) {
+				bcount++;
+			}
+		}
+	}
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>티라미슈~~</title>
-
 
 <!-- 채팅 소스 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -33,13 +53,14 @@
     function drawChart() { //도넛차트 Start
         var data = google.visualization.arrayToDataTable([
           ['Task', '투표수'],
-          ['보쌈',    15],
-          ['닭발',    7],
-          ['피자',  3]
+          <%for(int i=0;i<biasList.size();i++){%>
+
+          ['<%=biasList.get(i).getBiasName()%>',    <%=bcount%>],
+          <%}%>
         ]);
 
         var options = {
-          title: '프로젝트 후 회식을 어디서?',
+          title: '<%=voteName%>',
           pieHole: 0.4,
           fontSize : 15
         };
@@ -51,7 +72,10 @@
         google.visualization.events.addListener(chart, 'select', selectHandler);
         function selectHandler(e) {
         	
-        	document.getElementById("body").innerHTML +='<div id="abc"><div id="popupContact"><form action="TeamController?action=opinionManagement&sub=makeOpinion" id="voteform" method="post" name="voteform"><img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()"><h2 id="headH2">의견을 작성해주세요!</h2><hr><input style="width:200px" id="name_readonly" name="name" type="text" value="변다영" readonly><textarea style="width:200px" id="opinion" name="opinion" placeholder="Please tell me your voice!"></textarea><input type="submit" id="submit"></form></div></div>';
+        	document.getElementById("body").innerHTML +='<div id="abc"><div id="popupContact"><form action="TeamController?action=opinionManagement&sub=makeOpinion" id="voteform" method="post" name="voteform"><img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()"><h2 id="headH2">의견을 작성해주세요!</h2><hr>\
+        			<input style="width:200px" id="none" name="name" type="text" value="<%=session.getAttribute("nickname")%>" readonly>\
+        			<input style="width:200px" id="teamMOpinionBiasName" name="teamMOpinionBiasName" type="text" placeholder="Choice category!">\
+        			<textarea style="width:200px" id="teamMOpinionContent" name="teamMOpinionContent" placeholder="Please tell me your voice!"></textarea><input type="submit" id="submit"></form></div></div>';
         	document.getElementById('abc').style.display = "block";
         }
     }//도넛차트 End

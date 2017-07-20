@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/skycons.js"></script>
 <!--//skycons-icons-->
 </head>
-<body>
+<body id="body">
 	<div class="page-container">
 		<div class="left-content">
 			<div class="mother-grid-inner">
