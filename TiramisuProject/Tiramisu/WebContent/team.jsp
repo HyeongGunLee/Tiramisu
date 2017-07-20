@@ -47,6 +47,6 @@
 			}
 		%>
 		<li><a href="#"><img src="images/files.png" style="width: 17px; height: 17px;"> data file</a></li>
-		<li><a href="#"><img src="images/chart.png" style="width: 17px; height: 17px;"> charts</a></li>
+		<li><a href="/chart.jsp"><img src="images/chart.png" style="width: 17px; height: 17px;"> charts</a></li>
 		<li><a href="#"><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
 	</ul></li>

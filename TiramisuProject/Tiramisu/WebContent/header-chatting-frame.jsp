@@ -1,28 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
-<link href="css/bootstrap.css" rel="stylesheet">
-
-
-
 <!--header start here-->
 <div class="header-main">
-
 	<div class="header-left">	
-		<div class="logo-name" style="align:center; color:#53270E">
-			<a href="index.html"> <h4 style="align:center; color:#53270E"><strong>SeoulBugdata팀 </strong></h4><h5 style="align:center; color:#53270E"><b>General Chat</b></h5>
-			</a> 								
-		</div>
 		<div class="search-box" style="border-color:#53270E">
 			<form action="#검색처리">
-				<input type="text" placeholder="채팅방 내 검색..." required="">	
+				<input type="text" placeholder="채팅 방 내 검색..." required="">	
 				<input type="submit" value="">					
 			</form>
 		</div>
+	
+	
 		<div class="clearfix"></div>
 	</div>
-	
-
 	<div class="header-right">
 		<div class="profile_details_left">
 			<!--notifications of menu start -->
