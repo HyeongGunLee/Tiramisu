@@ -13,6 +13,8 @@ import work.model.dao.TeamMemberDao;
 import work.model.dao.VoteDao;
 import work.model.dto.Bias;
 import work.model.dto.Dialog;
+import work.model.dto.Files;
+import work.model.dto.Image;
 import work.model.dto.Likes;
 import work.model.dto.Member;
 import work.model.dto.Message;
@@ -68,10 +70,23 @@ public class TeamService {
 		} else {
 			strOpen = "FALSE";
 		}
-		Team dto = new Team(teamName, subject, strOpen);
-		teamDao.insert(dto);
-		teamMemberDao.insert(teamName, nickname);
-		return true;
+		if(isCorrectTeam(teamName, subject)) {
+			Team dto = new Team(teamName, subject, strOpen);
+			teamDao.insert(dto);
+			teamMemberDao.insert(teamName, nickname);
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * teamName, subject 체크
+	 */
+	public boolean isCorrectTeam(String teamName, String subject) {
+		if(teamName.length()>0 && teamName.length()<21 && subject.length()<51) {
+			return true;
+		}
+		return false;
 	}
 
 	
@@ -164,6 +179,78 @@ public class TeamService {
 			return false;
 		}
 	}
+	
+	/**
+	 * image Check
+	 */
+	public boolean isCorrectImage(Image image) {
+		if(image.getFileName().length()>0 && image.getFileName().length()<=200) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * vote name 길이 check
+	 */
+	public boolean isCorrectVoteName(String voteName) {
+		if(voteName.length()<=20) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * opinion content 길이 check
+	 */
+	public boolean isCorrectOpinionContent(String content) {
+		if(content.length()<=200) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 *  file content 길이 check
+	 */
+	public boolean isCorrectFile(Files file) {
+		if(file.getFileName().length()>0 && file.getFileName().length()<=200) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * channel이름 check
+	 */
+	public boolean isCorrectChannelName(String channelName) {
+		if(channelName.length()<21) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * bias name check
+	 */
+	public boolean isCorrectBiasName(String biasName) {
+		if(biasName.length()<=10 && biasName.length()>0) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 *  dialog  channel명 20자이하, content 300자 이하 Check
+	 */
+	public boolean isCorrectDialog(Dialog dialog) {
+		if(isCorrectChannelName(dialog.getChannelName())) {
+			if(dialog.getContent().length()<=300) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * <pre>
@@ -228,4 +315,5 @@ public class TeamService {
 			return true;
 		}
 	}
+
 }
