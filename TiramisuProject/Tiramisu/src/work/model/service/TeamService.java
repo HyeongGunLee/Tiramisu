@@ -295,4 +295,26 @@ public class TeamService {
 		}
 		return list;
 	}
+	
+	public ArrayList<Team> getKeywordTeamName(String keyword){
+		ArrayList<Team> list = new ArrayList<>();
+		ArrayList<Team> teamList = teamDao.selectAll();
+		for(Team t : teamList){
+			if(t.getTeamName().contains(keyword)){
+				list.add(t);
+			}
+		}
+		return list;
+	}
+	
+	public ArrayList<Team> getKeywordTeamSubject(String keyword){
+		ArrayList<Team> list = new ArrayList<>();
+		ArrayList<Team> teamList = teamDao.selectAll();
+		for(Team t : teamList){
+			if(t.getSubject().contains(keyword)){
+				list.add(t);
+			}
+		}
+		return list;
+	}
 }

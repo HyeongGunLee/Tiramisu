@@ -1,7 +1,14 @@
+<%@page import="utillity.Tool"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="work.model.service.TeamService"%>
+<%@page import="work.model.dto.Team"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
 	String keyword= request.getParameter("keyword");
+	TeamService service = TeamService.getInstance();
+	ArrayList<Team> searchTeamName = service.getKeywordTeamName(keyword);
+	ArrayList<Team> searchTeamSubject = service.getKeywordTeamSubject(keyword);
 %>
 
 <meta charset="EUC-KR">
@@ -51,6 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <div class="button-heading">
 						<h4 style="color:#2E2D23"> Search by <b>Team Name</b></h4>
 					</div>
+<% for(Team t : searchTeamName){%>
  <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
 			<ul>
 				<li class="dropdown profile_details_drop">
@@ -58,91 +66,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="profile_img">
 							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
 								<div class="user-name">
-									<p style="color:#53270E">부산 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>부산대에서 한국데이터진흥원 빅데이터 교육을 듣는 부산 사람들의 모임</span>
+									<p style="color:#53270E"><%= t.getTeamName() %><button type="button" class="btn btn-xs btn-warning"  style="width: 50px ;margin:2px 5px;">가입</button></p>
+									<span><%=t.getSubject() %></span>
 								</div>
 								
 						</div>
 				</li>
 			</ul>
 </div>
-
- <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/big.jpg" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">빅데이터 공공데이터 공모전 팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>동파방지를 위한 공공데이터 공모전에 참가하는 사람들</span>
-								</div>
-								
-						</div>
-				</li>
-			</ul>
-</div>
-
- <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/big2.jpg" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">서울 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>서울대에서 한국데이터진흥원 빅데이터 교육을 듣는 서울 사람들의 모임</span>
-								</div>
-								
-						</div>
-				</li>
-			</ul>
-			
-</div>
-
-<div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">서울 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>서울대에서 한국데이터진흥원 빅데이터 교육을 듣는 서울 사람들의 모임</span>
-								</div>
-								
-						</div>
-				</li>
-			</ul>
-</div>
- <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">서울 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>서울대에서 한국데이터진흥원 빅데이터 교육을 듣는 서울 사람들의 모임</span>
-								</div>
-								
-						</div>
-				</li>
-				
-			</ul>
-</div>
+<%} %>
 <a href="#" class="hvr-icon-wobble-horizontal" style="float:right; background-color:#ECCF97; color:#53270E; border:solid 1px #53270E" >팀 더 보기</a>
 <div class="clearfix"></div>
 </div>
 
 
-
-
 <!-- 주제로 검색 -->
 <div class="btn-effcts panel-widget col-sm-8" style="margin:30px">
  <div class="button-heading">
-						<h4 style="color:#2E2D23"> Search by <b>Subject</b></h4>
+						<h4 style="color:#2E2D23"> Search by <b>Subject Name</b></h4>
 					</div>
+<% for(Team t : searchTeamSubject){%>
+
  <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
 			<ul>
 				<li class="dropdown profile_details_drop">
@@ -150,79 +94,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="profile_img">
 							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
 								<div class="user-name">
-									<p style="color:#53270E">부산 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>부산대에서 한국데이터진흥원 빅데이터 교육을 듣는 부산 사람들의 모임</span>
+									<p style="color:#53270E"><%= t.getTeamName() %><button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
+									<span><%=t.getSubject() %></span>
 								</div>
 								
 						</div>
 				</li>
 			</ul>
 </div>
-
- <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/big.jpg" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">빅데이터 공공데이터 공모전 팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>동파방지를 위한 공공데이터 공모전에 참가하는 사람들</span>
-								</div>
-								
-						</div>
-				</li>
-			</ul>
-</div>
-
- <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/big2.jpg" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">서울 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>서울대에서 한국데이터진흥원 빅데이터 교육을 듣는 서울 사람들의 모임</span>
-								</div>
-								
-						</div>
-				</li>
-			</ul>
-			
-</div>
-
-<div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">서울 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>서울대에서 한국데이터진흥원 빅데이터 교육을 듣는 서울 사람들의 모임</span>
-								</div>
-								
-						</div>
-				</li>
-			</ul>
-</div>
- <div class="col-md-8 profile_details" style="float:left; padding:20px; min-width:800px">
-			<ul>
-				<li class="dropdown profile_details_drop">
-					
-						<div class="profile_img">
-							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
-								<div class="user-name">
-									<p style="color:#53270E">서울 빅데이터 교육팀<button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;">가입</button></p>
-									<span>서울대에서 한국데이터진흥원 빅데이터 교육을 듣는 서울 사람들의 모임</span>
-								</div>
-								
-						</div>
-				</li>
-				
-			</ul>
-</div>
+<%} %>
 <a href="#" class="hvr-icon-wobble-horizontal" style="float:right; background-color:#ECCF97; color:#53270E; border:solid 1px #53270E" >팀 더 보기</a>
 <div class="clearfix"></div>
 </div>
