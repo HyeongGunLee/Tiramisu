@@ -1,3 +1,5 @@
+<%@page import="java.net.InetAddress"%>
+<%@page import="java.net.InterfaceAddress"%>
 <%@page import="work.model.dto.Dialog"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="work.model.service.DialogService"%>
@@ -6,6 +8,8 @@
 	pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");
+	String ip = InetAddress.getLocalHost().getHostAddress();
+	System.out.println(ip);
 %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
@@ -39,7 +43,7 @@ String.prototype.zf = function(len){return "0".string(len - this.length) + this;
 Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 	var textarea = document.getElementById("chat");
-	var webSocket = new WebSocket('ws://164.125.34.38:8070/Tiramisu/broadcasting');
+	var webSocket = new WebSocket('ws://'+'<%=ip%>'+':'+<%=request.getServerPort()%>+'/Tiramisu/broadcasting');
 	var inputMessage = document.getElementById('dialogInput');
 	var nickname = null;
 	var time = null;
@@ -133,9 +137,9 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 	}
 </script>
 <script>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -158,23 +162,25 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 									(String) session.getAttribute("channelName"));
 							for (Dialog d : dialogList) {
 								if (d.getWriter().equals((String) session.getAttribute("nickname"))) {
-								%>
-						<li class="right clearfix"><span class="chat-img pull-right" id="chatSub" onclick="chatClick('<%=d.getWriter()%>')">
-								<img src="images/me.jpg" alt="User Avatar">
+						%>
+						<li class="right clearfix"><span class="chat-img pull-right"
+							id="chatSub" onclick="chatClick('<%=d.getWriter()%>')"> <img
+								src="images/me.jpg" alt="User Avatar">
 						</span>
 							<div class="chat-body clearfix">
 								<div class="header">
-									<strong class="primary-font" id="prime"><%=d.getWriter()%></strong> <small
-										class="pull-right text-muted"><i class="fa fa-clock-o"></i>
-										<%=d.getWriteDate()%></small>
+									<strong class="primary-font" id="prime"><%=d.getWriter()%></strong>
+									<small class="pull-right text-muted"><i
+										class="fa fa-clock-o"></i> <%=d.getWriteDate()%></small>
 								</div>
 								<p><%=d.getContent()%></p>
 							</div></li>
 						<%
 							} else {
 						%>
-						<li class="left clearfix"><span class="chat-img pull-left" onclick="chatClick('<%=d.getWriter()%>')">
-								<img src="images/tirami.PNG" alt="User Avatar">
+						<li class="left clearfix"><span class="chat-img pull-left"
+							onclick="chatClick('<%=d.getWriter()%>')"> <img
+								src="images/tirami.PNG" alt="User Avatar">
 						</span>
 							<div class="chat-body clearfix">
 								<div class="header">
@@ -205,14 +211,13 @@ Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 		</div>
 		<!--오른쪽 면 -->
-		<div id="list">
+		<div id="list"></div>
 	</div>
-</div>
 
-<%
-	//This scritp was occured error.
-%>
-<!--  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
-<script type="text/javascript">
-
-</script>
+	<%
+		//This scritp was occured error.
+	%>
+	<!--  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
+	<script type="text/javascript">
+		
+	</script>

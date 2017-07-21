@@ -1,5 +1,7 @@
 package work.model.dto;
 
+import java.net.InetAddress;
+
 /**
  * 투표
  * ID : 시퀀스 + 프라이머리
