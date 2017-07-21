@@ -1,0 +1,101 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="work.model.service.TeamService"%>
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+	pageEncoding="euc-kr"%>
+<meta charset="euc-kr">
+
+<%
+	request.setCharacterEncoding("utf-8");
+	String teamName = request.getParameter("teamName");
+	System.out.println("뀨뀨"+teamName);
+	TeamService service = TeamService.getInstance();
+	ArrayList<String> channelNameArray = service.teamHasChannel(teamName);
+	if (channelNameArray != null) {
+		for (String str : channelNameArray) {
+			System.out.println("team.jsp : " + str);
+		}
+	}
+	System.out.println(channelNameArray.size());
+	boolean existChart = service.existChart(teamName);
+%>
+<!-- 버튼 api-->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!--js-->
+<script src="js/jquery-2.1.1.min.js"></script> 
+<!--icons-css-->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!--Google Fonts-->
+<link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+<!--button css-->
+<link href="css/demo-page.css" rel="stylesheet" media="all">
+<link href="css/hover.css" rel="stylesheet" media="all">
+<!--//but-->
+<!-- 버튼End -->
+
+<!-- 팝업 소스 -->
+<link href="css/popup.css" rel="stylesheet">
+<script src="js/popup.js"></script>
+<!-- 팝업 소스 END -->
+
+<script>
+function page_move(team,channel){
+    var f=document.paging; //폼 name
+    f.teamName.value = team; //POST방식으로 넘기고 싶은 값
+    f.channelName.value = channel;//POST방식으로 넘기고 싶은 값
+    f.action="index.jsp";//이동할 페이지
+    f.method="post";//POST방식
+    f.submit();
+    console.log('enter');
+}
+</script>
+
+<form name="paging">
+      <input type="hidden" name="teamName"/>
+      <input type="hidden" name="channelName"/>
+</form>
+<li><a href="#" class="hvr-grow-shadow"style="background-color:#a0522d; font-size:15px;"><%=teamName%></a>
+	<ul>
+		<!-- <li><a href="#" id="General"><img src="images/chat.png"
+				style="width: 19px; height: 19px;"> General chat</a></li> -->
+				
+		<%
+			for (int i = 0; i < channelNameArray.size(); i++) {
+		%>
+
+		<li><a href="index.jsp?teamName=<%=teamName %>&channelName=<%=channelNameArray.get(i) %>" id="channelSelect"><img src="images/chat.png"
+				style="width: 19px; height: 19px;"> <%=channelNameArray.get(i) %></a></li>
+		<%
+			}
+		%>
+		<li><a href="#"><img src="images/files.png"
+				style="width: 17px; height: 17px;"> data file</a></li>
+		<li><a href="#" onclick="clickChart()"><img src="images/chart.png"
+				style="width: 17px; height: 17px;"> charts</a></li>
+		<li><a href="buildChannelPop.jsp?teamName="<%=teamName %>><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
+	</ul></li>
+	<script type="text/javascript">
+	function clickChart(){
+		if(<%=existChart%>){
+			location.href="chart.jsp?teamName="+'<%=teamName%>';
+		}
+		else{
+			console.log(document.getElementById("body").innerHTML);
+			
+	    	document.getElementById("body").innerHTML +='<div id="abc">\
+	    	<div id="popupContact">\
+	    	<form action="TeamController?action=makeChart" id="voteform" method="post" name="voteform">\
+	    			<img id="close" width="25px" height="25px" src="images/x.png" onclick="div_hide()">\
+	    			<h2 id="headH2">투표할 주제를 적어주세요!</h2><hr>\
+				<input style="width:200px" id="teamVoteName" name="teamVoteName" type="text">\
+				<input type="submit" id="submit"></form></div></div>';
+	    	document.getElementById('abc').style.display = "block";
+		}
+		
+	}
+
+	</script>

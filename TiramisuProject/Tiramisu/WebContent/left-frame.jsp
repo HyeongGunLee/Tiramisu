@@ -49,7 +49,7 @@
             <%
             	if(session != null && session.getAttribute("memberId") != null){
             %>
-            <li><a href="buildTeamPop.html" class="hvr-icon-float-away" style="background-color:#53270E; font-size:15px">Build Team</a></li>
+            <li><a href="buildTeamPop.jsp" class="hvr-icon-float-away" style="background-color:#53270E; font-size:15px">Build Team</a></li>
             <li style="padding:0px 50px 0px 50px; position:fixed; bottom:30px;"><a href="#"><i class="fa fa-cogs"></i><span style="font-size:15px">Setting</span></a></li>
 			<%
             	}

@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+	response.setCharacterEncoding("EUC-KR");
+	String teamName = request.getParameter("teamName");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +17,7 @@
 <script>
 	function myFunction()
 		{
-			alert("ÌåÄÏù¥ ÎßåÎì§Ïñ¥Ï°åÏäµÎãàÎã§!");
+			//alert("∆¿¿Ã ∏∏µÈæÓ¡≥Ω¿¥œ¥Ÿ!");
 		}
 </script>
 </head>
@@ -24,24 +30,15 @@
 		<div class="login">
 			<div class="inset">
 				<!-----start-main---->
-				<form>
+				<form action="ChannelController?action=makeChannel" method="post">
 			         <div>
-						<span><label>Team Name</label></span>
-						<span><input type="text" class="textbox" id="active"></span>
-					 </div>
-					 <div>
-						<span><label>Team`s subject</label></span>
-						<span><textarea id="subj" name="subj" class="password"></textarea></span>
-					 </div>
-					 <div>
-					 <span><label>Í≥µÍ∞ú</label>
-					   <input type="radio" id="teamOpen" name="teamOpen" value="open" checked>
-					 <label>ÎπÑÍ≥µÍ∞ú</label>
-					   <input type="radio" id="teamOpen" name="teamOpen" value="NonOpen"></span>
+						<span><label><%=teamName %>'s Channel Name</label></span>
+						<span><input type="text" class="textbox" id="active" name="channelChannelName"></span>
+						<%-- <input type="hidden" name="channelTeamName" value='<%=teamName %>'> --%>
 					 </div>
 					<div class="sign">
 						<div class="submit">
-							<input type="submit" onclick="myFunction()" value="ÌåÄ ÏÉùÏÑ±" >
+							<input type="submit" onclick="myFunction()" value="√§≥Œ ª˝º∫" >
 						</div>
 						<div class="clear"> </div>
 					</div>

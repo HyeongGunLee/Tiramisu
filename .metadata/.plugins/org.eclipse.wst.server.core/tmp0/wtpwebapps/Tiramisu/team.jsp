@@ -61,6 +61,7 @@ function page_move(team,channel){
 	<ul>
 		<!-- <li><a href="#" id="General"><img src="images/chat.png"
 				style="width: 19px; height: 19px;"> General chat</a></li> -->
+				
 		<%
 			for (int i = 0; i < channelNameArray.size(); i++) {
 		%>
@@ -74,12 +75,12 @@ function page_move(team,channel){
 				style="width: 17px; height: 17px;"> data file</a></li>
 		<li><a href="#" onclick="clickChart()"><img src="images/chart.png"
 				style="width: 17px; height: 17px;"> charts</a></li>
-		<li><a href="#"><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
+		<li><a href="buildChannelPop.jsp?teamName=<%=teamName %>"><img src="images/plus_white.png" style="width: 15px; height: 15px;"> Add Channel</a></li>
 	</ul></li>
 	<script type="text/javascript">
 	function clickChart(){
 		if(<%=existChart%>){
-			location.href="chart.jsp?teamName="+'<%=teamName%>';
+			location.href='chart.jsp?teamName=<%=teamName%>';
 		}
 		else{
 			console.log(document.getElementById("body").innerHTML);

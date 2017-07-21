@@ -22,7 +22,7 @@ public class ChannelDao {
 	}
 	
 	public int insert(Channel dto) {
-		String sql = "insert into team values(?,?)";
+		String sql = "insert into channel values(?,?)";
 		
 		try {
 			conn = getConnection();
@@ -41,7 +41,7 @@ public class ChannelDao {
 	}
 	
 	public int insert(String channelName, String teamName) {
-		String sql = "insert into team values(?,?)";
+		String sql = "insert channel team values(?,?)";
 		
 		try {
 			conn = getConnection();
