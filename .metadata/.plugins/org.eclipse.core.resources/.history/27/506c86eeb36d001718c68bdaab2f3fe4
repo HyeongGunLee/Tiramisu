@@ -321,6 +321,7 @@ public class TeamService {
 
 	public boolean joinTeam(String nickname, String teamName) {
 		teamMemberDao.insert(new TeamMember(teamName, nickname));
+		session.setAttribute("teamArray")
 		return true;
 	}
 }

@@ -20,7 +20,6 @@ import work.model.dto.Member;
 import work.model.dto.Message;
 import work.model.dto.Opinion;
 import work.model.dto.Team;
-import work.model.dto.TeamMember;
 import work.model.dto.Vote;
 
 public class TeamService {
@@ -317,10 +316,5 @@ public class TeamService {
 			}
 		}
 		return list;
-	}
-
-	public boolean joinTeam(String nickname, String teamName) {
-		teamMemberDao.insert(new TeamMember(teamName, nickname));
-		return true;
 	}
 }

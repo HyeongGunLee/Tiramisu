@@ -14,7 +14,7 @@
 <meta charset="EUC-KR">
 <script>
 function joinTeam(tn){
-	location.href="TeamController?action=joinTeam&tn="+tn;
+	location.href="teamController?action=joinTeam&teamName=tn";
 }
 </script>
 
@@ -70,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="profile_img">
 							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
 								<div class="user-name">
-									<p style="color:#53270E"><%= t.getTeamName() %><button type="button" class="btn btn-xs btn-warning"  style="width: 50px ;margin:2px 5px;" onclick="joinTeam('<%=t.getTeamName() %>')">가입</button></p>
+									<p style="color:#53270E"><%= t.getTeamName() %><button type="button" class="btn btn-xs btn-warning"  style="width: 50px ;margin:2px 5px;">가입</button></p>
 									<span><%=t.getSubject() %></span>
 								</div>
 								
@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="profile_img">
 							<span class="prfil-img"><img src="images/Tiramisu.png" alt="" style="width: 50px; height: 50px;"> </span>
 								<div class="user-name">
-									<p style="color:#53270E"><%= t.getTeamName() %><button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;" onclick="joinTeam('<%=t.getTeamName() %>')">가입</button></p>
+									<p style="color:#53270E"><%= t.getTeamName() %><button type="button" class="btn btn-xs btn-warning"  style="margin:2px 5px;" onclick="joinTeam(<%=t.getTeamName() %>)">가입</button></p>
 									<span><%=t.getSubject() %></span>
 								</div>
 								

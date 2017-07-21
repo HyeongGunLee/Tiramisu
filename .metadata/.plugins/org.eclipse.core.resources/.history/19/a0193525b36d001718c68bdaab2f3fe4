@@ -49,7 +49,7 @@ public class TeamController extends HttpServlet {
 			makeChart(request, response);
 			break;
 		case "joinTeam":
-			joinTeam(request, response);
+			
 			break;
 		default:
 			break;
@@ -60,12 +60,8 @@ public class TeamController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null && session.getAttribute("memberId") != null && session.getAttribute("isLogin") != null) {
 			String teamName = request.getParameter("tn");
-			//System.out.println(teamName+"²ó²ó");
 			service.joinTeam((String)session.getAttribute("nickname"),teamName);
-			ArrayList<String> teamArray = (ArrayList<String>)session.getAttribute("teamArray");
-			teamArray.add(teamName);
-			session.setAttribute("teamArray", teamArray);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/searchIndex.jsp");
 			dispatcher.forward(request, response);
 		}
 		else{

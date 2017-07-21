@@ -62,9 +62,6 @@ public class TeamController extends HttpServlet {
 			String teamName = request.getParameter("tn");
 			//System.out.println(teamName+"²ó²ó");
 			service.joinTeam((String)session.getAttribute("nickname"),teamName);
-			ArrayList<String> teamArray = (ArrayList<String>)session.getAttribute("teamArray");
-			teamArray.add(teamName);
-			session.setAttribute("teamArray", teamArray);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
 		}

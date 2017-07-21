@@ -14,7 +14,7 @@
 <meta charset="EUC-KR">
 <script>
 function joinTeam(tn){
-	location.href="TeamController?action=joinTeam&tn="+tn;
+	location.href="teamController?action=joinTeam&teamName="+tn;
 }
 </script>
 
